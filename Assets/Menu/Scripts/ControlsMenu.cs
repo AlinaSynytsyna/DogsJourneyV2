@@ -23,7 +23,7 @@ public class ControlsMenu : MonoBehaviour
     public void Awake()
     {
         _allKeys = Enum.GetValues(typeof(KeyCode)).OfType<KeyCode>().ToList();
-        _customInput = CustomInputSaveLoadManager.GetCustomInputKeys();
+        _customInput = CustomInputManager.GetCustomInputKeys();
 
         GetButtonTexts();
 
@@ -68,7 +68,7 @@ public class ControlsMenu : MonoBehaviour
 
     public void SaveCustomInput()
     {
-        CustomInputSaveLoadManager.SaveCustomInputKeys(_customInput);
+        CustomInputManager.SaveCustomInputKeys(_customInput);
     }
 
     public void AssignLeftKey()

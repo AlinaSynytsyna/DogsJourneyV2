@@ -9,6 +9,8 @@ public class CustomSettings
 
     public int RefreshRate;
 
+    public bool IsFullscreen;
+
     public float MusicVolumeValue;
 
     public float EffectsVolumeValue;

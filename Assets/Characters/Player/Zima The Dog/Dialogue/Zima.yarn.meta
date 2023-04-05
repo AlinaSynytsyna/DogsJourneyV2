@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: a89b6b52358aaff4b871f28958cb2ecc
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: 
+  stringIDs:
+  - Zima-Zima-0
+  - Zima-Zima-1
+  - Zima-Zima-2
+  - Zima-Zima-3
+  - Zima-Zima-4
+  - Zima-Zima.Exit-5
+  - Zima-Zima.TellYourStory-6
+  - Zima-Zima.TellYourStory-7
+  - Zima-Zima.TellYourStory-8
+  - Zima-Zima.TellYourStory-9
+  - Zima-Zima.TellYourStory-10
+  - Zima-Zima.TellYourStory-11
+  - Zima-Zima.TellYourStory-12
+  - Zima-Zima.TellYourStory-13
+  - Zima-Zima.TellYourStory-14
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {instanceID: 0}
+  localizations: []

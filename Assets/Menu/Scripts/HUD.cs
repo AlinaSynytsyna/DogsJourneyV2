@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
@@ -12,7 +13,7 @@ public class HUD : MonoBehaviour
     public void Awake()
     {
         HealthText = GetComponentInChildren<Text>();
-        Player = GetComponentInParent<PlayerCamera>().GetActivePlayer();
+        Player = FindObjectsOfType<Player>().Where(x => x.IsActive).First();
         if (Player is Zima)
             ZimaHUD();
         if (Player is Red)

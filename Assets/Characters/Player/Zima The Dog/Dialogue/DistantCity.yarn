@@ -1,0 +1,12 @@
+title: DistantCity
+tags: 
+colorID: 0
+position: 0,0
+---
+<<if visited("DistantCity") is false>>
+Зима: Я вижу город вдалеке...
+Зима: Видимо, не так далеко за городом я и оказалась.
+<<else>>
+Зима: Хоть здесь и красиво, но нужно идти.
+<<endif>>
+===
