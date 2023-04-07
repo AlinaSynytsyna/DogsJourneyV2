@@ -1,14 +1,13 @@
 ﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PauseMenuController : MonoBehaviour
 {
     public SaveLoadSystem SaveLoadSystem;
     private CustomSettings _customSettings;
     private PlayerCamera _playerCamera;
-    private CanvasScaler _pauseMenu;
+    private Canvas _pauseMenu;
     private Player _player;
     private bool _isMenuSeen = false;
 
@@ -16,26 +15,25 @@ public class PauseMenuController : MonoBehaviour
     {
         _customSettings = CustomSettingsSaveLoadManager.GetCustomSettings();
         _playerCamera = GetComponentInParent<PlayerCamera>();
-        _pauseMenu = FindObjectsOfType<Canvas>().Where(x => x.name.Equals("PauseMenu")).First().GetComponent<CanvasScaler>();
+        _pauseMenu = FindObjectsOfType<Canvas>().Where(x => x.name.Equals("PauseMenu")).First();
         _player = _playerCamera.GetActivePlayer();
-        _pauseMenu.referenceResolution = new Vector2(_customSettings.ScreenWidthValue, _customSettings.ScreenHeightValue);
         _pauseMenu.gameObject.SetActive(false);
         _player.enabled = true;
     }
 
-    public void Update()
+    public void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!_isMenuSeen)
-                GamePause();
+                PauseGame();
             else
-                Resume();
+                ResumeGame();
             _isMenuSeen = !_isMenuSeen;
         }
     }
 
-    public void GamePause()
+    public void PauseGame()
     {
         Time.timeScale = 0;
         _pauseMenu.gameObject.SetActive(true);
@@ -55,14 +53,14 @@ public class PauseMenuController : MonoBehaviour
         Invoke(nameof(QuitButtonPressed), 2F);
     }
 
-    public void Resume()
+    public void ResumeGame()
     {
         Time.timeScale = 1;
         _pauseMenu.gameObject.SetActive(false);
         _player.enabled = true;
     }
 
-    public void Restart()
+    public void RestartGame()
     {
         Time.timeScale = 1;
         _player.enabled = true;

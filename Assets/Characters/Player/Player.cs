@@ -3,27 +3,24 @@ using UnityEngine.SceneManagement;
 
 public abstract class Player : MonoBehaviour
 {
+    protected CustomInput _customInput;
+    protected Rigidbody2D Rigidbody;
+    protected Animator Animator;
+    protected SpriteRenderer Renderer;
+
     [SerializeField]
     protected SaveLoadSystem SaveLoadSystem;
-    protected string Name;
-    //protected NodeVisitedTracker NodeTracker;
-    //protected NPC Self;
-    protected LevelInfo Info;
-    //public NPC TargetNPC = null;
-    //public DialogueRunner Runner;
-    public bool IsActive = false;
-    public CharacterChanger CharacterChanger;
-    public PlayerCamera PlayerCamera;
-    public CustomInput _customInput;
     [SerializeField]
     public float Speed;
     [SerializeField]
     public int Health = 100;
     [SerializeField]
     protected float JumpForce;
-    protected Rigidbody2D Rigid;
-    protected Animator Animator;
-    protected SpriteRenderer Renderer;
+    protected Collider2D Collider;
+    protected string Name;
+    protected LevelInfo Info;
+    public bool IsActive = false;
+    public CharacterChanger CharacterChanger;
     public bool OnGround;
     public LayerMask GroundLayer;
     public bool IsWalking;
@@ -31,20 +28,17 @@ public abstract class Player : MonoBehaviour
     protected bool IsJumping = false;
     protected int IdleState = 0;
     public int Height = 0;
-    public float InteractionRadius;
-    public void Start()
-    {
-        _customInput = CustomInputManager.GetCustomInputKeys();
-    }
 
     public abstract bool GroundCheck();
 
     protected virtual void Awake()
     {
-        this.enabled = true;
-        Rigid = GetComponent<Rigidbody2D>();
+        enabled = true;
+        Rigidbody = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         Renderer = GetComponentInChildren<SpriteRenderer>();
+        Collider = GetComponent<Collider2D>();
+        _customInput = CustomInputManager.GetCustomInputKeys();
     }
 
     public void Reload()
@@ -55,8 +49,7 @@ public abstract class Player : MonoBehaviour
     public abstract void Walk();
 
     public abstract void Jump();
-    public abstract void SpecialAbility();
-    public abstract void CheckCharacter();
+    public abstract void UseSpecialAbility();
 
     public int CountPlayers()
     {
@@ -70,10 +63,25 @@ public abstract class Player : MonoBehaviour
 
     protected void HeightCheck()
     {
-        if (Rigid.velocity.y < -0.1)
+        if (Rigidbody.velocity.y < -0.1)
         {
             Height += 1;
             Animator.SetBool("IsFalling", true);
         }
+    }
+
+    public void PlayerStartedDialogue()
+    {
+        IsActive = false;
+        Rigidbody.isKinematic = true;
+        Animator.SetBool("IsJumping", false);
+        Animator.SetBool("IsFalling", false);
+        Animator.SetFloat("Speed", 0);
+    }
+
+    public void PlayerEndedDialogue()
+    {
+        IsActive = true;
+        Rigidbody.isKinematic = false;
     }
 }

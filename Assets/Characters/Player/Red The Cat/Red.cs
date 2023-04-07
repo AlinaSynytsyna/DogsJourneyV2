@@ -7,14 +7,9 @@ public class Red : Player
     public bool IsDoubleJumping;
     protected override void Awake()
     {
+        base.Awake();
         Name = "Red";
-        //Self = GetComponent<NPC>();
-        Info = FindObjectOfType<LevelInfo>();
-        //Runner = GetComponentInChildren<DialogueRunner>();
-        PlayerCamera = GetComponentInChildren<PlayerCamera>();
-        Rigid = GetComponent<Rigidbody2D>();
-        Animator = GetComponent<Animator>();
-        Renderer = GetComponentInChildren<SpriteRenderer>();
+        Info = FindObjectOfType<LevelInfo>();;
         Colliders = GetComponents<Collider2D>();
         if (Info.CheckCharacter("Red"))
         {
@@ -33,7 +28,7 @@ public class Red : Player
         {
             foreach (Collider2D Col in Colliders)
                 Col.enabled = false;
-            Rigid.isKinematic = true;
+            Rigidbody.isKinematic = true;
             //if (SceneManager.GetActiveScene().name == "StreetScene01")
             //    Self.talkToNode = "Red";
             //if (SceneManager.GetActiveScene().name == "StreetScene02")
@@ -65,13 +60,6 @@ public class Red : Player
     {
         if (IsActive)
         {
-            //if (Runner.IsDialogueRunning == true)
-            //{
-            //    Animator.SetBool("IsJumping", false);
-            //    Animator.SetBool("IsFalling", false);
-            //    Animator.SetFloat("Speed", 0);
-            //    return;
-            //}
             if (GroundCheck())
             {
                 IsJumping = false;
@@ -92,7 +80,7 @@ public class Red : Player
             if (Input.GetKeyDown(_customInput.ChangeCharacter) && CountPlayers() > 1)
                 CharacterChanger.SwitchCharacter();
             if (Input.GetKeyDown(_customInput.SpecialAbility) && !IsDoubleJumping)
-                SpecialAbility();
+                UseSpecialAbility();
         }
         else
         {
@@ -127,11 +115,11 @@ public class Red : Player
     {
         IsJumping = true;
         Animator.SetBool("IsJumping", true);
-        Rigid.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
+        Rigidbody.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
     }
     public void FallHealthCheck()
     {
-        if (OnGround && Height > 90)
+        if (GroundCheck() && Height > 90)
         {
             Health -= (Height - 90) / 4;
         }
@@ -151,15 +139,15 @@ public class Red : Player
         if (Entity.tag == "DeathTrigger")
             Health = 0;
     }
-    public override void SpecialAbility()
+    public override void UseSpecialAbility()
     {
         if (IsJumping)
         {
-            Rigid.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
+            Rigidbody.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
             IsDoubleJumping = true;
         }
     }
-    public override void CheckCharacter()
+    public void CheckCharacter()
     {
         {
             if (CharacterChanger.ActiveCharacter == 1)
@@ -168,10 +156,9 @@ public class Red : Player
                 transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
                 foreach (Collider2D Col in Colliders)
                     Col.enabled = true;
-                Rigid.isKinematic = false;
+                Rigidbody.isKinematic = false;
                 //Self.talkToNode = "";
                 //Self.enabled = false;
-                PlayerCamera.gameObject.SetActive(true);
             }
             else
             {
@@ -179,13 +166,12 @@ public class Red : Player
                 transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 1);
                 foreach (Collider2D Col in Colliders)
                     Col.enabled = false;
-                Rigid.isKinematic = true;
+                Rigidbody.isKinematic = true;
                 //if (SceneManager.GetActiveScene().name == "StreetScene01")
                 //    Self.talkToNode = "Red";
                 //if (SceneManager.GetActiveScene().name == "StreetScene02")
                 //    Self.talkToNode = "RedSewersIntro";
                 //Self.enabled = true;
-                PlayerCamera.gameObject.SetActive(false);
             }
         }
     }

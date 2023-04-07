@@ -1,14 +1,16 @@
 ﻿using System.Linq;
 using UnityEngine;
+using Yarn.Unity;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public float MinPosition;
-    public float MaxPosition;
-    public float MoveSpeed = 1.0f;
+    public float CameraMinPosition;
+    public float CameraMaxPosition;
+    public float CameraMoveSpeed = 3.0f;
+    private Player _activePlayer;
+
     private Camera _camera;
 
-    private Player _activePlayer;
     private Vector3 _playerCameraOffset;
     private ScreenFader _screenFader;
 
@@ -26,6 +28,7 @@ public class PlayerCamera : MonoBehaviour
         return _camera;
     }
 
+    [YarnCommand("fade_camera_out")]
     public void FadeCameraOut()
     {
         _screenFader.fadeState = ScreenFader.FadeState.Out;
@@ -33,6 +36,7 @@ public class PlayerCamera : MonoBehaviour
         _screenFader.fadeSpeed = Constants.FadeSpeed;
     }
 
+    [YarnCommand("fade_camera_in")]
     public void FadeCameraIn()
     {
         _screenFader.fadeState = ScreenFader.FadeState.In;
@@ -43,10 +47,11 @@ public class PlayerCamera : MonoBehaviour
     {
         if (_activePlayer == null) { return; }
 
-        _playerCameraOffset = Vector3.Lerp(transform.position, _activePlayer.transform.position, MoveSpeed * Time.deltaTime);
-        _playerCameraOffset.x = Mathf.Clamp(_playerCameraOffset.x, MinPosition, MaxPosition);
+        _playerCameraOffset = Vector3.Lerp(transform.position, _activePlayer.transform.position, CameraMoveSpeed * Time.deltaTime);
+        _playerCameraOffset.x = Mathf.Clamp(_playerCameraOffset.x, CameraMinPosition, CameraMaxPosition);
         _playerCameraOffset.y = _activePlayer.transform.position.y + 2.5f;
         _playerCameraOffset.z = transform.position.z;
+
         transform.position = _playerCameraOffset;
     }
 

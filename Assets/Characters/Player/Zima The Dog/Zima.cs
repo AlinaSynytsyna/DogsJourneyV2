@@ -3,27 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class Zima : Player
 {
-    Collider2D[] Colliders;
     public bool IsDashing;
     System.Random AnimationState = new System.Random();
     protected override void Awake()
     {
+        base.Awake();
         Name = "Zima";
-        //Self = GetComponent<NPC>();
         Info = FindObjectOfType<LevelInfo>();
-        //Runner = GetComponentInChildren<DialogueRunner>();
-        PlayerCamera = FindObjectOfType<PlayerCamera>();
-        Rigid = GetComponent<Rigidbody2D>();
-        Animator = GetComponent<Animator>();
-        Renderer = GetComponentInChildren<SpriteRenderer>();
-        Colliders = GetComponents<Collider2D>();
         if (Info.CheckCharacter("Zima"))
         {
             enabled = true;
+            IsActive = true;
             Health = 100;
             Speed = 0F;
             JumpForce = 7F;
-            CheckCharacter();
             if (SaveLoadSystem.HasInfo && SaveLoadSystem.CurrentSceneIndex == SceneManager.GetActiveScene().buildIndex)
             {
                 transform.position = SaveLoadSystem.ZimaPosition;
@@ -32,14 +25,7 @@ public class Zima : Player
         }
         else
         {
-            foreach (Collider2D Col in Colliders)
-                Col.enabled = false;
-            Rigid.isKinematic = true;
-            //Self.talkToNode = "Zima";
-            //Self.enabled = true;
-            PlayerCamera.gameObject.SetActive(false);
-            //Runner.startAutomatically = false;
-            //Runner.enabled = false;
+            Rigidbody.isKinematic = true;
             IsActive = false;
             enabled = false;
             transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 1);
@@ -49,7 +35,6 @@ public class Zima : Player
     {
         if (enabled)
         {
-            CheckCharacter();
             if (IsActive)
             {
                 GroundCheck();
@@ -64,13 +49,6 @@ public class Zima : Player
     {
         if (IsActive)
         {
-            //if (Runner.IsDialogueRunning == true)
-            //{
-            //    Animator.SetBool("IsJumping", false);
-            //    Animator.SetBool("IsFalling", false);
-            //    Animator.SetFloat("Speed", 0);
-            //    return;
-            //}
             if (GroundCheck())
             {
                 IsDashing = false;
@@ -95,7 +73,7 @@ public class Zima : Player
                     CharacterChanger.SwitchCharacter();
             }
             if (Input.GetKeyDown(_customInput.SpecialAbility) && !IsDashing)
-                SpecialAbility();
+                UseSpecialAbility();
         }
         else
         {
@@ -125,7 +103,7 @@ public class Zima : Player
     {
         IsJumping = true;
         Animator.SetBool("IsJumping", true);
-        Rigid.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
+        Rigidbody.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
     }
 
     private void IdleCount()
@@ -177,40 +155,15 @@ public class Zima : Player
             Health = 0;
     }
 
-    public override void SpecialAbility()
+    public override void UseSpecialAbility()
     {
         if (IsJumping)
         {
             if (Renderer.flipX)
-                Rigid.velocity = Vector2.right * 6;
+                Rigidbody.velocity = Vector2.right * 6;
             else if (!Renderer.flipX)
-                Rigid.velocity = Vector2.left * 6;
+                Rigidbody.velocity = Vector2.left * 6;
             IsDashing = true;
-        }
-    }
-
-    public override void CheckCharacter()
-    {
-        if (CharacterChanger.ActiveCharacter == 0)
-        {
-            IsActive = true;
-            transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
-            foreach (Collider2D Col in Colliders)
-                Col.enabled = true;
-            //Self.talkToNode = "";
-            Rigid.isKinematic = false;
-            PlayerCamera.gameObject.SetActive(true);
-        }
-        else
-        {
-            IsActive = false;
-            transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 1);
-            foreach (Collider2D Col in Colliders)
-                Col.enabled = false;
-            //Self.talkToNode = "";
-            Rigid.isKinematic = true;
-            PlayerCamera.gameObject.SetActive(false);
-
         }
     }
 

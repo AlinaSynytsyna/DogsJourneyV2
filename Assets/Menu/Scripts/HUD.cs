@@ -4,38 +4,26 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    private Zima Zima;
-    private Red Red;
-    private Color ZimaColor = Color.HSVToRGB(0.95F, 0.7F, 1F);
-    private Color RedColor = Color.HSVToRGB(0.5F, 0.6F, 1F);
-    private Player Player;
-    private Text HealthText;
-    public void Awake()
+    private Color _zimaGUIColor = Color.HSVToRGB(0.95F, 0.7F, 1F);
+    private Color _redGUIColor = Color.HSVToRGB(0.5F, 0.6F, 1F);
+
+    private Player _player;
+    private Text _healthText;
+
+    public void Start()
     {
-        HealthText = GetComponentInChildren<Text>();
-        Player = FindObjectsOfType<Player>().Where(x => x.IsActive).First();
-        if (Player is Zima)
-            ZimaHUD();
-        if (Player is Red)
-            RedHUD();
+        _healthText = GetComponentInChildren<Text>();
+        _player = FindObjectsOfType<Player>().Where(x => x.IsActive).First();
+        _healthText.color = _player is Zima ? _zimaGUIColor : _redGUIColor;
     }
-    public void Update()
+
+    public void LateUpdate()
     {
-        if (Player is Zima)
-            ZimaHUD();
-        if (Player is Red)
-            RedHUD();
+        _healthText.text = "Здоровье: " + _player.Health;
     }
-    public void ZimaHUD()
+
+    public void ChangeGUIColor()
     {
-        Zima = GetComponentInParent<Zima>();
-        HealthText.color = ZimaColor;
-        HealthText.text = "Здоровье: " + (Zima.Health);
-    }
-    public void RedHUD()
-    {
-        Red = GetComponentInParent<Red>();
-        HealthText.color = RedColor;
-        HealthText.text = "Здоровье: " + (Red.Health);
+        _healthText.color = _player is Zima ? _zimaGUIColor : _redGUIColor;
     }
 }

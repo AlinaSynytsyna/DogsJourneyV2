@@ -24,4 +24,12 @@ public class HealingObject : BaseTrigger
             }
         }
     }
+
+    public new void OnTriggerExit2D(Collider2D entity)
+    {
+        if (entity.tag == EntityTagPlayer)
+        {
+            ActivePlayer = null;
+        }
+    }
 }
