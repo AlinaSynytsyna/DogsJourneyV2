@@ -1,5 +1,7 @@
 ﻿public static class Constants
 {
+    public static readonly string HealingObjects = "HealingObjects";
+
     public static readonly string AudioVolume = "AudioVolume";
     public static readonly string EffectsVolume = "EffectsVolume";
 

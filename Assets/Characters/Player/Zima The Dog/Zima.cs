@@ -10,7 +10,7 @@ public class Zima : Player
         base.Awake();
         Name = "Zima";
         Info = FindObjectOfType<LevelInfo>();
-        if (Info.CheckCharacter("Zima"))
+        if (Info.CheckIfTheCharacterIsPlayable("Zima"))
         {
             enabled = true;
             IsActive = true;
@@ -69,7 +69,7 @@ public class Zima : Player
             if (Input.GetKeyDown(_customInput.ChangeCharacter) && CountPlayers() > 1)
             {
                 LevelInfo Info = FindObjectOfType<LevelInfo>();
-                if (Info.CheckCharacter("Zima"))
+                if (Info.CheckIfTheCharacterIsPlayable("Zima"))
                     CharacterChanger.SwitchCharacter();
             }
             if (Input.GetKeyDown(_customInput.SpecialAbility) && !IsDashing)

@@ -2,14 +2,17 @@
 
 public class HealingObject : BaseTrigger
 {
+    public string HealingObjectId;
+
     public new void Awake()
     {
         Trigger = GetComponent<CircleCollider2D>();
+        Invoke(nameof(CheckIfHealingObjectIsDestroyed), 0.2f);
     }
 
     public new void OnTriggerEnter2D(Collider2D entity)
     {
-        if (entity.tag == EntityTagPlayer)
+        if (entity.tag == PlayerEntityTag)
         {
             ActivePlayer = FindActivePlayer();
 
@@ -20,16 +23,25 @@ public class HealingObject : BaseTrigger
                 if (ActivePlayer.Health > 100)
                     ActivePlayer.Health = 100;
 
-                Destroy(gameObject, 0.2f);
+                HealingObjectsManager.MarkHealingObjectAsDestroyed(HealingObjectId);
+                Destroy(gameObject, 0.15f);
             }
         }
     }
 
     public new void OnTriggerExit2D(Collider2D entity)
     {
-        if (entity.tag == EntityTagPlayer)
+        if (entity.tag == PlayerEntityTag)
         {
             ActivePlayer = null;
+        }
+    }
+
+    public void CheckIfHealingObjectIsDestroyed()
+    {
+        if(!HealingObjectsManager.IsHealingObjectDestroyed(HealingObjectId))
+        {
+            Destroy(gameObject);
         }
     }
 }

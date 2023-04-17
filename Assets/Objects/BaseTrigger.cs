@@ -1,27 +1,28 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-
 public abstract class BaseTrigger : MonoBehaviour
 {
-    protected const string EntityTagPlayer = nameof(Player);
+    protected const string PlayerEntityTag = nameof(Player);
     protected Player ActivePlayer;
     protected CustomInput CustomInput;
     protected CircleCollider2D Trigger;
+
     private SpriteRenderer _renderer;
     private const int _triggerInteractRadius = 3;
 
     public void Awake()
     {
+        CustomInput = CustomInputManager.GetCustomInputKeys();
         Trigger = GetComponent<CircleCollider2D>();
+
         _renderer = GetComponentInChildren<SpriteRenderer>();
         _renderer.gameObject.SetActive(false);
-        CustomInput = CustomInputManager.GetCustomInputKeys();
     }
 
     public void OnTriggerEnter2D(Collider2D entity)
     {
-        if (entity.tag == EntityTagPlayer)
+        if (entity.tag == PlayerEntityTag)
         {
             ActivePlayer = FindActivePlayer();
 
@@ -31,7 +32,7 @@ public abstract class BaseTrigger : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D entity)
     {
-        if (entity.tag == EntityTagPlayer)
+        if (entity.tag == PlayerEntityTag)
         {
             ActivePlayer = null;
             _renderer.gameObject.SetActive(false);

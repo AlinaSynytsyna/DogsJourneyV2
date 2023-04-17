@@ -13,7 +13,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void Start()
     {
-        _customSettings = CustomSettingsSaveLoadManager.GetCustomSettings();
+        _customSettings = CustomSettingsManager.GetCustomSettings();
         _playerCamera = GetComponentInParent<PlayerCamera>();
         _pauseMenu = FindObjectsOfType<Canvas>().Where(x => x.name.Equals("PauseMenu")).First();
         _player = _playerCamera.GetActivePlayer();
@@ -26,34 +26,21 @@ public class PauseMenuController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!_isMenuSeen)
-                PauseGame();
+                Pause();
             else
-                ResumeGame();
+                Resume();
             _isMenuSeen = !_isMenuSeen;
         }
     }
 
-    public void PauseGame()
+    public void Pause()
     {
         Time.timeScale = 0;
         _pauseMenu.gameObject.SetActive(true);
         _player.enabled = false;
     }
 
-    public void Quit()
-    {
-        SaveLoadSystem.SaveCurrentScene();
-        foreach (Player Obj in FindObjectsOfType<Player>())
-        {
-            if (Obj.gameObject.activeInHierarchy)
-                SaveLoadSystem.SavePlayerInfo(Obj);
-        }
-        Time.timeScale = 1;
-        _playerCamera.FadeCameraIn();
-        Invoke(nameof(QuitButtonPressed), 2F);
-    }
-
-    public void ResumeGame()
+    public void Resume()
     {
         Time.timeScale = 1;
         _pauseMenu.gameObject.SetActive(false);
@@ -67,7 +54,23 @@ public class PauseMenuController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void QuitButtonPressed()
+    public void Quit()
+    {
+        HealingObjectsManager.SaveHealingObjects();
+        LevelManager.SaveLevelInfo();
+
+        SaveLoadSystem.SaveCurrentScene();
+        foreach (Player Obj in FindObjectsOfType<Player>())
+        {
+            if (Obj.gameObject.activeInHierarchy)
+                SaveLoadSystem.SavePlayerInfo(Obj);
+        }
+        Time.timeScale = 1;
+        _playerCamera.FadeCameraIn();
+        Invoke(nameof(QuitButtonPressed), 2F);
+    }
+
+    private void QuitButtonPressed()
     {
         _player.enabled = true;
         SceneManager.LoadScene("MainMenu");

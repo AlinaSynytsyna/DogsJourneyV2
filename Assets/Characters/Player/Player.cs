@@ -56,7 +56,7 @@ public abstract class Player : MonoBehaviour
         Info = FindObjectOfType<LevelInfo>();
         int Count = 0;
         foreach (Player Obj in FindObjectsOfType<Player>())
-            if (Obj.gameObject.activeInHierarchy && Info.CheckCharacter(Obj.Name))
+            if (Obj.gameObject.activeInHierarchy && Info.CheckIfTheCharacterIsPlayable(Obj.Name))
                 Count++;
         return Count;
     }

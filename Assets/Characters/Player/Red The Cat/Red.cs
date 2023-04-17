@@ -11,7 +11,7 @@ public class Red : Player
         Name = "Red";
         Info = FindObjectOfType<LevelInfo>();;
         Colliders = GetComponents<Collider2D>();
-        if (Info.CheckCharacter("Red"))
+        if (Info.CheckIfTheCharacterIsPlayable("Red"))
         {
             enabled = true;
             Health = 100;

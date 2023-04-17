@@ -31,7 +31,7 @@ public class MainMenu : MonoBehaviour
 
     private void SetUpCustomSettings()
     {
-        var _customSettings = CustomSettingsSaveLoadManager.GetCustomSettings();
+        var _customSettings = CustomSettingsManager.GetCustomSettings();
 
         Screen.SetResolution(_customSettings.ScreenWidthValue, _customSettings.ScreenHeightValue, true, _customSettings.RefreshRate);
         MusicMixer.SetFloat(Constants.AudioVolume, _customSettings.MusicVolumeValue);

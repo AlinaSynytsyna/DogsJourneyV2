@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 42938046}
   m_Layer: 0
   m_Name: Player Camera
-  m_TagString: PlayerParts
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,6 @@ MonoBehaviour:
   CameraMinPosition: -30
   CameraMaxPosition: 70
   CameraMoveSpeed: 3
-  ActivePlayer: {fileID: 0}
 --- !u!114 &709773699037817856
 MonoBehaviour:
   m_ObjectHideFlags: 0

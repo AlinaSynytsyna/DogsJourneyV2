@@ -26,7 +26,7 @@ public class CustomSettingsMenu : MonoBehaviour
         _sampleSound = FindObjectsOfType<AudioSource>().Where(x => x.name.Equals("SampleSound")).First();
         _resolutionsDropdown = GetComponentInChildren<Dropdown>();
         _fullscreenToggle = GetComponentInChildren<Toggle>();
-        _customSettings = CustomSettingsSaveLoadManager.GetCustomSettings();
+        _customSettings = CustomSettingsManager.GetCustomSettings();
         _availableResolutions = Screen.resolutions.ToList();
 
         GetTexts();
@@ -119,7 +119,7 @@ public class CustomSettingsMenu : MonoBehaviour
         _customSettings.RefreshRate = _availableResolutions[_resolutionsDropdown.value].refreshRate;
         _customSettings.IsFullscreen = _fullscreenToggle.isOn;
 
-        CustomSettingsSaveLoadManager.SaveCustomSettings(_customSettings);
+        CustomSettingsManager.SaveCustomSettings(_customSettings);
     }
 }
 

@@ -5,10 +5,14 @@ public class LevelInfo : MonoBehaviour
 {
     public List<string> PlayableCharacters;
 
-    public bool CheckCharacter(string PlayerName)
+    public void Start()
     {
-        if (PlayableCharacters.Contains(PlayerName))
-            return true;
-        else return false;
+        LevelManager.GetLevelInfo();
+        HealingObjectsManager.GetAllHealingObjects();
+    }
+
+    public bool CheckIfTheCharacterIsPlayable(string PlayerName)
+    {
+        return PlayableCharacters.Contains(PlayerName);
     }
 }

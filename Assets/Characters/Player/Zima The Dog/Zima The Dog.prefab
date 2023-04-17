@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9abe65271d09054fbe6449e883fdb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SaveLoadSystem: {fileID: 11400000, guid: 214fac364edd4b5409efe3275d62fe34, type: 2}
+  SaveLoadSystem: {fileID: 11400000, guid: 6c5c73bfee5bc1342b93077a6a7b987a, type: 2}
   Speed: 0
   Health: 0
   JumpForce: 0
@@ -355,5 +355,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346a84b3f0a7aab47a7112cb466c7f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivePlayer: {fileID: 0}
   YarnScriptToLoad: 

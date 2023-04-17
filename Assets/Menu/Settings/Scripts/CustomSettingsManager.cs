@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 
-public static class CustomSettingsSaveLoadManager
+public static class CustomSettingsManager
 {
     private static CustomSettings Instance;
     private static readonly string _customSettingsPathDebug = $"{Directory.GetCurrentDirectory()}/settings.dat";
@@ -9,16 +9,10 @@ public static class CustomSettingsSaveLoadManager
 
     public static void SaveCustomSettings(CustomSettings customSettings)
     {
+        var path = Application.isEditor ? _customSettingsPathDebug : _customSettingsPathRelease;
         var _customSettingsJson = JsonUtility.ToJson(customSettings);
 
-        if (Application.isEditor)
-        {
-            File.WriteAllText(_customSettingsPathDebug, _customSettingsJson);
-        }
-        else
-        {
-            File.WriteAllText(_customSettingsPathRelease, _customSettingsJson);
-        }
+        File.WriteAllText(path, _customSettingsJson);
     }
 
     public static CustomSettings GetCustomSettings()

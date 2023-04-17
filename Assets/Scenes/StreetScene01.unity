@@ -1704,6 +1704,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 223425743}
     m_Modifications:
+    - target: {fileID: 8407580013051834613, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
+      propertyPath: HealingObjectId
+      value: 7e4c2c38-cdaf-4c4d-a174-15062df99df0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407580013051834613, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
+      propertyPath: healingObjectId
+      value: 7e4c2c38-cdaf-4c4d-a174-15062df99df0
+      objectReference: {fileID: 0}
     - target: {fileID: 8407580013051834614, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1976,7 +1984,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebd6ed74ae513c4f95473ec4edc86cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivePlayer: {fileID: 0}
   State: 0
   TeleportPositionX: -20
   TeleportPositionY: -12
@@ -7079,6 +7086,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6028000303621943806, guid: ccca0fe2997306443936f0ef9d34c4b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028000303621943806, guid: ccca0fe2997306443936f0ef9d34c4b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6592970726466753943, guid: ccca0fe2997306443936f0ef9d34c4b3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7933,7 +7948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346a84b3f0a7aab47a7112cb466c7f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivePlayer: {fileID: 0}
   YarnScriptToLoad: NewYarnScript
 --- !u!58 &1286596740
 CircleCollider2D:
@@ -11123,7 +11137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346a84b3f0a7aab47a7112cb466c7f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivePlayer: {fileID: 0}
   YarnScriptToLoad: 
 --- !u!58 &1752470338
 CircleCollider2D:
@@ -13345,9 +13358,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1006842228}
     m_Modifications:
-    - target: {fileID: 1749603219649090076, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
+    - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
+      propertyPath: State
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1749603220295955864, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
       propertyPath: m_Name

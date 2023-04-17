@@ -9,16 +9,11 @@ public static class CustomInputManager
 
     public static void SaveCustomInputKeys(CustomInput customInput)
     {
-        string _customInputJson = JsonUtility.ToJson(customInput);
+        var _customInputJson = JsonUtility.ToJson(customInput);
 
-        if (Application.isEditor)
-        {
-            File.WriteAllText(_customInputPathDebug, _customInputJson);
-        }
-        else
-        {
-            File.WriteAllText(_customInputPathRelease, _customInputJson);
-        }
+        var path = Application.isEditor ? _customInputPathDebug : _customInputPathRelease;
+
+        File.WriteAllText(path, _customInputJson);
     }
 
     public static CustomInput GetCustomInputKeys()
