@@ -13,7 +13,7 @@ public class HUD : MonoBehaviour
     public void Start()
     {
         _healthText = GetComponentInChildren<Text>();
-        _player = FindObjectsOfType<Player>().Where(x => x.IsActive).First();
+        _player = FindObjectsOfType<Player>().Where(x => x.IsPlayerActive).First();
         _healthText.color = _player is Zima ? _zimaGUIColor : _redGUIColor;
     }
 

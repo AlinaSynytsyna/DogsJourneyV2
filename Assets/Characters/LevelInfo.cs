@@ -4,15 +4,20 @@ using UnityEngine;
 public class LevelInfo : MonoBehaviour
 {
     public List<string> PlayableCharacters;
+    public string MainPlayableCharacter;
 
-    public void Start()
+    public void Awake()
     {
         LevelManager.GetLevelInfo();
-        HealingObjectsManager.GetAllHealingObjects();
+
+        if (!LevelManager.IsReloadingLevel)
+        {
+            HealingObjectsManager.GetAllHealingObjects();
+        }
     }
 
-    public bool CheckIfTheCharacterIsPlayable(string PlayerName)
+    public bool CheckIfTheCharacterIsPlayable(string playerName)
     {
-        return PlayableCharacters.Contains(PlayerName);
+        return PlayableCharacters.Contains(playerName);
     }
 }

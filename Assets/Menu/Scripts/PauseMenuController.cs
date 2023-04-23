@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
-    public SaveLoadSystem SaveLoadSystem;
     private CustomSettings _customSettings;
     private PlayerCamera _playerCamera;
     private Canvas _pauseMenu;
@@ -37,35 +36,34 @@ public class PauseMenuController : MonoBehaviour
     {
         Time.timeScale = 0;
         _pauseMenu.gameObject.SetActive(true);
-        _player.enabled = false;
+        _player.IsPlayerActive = false;
     }
 
     public void Resume()
     {
         Time.timeScale = 1;
         _pauseMenu.gameObject.SetActive(false);
-        _player.enabled = true;
+        _player.IsPlayerActive = true;
     }
 
     public void RestartGame()
     {
         Time.timeScale = 1;
-        _player.enabled = true;
+        _player.IsPlayerActive = true;
+        LevelManager.IsReloadingLevel = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Quit()
     {
+        Time.timeScale = 1;
+        _player.IsPlayerActive = true;
+
+        LevelManager.SavePlayers();
         HealingObjectsManager.SaveHealingObjects();
+        LevelManager.SaveLevelIndex();
         LevelManager.SaveLevelInfo();
 
-        SaveLoadSystem.SaveCurrentScene();
-        foreach (Player Obj in FindObjectsOfType<Player>())
-        {
-            if (Obj.gameObject.activeInHierarchy)
-                SaveLoadSystem.SavePlayerInfo(Obj);
-        }
-        Time.timeScale = 1;
         _playerCamera.FadeCameraIn();
         Invoke(nameof(QuitButtonPressed), 2F);
     }

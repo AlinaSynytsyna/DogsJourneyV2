@@ -39,7 +39,7 @@ public class HealingObject : BaseTrigger
 
     public void CheckIfHealingObjectIsDestroyed()
     {
-        if(!HealingObjectsManager.IsHealingObjectDestroyed(HealingObjectId))
+        if(!HealingObjectsManager.IsHealingObjectActive(HealingObjectId))
         {
             Destroy(gameObject);
         }

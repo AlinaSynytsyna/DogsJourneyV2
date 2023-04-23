@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 [CreateAssetMenu(fileName = "CharacterSwitcher", menuName = "Character Switcher", order = 53)]
 public class CharacterChanger : ScriptableObject
 {

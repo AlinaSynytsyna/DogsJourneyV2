@@ -41,7 +41,7 @@ public abstract class BaseTrigger : MonoBehaviour
 
     public Player FindActivePlayer()
     {
-        return FindObjectsOfType<Player>().Where(x => (x.transform.position - transform.position).magnitude <= Trigger.radius * _triggerInteractRadius && x.IsActive).First();
+        return FindObjectsOfType<Player>().Where(x => (x.transform.position - transform.position).magnitude <= Trigger.radius * _triggerInteractRadius && x.IsPlayerActive).First();
     }
 }
 

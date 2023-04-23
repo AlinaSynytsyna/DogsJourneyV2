@@ -1,6 +1,23 @@
 {
+  "PlayerStats": {
+    "Zima": {
+      "IsActive": true,
+      "Health": 100,
+      "PositionX": 4.263495,
+      "PositionY": -7.6950016
+    },
+    "Red": {
+      "IsActive": false,
+      "Health": 100,
+      "PositionX": 8.0,
+      "PositionY": 21.4
+    }
+  },
   "HealingObjects": {
     "4360426a-ddda-4c2d-96b7-52c19d21462e": false,
     "7e4c2c38-cdaf-4c4d-a174-15062df99df0": true
+  },
+  "LevelInfo": {
+    "LevelIndex": 1
   }
 }

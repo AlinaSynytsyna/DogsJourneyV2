@@ -20,7 +20,12 @@ public class PlayerCamera : MonoBehaviour
         _activePlayer = GetActivePlayer();
         _playerCameraOffset = transform.position - _activePlayer.transform.position;
         _screenFader = GetComponent<ScreenFader>();
-        FadeCameraOut();
+
+        _playerCameraOffset.x = Mathf.Clamp(_playerCameraOffset.x, CameraMinPosition, CameraMaxPosition);
+        _playerCameraOffset.y = _activePlayer.transform.position.y + 2.5f;
+        _playerCameraOffset.z = transform.position.z;
+
+        Invoke(nameof(FadeCameraOut), 0.6f);
     }
 
     public Camera GetCamera()
@@ -31,16 +36,16 @@ public class PlayerCamera : MonoBehaviour
     [YarnCommand("fade_camera_out")]
     public void FadeCameraOut()
     {
-        _screenFader.fadeState = ScreenFader.FadeState.Out;
         _screenFader.fromOutDelay = Constants.FadeDelay;
         _screenFader.fadeSpeed = Constants.FadeSpeed;
+        _screenFader.fadeState = ScreenFader.FadeState.Out;
     }
 
     [YarnCommand("fade_camera_in")]
     public void FadeCameraIn()
     {
-        _screenFader.fadeState = ScreenFader.FadeState.In;
         _screenFader.fadeSpeed = Constants.FadeSpeed;
+        _screenFader.fadeState = ScreenFader.FadeState.In;
     }
 
     public void LateUpdate()
@@ -57,7 +62,7 @@ public class PlayerCamera : MonoBehaviour
 
     public Player GetActivePlayer()
     {
-        return FindObjectsOfType<Player>().Where(x => x.IsActive).First();
+        return FindObjectsOfType<Player>().Where(x => x.IsPlayerActive).First();
     }
 }
 

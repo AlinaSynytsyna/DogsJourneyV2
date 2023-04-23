@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -10,6 +10,7 @@ public class CustomSettingsMenu : MonoBehaviour
     public AudioMixer MusicMixer;
     public AudioMixer EffectsMixer;
 
+    private Button _deleteSaveButton;
     private AudioSource _sampleSound;
     private CustomSettings _customSettings;
     private Text _musicVolumeText;
@@ -23,6 +24,7 @@ public class CustomSettingsMenu : MonoBehaviour
 
     public void Awake()
     {
+        _deleteSaveButton = GetComponentsInChildren<Button>().Where(x => x.name.Equals("DeleteSaveButton")).First();
         _sampleSound = FindObjectsOfType<AudioSource>().Where(x => x.name.Equals("SampleSound")).First();
         _resolutionsDropdown = GetComponentInChildren<Dropdown>();
         _fullscreenToggle = GetComponentInChildren<Toggle>();
@@ -33,6 +35,9 @@ public class CustomSettingsMenu : MonoBehaviour
         GetSliders();
         SetUpMusicAndEffects();
         SetUpScreenResolutions();
+
+        if (LevelManager.HasInformation)
+            _deleteSaveButton.interactable = true;
     }
 
     private void GetTexts()
@@ -108,6 +113,13 @@ public class CustomSettingsMenu : MonoBehaviour
     {
         _customSettings.IsFullscreen = _fullscreenToggle.isOn;
         Screen.fullScreen = _fullscreenToggle.isOn;
+    }
+
+    public void DeleteSave()
+    {
+        LevelManager.DeleteSaveFile();
+        LevelManager.LevelInfoJObject = new JObject();
+        _deleteSaveButton.interactable = false;
     }
 
     public void SaveSettings()

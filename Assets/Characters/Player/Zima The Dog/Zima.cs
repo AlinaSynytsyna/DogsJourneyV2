@@ -1,119 +1,89 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Zima : Player
 {
-    public bool IsDashing;
     System.Random AnimationState = new System.Random();
+
     protected override void Awake()
     {
         base.Awake();
-        Name = "Zima";
-        Info = FindObjectOfType<LevelInfo>();
-        if (Info.CheckIfTheCharacterIsPlayable("Zima"))
+        if (!LevelInfo.CheckIfTheCharacterIsPlayable(PlayerName))
         {
-            enabled = true;
-            IsActive = true;
-            Health = 100;
-            Speed = 0F;
-            JumpForce = 7F;
-            if (SaveLoadSystem.HasInfo && SaveLoadSystem.CurrentSceneIndex == SceneManager.GetActiveScene().buildIndex)
-            {
-                transform.position = SaveLoadSystem.ZimaPosition;
-                Health = SaveLoadSystem.ZimaHealth;
-            }
-        }
-        else
-        {
-            Rigidbody.isKinematic = true;
-            IsActive = false;
             enabled = false;
-            transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 1);
+            Rigidbody.isKinematic = true;
+            IsPlayerActive = false;
+            transform.position = new Vector3(transform.position.x, transform.position.y, 1);
+        }
+        else if (LevelInfo.MainPlayableCharacter == PlayerName)
+        {
+            IsPlayerActive = true;
         }
     }
+
+    public void OnEnable()
+    {
+        if (LevelManager.HasInformation && !LevelManager.IsReloadingLevel)
+        {
+            var zimaStats = LevelManager.GetPlayerStats()[PlayerName];
+            Health = zimaStats.Health;
+            transform.position = new Vector2(zimaStats.PositionX, zimaStats.PositionY);
+            IsPlayerActive = zimaStats.IsActive;
+        }
+    }
+
     private void FixedUpdate()
     {
-        if (enabled)
+        if (IsPlayerActive)
         {
-            if (IsActive)
-            {
-                GroundCheck();
-                HeightCheck();
-                FallHealthCheck();
-                CheckHealth();
-                IdleCount();
-            }
+            IsOnTheGround();
+            CheckHeight();
+            FallHealthCheck();
+            CheckHealth();
+            CountIdleTimer();
         }
     }
+
     private void Update()
     {
-        if (IsActive)
+        if (IsPlayerActive)
         {
-            if (GroundCheck())
+            if (IsOnTheGround())
             {
-                IsDashing = false;
-                IsJumping = false;
+                IsUsingSpecialAbility = false;
                 Animator.SetBool("IsJumping", false);
                 Animator.SetBool("IsFalling", false);
                 Height = 0;
-                if (!Input.GetKey(_customInput.Left) || !Input.GetKey(_customInput.Right))
+
+                if (!Input.GetKey(CustomInput.Left) || !Input.GetKey(CustomInput.Right))
                 {
-                    Speed = 0;
                     IsWalking = false;
                     Animator.SetFloat("Speed", 0);
                 }
-                if (Input.GetKeyDown(_customInput.Jump)) Jump();
+
+                if (Input.GetKeyDown(CustomInput.Jump)) Jump();
             }
-            if (Input.GetKey(_customInput.Left) || Input.GetKey(_customInput.Right))
-                Walk();
-            if (Input.GetKeyDown(_customInput.ChangeCharacter) && CountPlayers() > 1)
+
+            if (Input.GetKey(CustomInput.Left) || Input.GetKey(CustomInput.Right)) Walk();
+
+            if (Input.GetKeyDown(CustomInput.ChangeCharacter))
             {
-                LevelInfo Info = FindObjectOfType<LevelInfo>();
-                if (Info.CheckIfTheCharacterIsPlayable("Zima"))
+                if (LevelInfo.CheckIfTheCharacterIsPlayable("Zima"))
                     CharacterChanger.SwitchCharacter();
             }
-            if (Input.GetKeyDown(_customInput.SpecialAbility) && !IsDashing)
+
+            if (Input.GetKeyDown(CustomInput.SpecialAbility) && !IsUsingSpecialAbility)
                 UseSpecialAbility();
         }
-        else
-        {
-            Animator.SetBool("IsJumping", false);
-            Animator.SetBool("IsFalling", false);
-            Animator.SetFloat("Speed", 0);
-            return;
-        }
-    }
-    public override void Walk()
-    {
-        Speed = 3.5F;
-        float Axis = 0;
-        if (Input.GetKey(_customInput.Left))
-            Axis = -1;
-        else if (Input.GetKey(_customInput.Right))
-            Axis = 1;
-        if (GroundCheck())
-            Animator.SetFloat("Speed", Speed);
-        Vector3 Direction = transform.right * Axis;
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + Direction, Speed * Time.deltaTime);
-        Renderer.flipX = Direction.x > 0;
-        IsWalking = true;
     }
 
-    public override void Jump()
-    {
-        IsJumping = true;
-        Animator.SetBool("IsJumping", true);
-        Rigidbody.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
-    }
-
-    private void IdleCount()
+    private void CountIdleTimer()
     {
         if (Input.anyKey)
-            Timer = 0;
+            IdleTimer = 0;
         else
         {
-            Timer += Time.deltaTime;
-            if (Timer > 15)
+            IdleTimer += Time.deltaTime;
+            if (IdleTimer > 15)
             {
                 IdleState = AnimationState.Next(1, 3);
                 switch (IdleState)
@@ -125,50 +95,32 @@ public class Zima : Player
                         Animator.Play("Idle_standing");
                         break;
                 }
-                Timer = 0;
+                IdleTimer = 0;
             }
         }
     }
 
-    public void FallHealthCheck()
+    public override void FallHealthCheck()
     {
-        if (OnGround && Height > 50)
+        if (IsOnTheGround() && Height > 50)
         {
-            Health -= (Height - 50) / 5;
+            Health -= (Height - 50) / 4;
         }
     }
 
-    public void CheckHealth()
-    {
-        if (Health <= 0)
-        {
-            Health = 0;
-            Animator.Play("Death");
-            Invoke("Reload", 3F);
-            enabled = false;
-        }
-    }
-
-    public void OnTriggerEnter2D(Collider2D Entity)
-    {
-        if (Entity.tag == "DeathTrigger")
-            Health = 0;
-    }
 
     public override void UseSpecialAbility()
     {
-        if (IsJumping)
+        if (!IsOnTheGround())
         {
-            if (Renderer.flipX)
-                Rigidbody.velocity = Vector2.right * 6;
-            else if (!Renderer.flipX)
-                Rigidbody.velocity = Vector2.left * 6;
-            IsDashing = true;
+            Rigidbody.velocity = Renderer.flipX ? Rigidbody.velocity = Vector2.right * 5 : Rigidbody.velocity = Vector2.left * 5;
+
+            IsUsingSpecialAbility = true;
         }
     }
 
-    public override bool GroundCheck()
+    public override bool IsOnTheGround()
     {
-        return Physics2D.OverlapArea(new Vector2(transform.position.x - 0.4F, transform.position.y - 0.5F), new Vector2(transform.position.x + 0.4F, transform.position.y - 0.9F), GroundLayer);
+        return Physics2D.OverlapArea(new Vector2(transform.position.x - 0.4f, transform.position.y - 0.5f), new Vector2(transform.position.x + 0.4f, transform.position.y - 0.6f), GroundLayerMask);
     }
 }

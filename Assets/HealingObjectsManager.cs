@@ -26,12 +26,17 @@ public static class HealingObjectsManager
         HealingObjects[healingObjectId] = false;
     }
 
+    public static void MarkHealingObjectAsActive(string healingObjectId)
+    {
+        HealingObjects[healingObjectId] = true;
+    }
+
     public static void SaveHealingObjects()
     {
         LevelManager.SaveHealingObjects(HealingObjects);
     }
 
-    public static bool IsHealingObjectDestroyed(string healingObjectId)
+    public static bool IsHealingObjectActive(string healingObjectId)
     {
         return HealingObjects[healingObjectId];
     }
