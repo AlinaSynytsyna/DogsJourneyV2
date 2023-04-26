@@ -1,15 +1,17 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public abstract class Player : MonoBehaviour
 {
+    public string PlayerName;
     public float Speed;
     public int Health = 100;
-    public string PlayerName;
+    public float JumpForce;
     public bool IsPlayerActive = false;
     public bool IsUsingSpecialAbility = false;
     public bool IsWalking = false;
-    public CharacterChanger CharacterChanger;
+    public bool IsTalking;
     public LayerMask GroundLayerMask;
     public int Height = 0;
 
@@ -19,17 +21,16 @@ public abstract class Player : MonoBehaviour
     protected SpriteRenderer Renderer;
     protected Collider2D Collider;
     protected LevelInfo LevelInfo;
-    protected float JumpForce;
     protected float IdleTimer = 0;
     protected int IdleState = 0;
-
-    public abstract bool IsOnTheGround();
+    protected DialogueRunTrigger DialogueRunTrigger;
+    protected IEnumerator Enumerator;
 
     public abstract void UseSpecialAbility();
 
-    public abstract void FallHealthCheck();
+    public abstract void CheckFallDamage();
 
-    protected virtual void Awake()
+    protected void Awake()
     {
         enabled = true;
         LevelInfo = FindObjectOfType<LevelInfo>();
@@ -37,13 +38,86 @@ public abstract class Player : MonoBehaviour
         Animator = GetComponent<Animator>();
         Renderer = GetComponentInChildren<SpriteRenderer>();
         Collider = GetComponent<Collider2D>();
+        DialogueRunTrigger = GetComponentInChildren<DialogueRunTrigger>();
         CustomInput = CustomInputManager.GetCustomInputKeys();
-        JumpForce = 7F;
+
+        if (!LevelInfo.CheckIfTheCharacterIsPlayable(this))
+        {
+            MarkPlayerAsUnplayable();
+            enabled = false;
+        }
+        else if (LevelInfo.MainPlayableCharacter == PlayerName && LevelInfo.ActivePlayer == null)
+        {
+            MarkPlayerAsPlayable();
+            LevelInfo.ActivePlayer = this;
+        }
+
+        LoadDataFromFile();
+    }
+
+    private void FixedUpdate()
+    {
+        if (IsPlayerActive)
+        {
+            IsOnTheGround();
+            CheckFallDamage();
+            CheckPlayerHealth();
+            CheckFallHeight();
+        }
+    }
+
+    private void Update()
+    {
+        if (IsPlayerActive)
+        {
+            if (IsOnTheGround())
+            {
+                IsUsingSpecialAbility = false;
+                Animator.SetBool("IsJumping", false);
+                Animator.SetBool("IsFalling", false);
+                CheckFallHeight();
+                Height = 0;
+
+                if (!Input.GetKey(CustomInput.Left) || !Input.GetKey(CustomInput.Right))
+                {
+                    IsWalking = false;
+                    Animator.SetFloat("Speed", 0);
+                }
+
+                if (Input.GetKeyDown(CustomInput.Jump))
+                    Jump();
+            }
+
+            if (Input.GetKey(CustomInput.Left) || Input.GetKey(CustomInput.Right))
+                Walk();
+
+            if (Input.GetKeyDown(CustomInput.SpecialAbility) && !IsUsingSpecialAbility)
+                UseSpecialAbility();
+        }
     }
 
     public void Reload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LoadDataFromFile()
+    {
+        if (LevelManager.HasInformation && !LevelManager.IsReloadingLevel)
+        {
+            var playerStats = LevelManager.GetPlayerStats()[PlayerName];
+            Health = playerStats.Health;
+            transform.position = new Vector2(playerStats.PositionX, playerStats.PositionY);
+            IsPlayerActive = playerStats.IsActive;
+
+            if (IsPlayerActive)
+            {
+                MarkPlayerAsPlayable();
+                LevelInfo.ActivePlayer = this;
+            }
+
+            else MarkPlayerAsUnplayable();
+        }
     }
 
     public void Walk()
@@ -58,7 +132,7 @@ public abstract class Player : MonoBehaviour
             Animator.SetFloat("Speed", Speed);
 
         Vector3 direction = transform.right * axis;
-        transform.position = Vector2.MoveTowards(transform.position, transform.position + direction, Speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, Speed * Time.deltaTime);
         Renderer.flipX = direction.x > 0;
         IsWalking = true;
     }
@@ -69,7 +143,7 @@ public abstract class Player : MonoBehaviour
         Rigidbody.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
     }
 
-    protected void CheckHeight()
+    protected void CheckFallHeight()
     {
         if (Rigidbody.velocity.y < -0.1)
         {
@@ -78,29 +152,62 @@ public abstract class Player : MonoBehaviour
         }
     }
 
-    public void CheckHealth()
+    public void CheckPlayerHealth()
     {
         if (Health <= 0)
         {
             Health = 0;
             Animator.Play("Death");
-            Invoke("Reload", 3F);
+            Invoke(nameof(Reload), 3F);
             enabled = false;
         }
     }
 
-    public void PlayerStartedDialogue()
+    public bool IsOnTheGround()
+    {
+        return Physics2D.OverlapArea(new Vector2(transform.position.x - 0.4f, transform.position.y - 0.5f), new Vector2(transform.position.x + 0.4f, transform.position.y - 1.5f), GroundLayerMask);
+    }
+
+    public void MarkPlayerAsUnplayable()
     {
         IsPlayerActive = false;
-        Rigidbody.isKinematic = true;
+        transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 1);
+        DialogueRunTrigger.gameObject.SetActive(true);
+
+        Enumerator = WaitForPlayerToLand();
+        StartCoroutine(Enumerator);
+    }
+
+    public void MarkPlayerAsPlayable()
+    {
+        IsPlayerActive = true;
+        Collider.enabled = true;
+        Rigidbody.isKinematic = false;
+        transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
+        DialogueRunTrigger.gameObject.SetActive(false);
+    }
+
+    public void SwitchPlayerComponentsOff()
+    {
         Animator.SetBool("IsJumping", false);
         Animator.SetBool("IsFalling", false);
         Animator.SetFloat("Speed", 0);
+
+        Collider.enabled = false;
+        Rigidbody.isKinematic = true;
+        StopCoroutine(Enumerator);
     }
 
-    public void PlayerEndedDialogue()
+    private IEnumerator WaitForPlayerToLand()
     {
-        IsPlayerActive = true;
-        Rigidbody.isKinematic = false;
+        while (true)
+        {
+            yield return null;
+            if (IsOnTheGround())
+            {
+                Invoke(nameof(SwitchPlayerComponentsOff), 0.3f);
+            }
+        }
     }
 }
+

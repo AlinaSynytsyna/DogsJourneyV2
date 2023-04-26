@@ -26,7 +26,8 @@ public abstract class BaseTrigger : MonoBehaviour
         {
             ActivePlayer = FindActivePlayer();
 
-            _renderer.gameObject.SetActive(true);
+            if (ActivePlayer != null)
+                _renderer.gameObject.SetActive(true);
         }
     }
 

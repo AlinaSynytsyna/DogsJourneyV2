@@ -214,7 +214,7 @@ MonoBehaviour:
   CharacterChanger: {fileID: 11400000, guid: a0f0b4140e1d02d4085f44324f4a6944, type: 2}
   GroundLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   Height: 0
 --- !u!1 &5870281679931140152
 GameObject:
@@ -317,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2067037242933494747
 Transform:
   m_ObjectHideFlags: 0

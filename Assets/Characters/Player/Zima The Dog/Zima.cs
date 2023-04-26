@@ -4,75 +4,22 @@ public class Zima : Player
 {
     System.Random AnimationState = new System.Random();
 
-    protected override void Awake()
+    public override void CheckFallDamage()
     {
-        base.Awake();
-        if (!LevelInfo.CheckIfTheCharacterIsPlayable(PlayerName))
+        if (IsOnTheGround() && Height > 50)
         {
-            enabled = false;
-            Rigidbody.isKinematic = true;
-            IsPlayerActive = false;
-            transform.position = new Vector3(transform.position.x, transform.position.y, 1);
-        }
-        else if (LevelInfo.MainPlayableCharacter == PlayerName)
-        {
-            IsPlayerActive = true;
+            Health -= (Height - 50) / 4;
         }
     }
 
-    public void OnEnable()
+
+    public override void UseSpecialAbility()
     {
-        if (LevelManager.HasInformation && !LevelManager.IsReloadingLevel)
+        if (!IsOnTheGround())
         {
-            var zimaStats = LevelManager.GetPlayerStats()[PlayerName];
-            Health = zimaStats.Health;
-            transform.position = new Vector2(zimaStats.PositionX, zimaStats.PositionY);
-            IsPlayerActive = zimaStats.IsActive;
-        }
-    }
+            Rigidbody.velocity = Renderer.flipX ? Rigidbody.velocity = Vector2.right * 5 : Rigidbody.velocity = Vector2.left * 5;
 
-    private void FixedUpdate()
-    {
-        if (IsPlayerActive)
-        {
-            IsOnTheGround();
-            CheckHeight();
-            FallHealthCheck();
-            CheckHealth();
-            CountIdleTimer();
-        }
-    }
-
-    private void Update()
-    {
-        if (IsPlayerActive)
-        {
-            if (IsOnTheGround())
-            {
-                IsUsingSpecialAbility = false;
-                Animator.SetBool("IsJumping", false);
-                Animator.SetBool("IsFalling", false);
-                Height = 0;
-
-                if (!Input.GetKey(CustomInput.Left) || !Input.GetKey(CustomInput.Right))
-                {
-                    IsWalking = false;
-                    Animator.SetFloat("Speed", 0);
-                }
-
-                if (Input.GetKeyDown(CustomInput.Jump)) Jump();
-            }
-
-            if (Input.GetKey(CustomInput.Left) || Input.GetKey(CustomInput.Right)) Walk();
-
-            if (Input.GetKeyDown(CustomInput.ChangeCharacter))
-            {
-                if (LevelInfo.CheckIfTheCharacterIsPlayable("Zima"))
-                    CharacterChanger.SwitchCharacter();
-            }
-
-            if (Input.GetKeyDown(CustomInput.SpecialAbility) && !IsUsingSpecialAbility)
-                UseSpecialAbility();
+            IsUsingSpecialAbility = true;
         }
     }
 
@@ -98,29 +45,5 @@ public class Zima : Player
                 IdleTimer = 0;
             }
         }
-    }
-
-    public override void FallHealthCheck()
-    {
-        if (IsOnTheGround() && Height > 50)
-        {
-            Health -= (Height - 50) / 4;
-        }
-    }
-
-
-    public override void UseSpecialAbility()
-    {
-        if (!IsOnTheGround())
-        {
-            Rigidbody.velocity = Renderer.flipX ? Rigidbody.velocity = Vector2.right * 5 : Rigidbody.velocity = Vector2.left * 5;
-
-            IsUsingSpecialAbility = true;
-        }
-    }
-
-    public override bool IsOnTheGround()
-    {
-        return Physics2D.OverlapArea(new Vector2(transform.position.x - 0.4f, transform.position.y - 0.5f), new Vector2(transform.position.x + 0.4f, transform.position.y - 0.6f), GroundLayerMask);
     }
 }

@@ -6,12 +6,14 @@ public class PlayerDialogueManager : MonoBehaviour
 
     public void DialogueStarted()
     {
-        PlayerInDialogue.PlayerStartedDialogue();
+        PlayerInDialogue.IsTalking = true;
+        PlayerInDialogue.MarkPlayerAsUnplayable();
     }
 
     public void DialogueEnded()
     {
-        PlayerInDialogue.PlayerEndedDialogue();
+        PlayerInDialogue.IsTalking = false;
+        PlayerInDialogue.MarkPlayerAsPlayable();
         PlayerInDialogue = null;
     }
 }

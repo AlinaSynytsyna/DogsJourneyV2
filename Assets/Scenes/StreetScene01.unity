@@ -3912,6 +3912,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 433270485446375987, guid: ba8a6d80fdd9b014da16f0c566a5566f, type: 3}
+      propertyPath: JumpForce
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 433270485446375987, guid: ba8a6d80fdd9b014da16f0c566a5566f, type: 3}
       propertyPath: PlayerName
       value: Zima
       objectReference: {fileID: 0}
@@ -4010,6 +4014,10 @@ PrefabInstance:
     - target: {fileID: 4588464625209520616, guid: ba8a6d80fdd9b014da16f0c566a5566f, type: 3}
       propertyPath: m_Name
       value: Zima The Dog (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447363379161630343, guid: ba8a6d80fdd9b014da16f0c566a5566f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba8a6d80fdd9b014da16f0c566a5566f, type: 3}
@@ -8246,10 +8254,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5870281678206199528, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
-      propertyPath: GroundLayerMask.m_Bits
-      value: 64
+      propertyPath: Speed
+      value: 3.4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5870281678206199528, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
+      propertyPath: JumpForce
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870281678206199529, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763672931404470847, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3415921478044085681, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
 --- !u!1001 &1163666969
 PrefabInstance:
@@ -8506,6 +8527,17 @@ Transform:
   m_Father: {fileID: 1330742283}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1233427177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5870281678206199528, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
+  m_PrefabInstance: {fileID: 1162680207}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073236a8200edf84ebdaf7194ea51641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1244016339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9582,7 +9614,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayableCharacters:
-  - Zima
+  - {fileID: 1233427177}
+  - {fileID: 1573806200}
+  ActivePlayer: {fileID: 0}
   MainPlayableCharacter: Zima
 --- !u!1001 &1491570895
 PrefabInstance:
@@ -10281,6 +10315,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c150c8e94162d664dbeef92af3bafefe, type: 3}
+--- !u!114 &1573806200 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 433270485446375987, guid: ba8a6d80fdd9b014da16f0c566a5566f, type: 3}
+  m_PrefabInstance: {fileID: 606248009}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9abe65271d09054fbe6449e883fdb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1573818516
 PrefabInstance:
   m_ObjectHideFlags: 0

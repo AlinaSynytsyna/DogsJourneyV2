@@ -7,7 +7,7 @@ public class PauseMenuController : MonoBehaviour
     private CustomSettings _customSettings;
     private PlayerCamera _playerCamera;
     private Canvas _pauseMenu;
-    private Player _player;
+    public Player _player;
     private bool _isMenuSeen = false;
 
     public void Start()
@@ -29,6 +29,15 @@ public class PauseMenuController : MonoBehaviour
             else
                 Resume();
             _isMenuSeen = !_isMenuSeen;
+        }
+    }
+
+    public void OnApplicationFocus(bool focus)
+    {
+        if(!focus)
+        {
+            _isMenuSeen = true;
+            Pause();
         }
     }
 

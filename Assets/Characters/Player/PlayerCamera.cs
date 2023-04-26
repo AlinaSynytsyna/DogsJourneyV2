@@ -7,23 +7,24 @@ public class PlayerCamera : MonoBehaviour
     public float CameraMinPosition;
     public float CameraMaxPosition;
     public float CameraMoveSpeed = 3.0f;
-    private Player _activePlayer;
 
+    private Player _activePlayer;
+    private LevelInfo _levelInfo;
+    private HUD HUD;
     private Camera _camera;
 
     private Vector3 _playerCameraOffset;
     private ScreenFader _screenFader;
 
-    public void Start()
+    public void Awake()
     {
         _camera = GetComponent<Camera>();
         _activePlayer = GetActivePlayer();
         _playerCameraOffset = transform.position - _activePlayer.transform.position;
         _screenFader = GetComponent<ScreenFader>();
+        HUD = GetComponentInChildren<HUD>();
 
-        _playerCameraOffset.x = Mathf.Clamp(_playerCameraOffset.x, CameraMinPosition, CameraMaxPosition);
-        _playerCameraOffset.y = _activePlayer.transform.position.y + 2.5f;
-        _playerCameraOffset.z = transform.position.z;
+        GetCameraPosition();
 
         Invoke(nameof(FadeCameraOut), 0.6f);
     }
@@ -52,6 +53,11 @@ public class PlayerCamera : MonoBehaviour
     {
         if (_activePlayer == null) { return; }
 
+        GetCameraPosition();
+    }
+
+    public void GetCameraPosition()
+    {
         _playerCameraOffset = Vector3.Lerp(transform.position, _activePlayer.transform.position, CameraMoveSpeed * Time.deltaTime);
         _playerCameraOffset.x = Mathf.Clamp(_playerCameraOffset.x, CameraMinPosition, CameraMaxPosition);
         _playerCameraOffset.y = _activePlayer.transform.position.y + 2.5f;
@@ -63,6 +69,13 @@ public class PlayerCamera : MonoBehaviour
     public Player GetActivePlayer()
     {
         return FindObjectsOfType<Player>().Where(x => x.IsPlayerActive).First();
+    }
+
+    public void SwitchPlayer()
+    {
+        _activePlayer = GetActivePlayer();
+        HUD.ActivePlayer = _activePlayer;
+        HUD.ChangeGUIColor();
     }
 }
 
