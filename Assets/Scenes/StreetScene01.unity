@@ -8205,9 +8205,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2067037242933494747, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5870281678206199523, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
       propertyPath: m_Name
       value: Red The Cat (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870281678206199526, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5870281678206199527, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
       propertyPath: m_RootOrder

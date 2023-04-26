@@ -73,9 +73,14 @@ public class PlayerCamera : MonoBehaviour
 
     public void SwitchPlayer()
     {
+        FadeCameraIn();
+
         _activePlayer = GetActivePlayer();
+        GetCameraPosition();
         HUD.ActivePlayer = _activePlayer;
         HUD.ChangeGUIColor();
+
+        FadeCameraOut();
     }
 }
 
