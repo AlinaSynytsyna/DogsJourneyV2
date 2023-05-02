@@ -11,9 +11,8 @@ public class PlayerCamera : MonoBehaviour
     private Player _activePlayer;
     private LevelInfo _levelInfo;
     private HUD HUD;
-    private Camera _camera;
-
     private Vector3 _playerCameraOffset;
+    private Camera _camera;
     private ScreenFader _screenFader;
 
     public void Awake()
@@ -34,6 +33,11 @@ public class PlayerCamera : MonoBehaviour
         return _camera;
     }
 
+    public ScreenFader GetScreenFader()
+    {
+        return _screenFader;
+    }
+
     [YarnCommand("fade_camera_out")]
     public void FadeCameraOut()
     {
@@ -46,6 +50,18 @@ public class PlayerCamera : MonoBehaviour
     public void FadeCameraIn()
     {
         _screenFader.fadeSpeed = Constants.FadeSpeed;
+        _screenFader.fadeState = ScreenFader.FadeState.In;
+    }
+
+    public void FadeCameraOutShort()
+    {
+        _screenFader.fadeSpeed = Constants.FadeSpeedShort;
+        _screenFader.fadeState = ScreenFader.FadeState.Out;
+    }
+
+    public void FadeCameraInShort()
+    {
+        _screenFader.fadeSpeed = Constants.FadeSpeedShort;
         _screenFader.fadeState = ScreenFader.FadeState.In;
     }
 
@@ -73,14 +89,10 @@ public class PlayerCamera : MonoBehaviour
 
     public void SwitchPlayer()
     {
-        FadeCameraIn();
-
         _activePlayer = GetActivePlayer();
         GetCameraPosition();
         HUD.ActivePlayer = _activePlayer;
         HUD.ChangeGUIColor();
-
-        FadeCameraOut();
     }
 }
 

@@ -4,9 +4,10 @@ public class Red : Player
 {
     public override void CheckFallDamage()
     {
-        if (IsOnTheGround() && Height > 90)
+        if (IsOnTheGround())
         {
-            Health -= (Height - 90) / 4;
+            Health = Height > 150 ? Health - (Height - 150) / 5 : Health;
+            Height = 0;
         }
     }
 
@@ -14,7 +15,8 @@ public class Red : Player
     {
         if (!IsOnTheGround())
         {
-            Rigidbody.AddForce(transform.up * (JumpForce * 0.7f), ForceMode2D.Impulse);
+            Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, 0);
+            Rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             IsUsingSpecialAbility = true;
         }
     }

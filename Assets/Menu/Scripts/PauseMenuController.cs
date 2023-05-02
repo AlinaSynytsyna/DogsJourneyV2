@@ -1,14 +1,16 @@
 ﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 public class PauseMenuController : MonoBehaviour
 {
     private CustomSettings _customSettings;
     private PlayerCamera _playerCamera;
     private Canvas _pauseMenu;
-    public Player _player;
+    private Player _player;
     private bool _isMenuSeen = false;
+    private DialogueRunner _dialogueRunner;
 
     public void Start()
     {
@@ -45,20 +47,17 @@ public class PauseMenuController : MonoBehaviour
     {
         Time.timeScale = 0;
         _pauseMenu.gameObject.SetActive(true);
-        _player.IsPlayerActive = false;
     }
 
     public void Resume()
     {
         Time.timeScale = 1;
         _pauseMenu.gameObject.SetActive(false);
-        _player.IsPlayerActive = true;
     }
 
     public void RestartGame()
     {
         Time.timeScale = 1;
-        _player.IsPlayerActive = true;
         LevelManager.IsReloadingLevel = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -66,12 +65,12 @@ public class PauseMenuController : MonoBehaviour
     public void Quit()
     {
         Time.timeScale = 1;
-        _player.IsPlayerActive = true;
 
         LevelManager.SavePlayers();
         HealingObjectsManager.SaveHealingObjects();
         LevelManager.SaveLevelIndex();
         LevelManager.SaveLevelInfo();
+
 
         _playerCamera.FadeCameraIn();
         Invoke(nameof(QuitButtonPressed), 2F);

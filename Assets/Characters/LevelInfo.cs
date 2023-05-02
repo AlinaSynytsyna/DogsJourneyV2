@@ -36,10 +36,17 @@ public class LevelInfo : MonoBehaviour
 
     public void SwitchCharacter()
     {
+        _playerCamera.FadeCameraInShort();
         ActivePlayer.MarkPlayerAsUnplayable();
         var activePlayerIndex = PlayableCharacters.IndexOf(ActivePlayer) + 1 != PlayableCharacters.Count ? PlayableCharacters.IndexOf(ActivePlayer) + 1 : 0;
         ActivePlayer = PlayableCharacters[activePlayerIndex];
+        Invoke(nameof(GetControlOfACharacter), 0.5f);
+    }
+
+    public void GetControlOfACharacter()
+    {
         ActivePlayer.MarkPlayerAsPlayable();
         _playerCamera.SwitchPlayer();
+        _playerCamera.FadeCameraOutShort();
     }
 }

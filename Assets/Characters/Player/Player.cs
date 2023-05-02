@@ -75,14 +75,8 @@ public abstract class Player : MonoBehaviour
                 IsUsingSpecialAbility = false;
                 Animator.SetBool("IsJumping", false);
                 Animator.SetBool("IsFalling", false);
-                CheckFallHeight();
-                Height = 0;
-
-                if (!Input.GetKey(CustomInput.Left) || !Input.GetKey(CustomInput.Right))
-                {
-                    IsWalking = false;
-                    Animator.SetFloat("Speed", 0);
-                }
+                IsWalking = false;
+                Animator.SetFloat("Speed", 0);
 
                 if (Input.GetKeyDown(CustomInput.Jump))
                     Jump();
@@ -165,7 +159,7 @@ public abstract class Player : MonoBehaviour
 
     public bool IsOnTheGround()
     {
-        return Physics2D.OverlapArea(new Vector2(transform.position.x - 0.4f, transform.position.y - 0.5f), new Vector2(transform.position.x + 0.4f, transform.position.y - 1.5f), GroundLayerMask);
+        return Physics2D.OverlapArea(new Vector2(transform.position.x - 0.4f, transform.position.y - 0.5f), new Vector2(transform.position.x + 0.4f, transform.position.y - 1f), GroundLayerMask);
     }
 
     public void MarkPlayerAsUnplayable()

@@ -3,21 +3,21 @@ using UnityEngine;
 
 public abstract class BaseTrigger : MonoBehaviour
 {
+    public Player ActivePlayer;
     protected const string PlayerEntityTag = nameof(Player);
-    protected Player ActivePlayer;
     protected CustomInput CustomInput;
     protected CircleCollider2D Trigger;
+    protected SpriteRenderer Renderer;
 
-    private SpriteRenderer _renderer;
-    private const int _triggerInteractRadius = 3;
+    private const int _triggerInteractRadiusMultiplier = 4;
 
     public void Awake()
     {
         CustomInput = CustomInputManager.GetCustomInputKeys();
         Trigger = GetComponent<CircleCollider2D>();
 
-        _renderer = GetComponentInChildren<SpriteRenderer>();
-        _renderer.gameObject.SetActive(false);
+        Renderer = GetComponentInChildren<SpriteRenderer>();
+        Renderer.gameObject.SetActive(false);
     }
 
     public void OnTriggerEnter2D(Collider2D entity)
@@ -27,7 +27,7 @@ public abstract class BaseTrigger : MonoBehaviour
             ActivePlayer = FindActivePlayer();
 
             if (ActivePlayer != null)
-                _renderer.gameObject.SetActive(true);
+                Renderer.gameObject.SetActive(true);
         }
     }
 
@@ -36,13 +36,13 @@ public abstract class BaseTrigger : MonoBehaviour
         if (entity.tag == PlayerEntityTag)
         {
             ActivePlayer = null;
-            _renderer.gameObject.SetActive(false);
+            Renderer.gameObject.SetActive(false);
         }
     }
 
     public Player FindActivePlayer()
     {
-        return FindObjectsOfType<Player>().Where(x => (x.transform.position - transform.position).magnitude <= Trigger.radius * _triggerInteractRadius && x.IsPlayerActive).First();
+        return FindObjectsOfType<Player>().Where(x => (x.transform.position - transform.position).magnitude <= Trigger.radius * _triggerInteractRadiusMultiplier && x.IsPlayerActive).First();
     }
 }
 

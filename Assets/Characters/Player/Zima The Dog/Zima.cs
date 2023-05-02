@@ -6,9 +6,10 @@ public class Zima : Player
 
     public override void CheckFallDamage()
     {
-        if (IsOnTheGround() && Height > 50)
+        if (IsOnTheGround())
         {
-            Health -= (Height - 50) / 4;
+            Health = Height > 100 ? Health - (Height - 100) / 5 : Health;
+            Height = 0;
         }
     }
 
@@ -23,7 +24,7 @@ public class Zima : Player
         }
     }
 
-    private void CountIdleTimer()
+    public void CountIdleTimer()
     {
         if (Input.anyKey)
             IdleTimer = 0;
