@@ -554,10 +554,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7214870595652122048, guid: a34fadbed11fc33418bb36e99940c079, type: 3}
-      propertyPath: m_SpriteState.m_DisabledSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7bbe0ae2dfd2b44469357d06bae9cf96, type: 3}
     - target: {fileID: 8218564489631576736, guid: a34fadbed11fc33418bb36e99940c079, type: 3}
       propertyPath: m_Name
       value: MenuCanvas
