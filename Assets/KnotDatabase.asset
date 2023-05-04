@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ce4382dfc0b464d981a3118a0b95f3, type: 3}
+  m_Name: KnotDatabase
+  m_EditorClassIdentifier: 
+  _languages:
+  - _cultureName: en
+    _systemLanguage: 10
+    _nativeName: English
+    _collectionProviders:
+    - rid: 3797859454887395332
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _cultureName: ru
+    _systemLanguage: 30
+    _nativeName: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
+    _collectionProviders:
+    - rid: 3797859454887395334
+    _metadata:
+      _runtime: []
+      _editor: []
+  _textKeyCollections:
+  - {fileID: 11400000, guid: 8402ce8556c89324b95a8b179fb08488, type: 2}
+  _assetKeyCollections: []
+  _settings:
+    _languageSelector:
+      rid: 3797859454887395335
+    _textController:
+      rid: 3797859454887395330
+    _assetController:
+      rid: 3797859454887395331
+    _metadata:
+      _runtime: []
+      _editor: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 3797859454887395330
+      type: {class: KnotTextController, ns: Knot.Localization, asm: Knot.Localization}
+      data:
+        _serializationPlaceholder: 0
+        _fallbackValue: '{key}'
+    - rid: 3797859454887395331
+      type: {class: KnotAssetController, ns: Knot.Localization, asm: Knot.Localization}
+      data:
+        _serializationPlaceholder: 0
+    - rid: 3797859454887395332
+      type: {class: KnotAssetCollectionProvider, ns: Knot.Localization.Data, asm: Knot.Localization}
+      data:
+        _collection: {fileID: 11400000, guid: bef8c437236213243b6733e0ba64ca3f, type: 2}
+    - rid: 3797859454887395334
+      type: {class: KnotAssetCollectionProvider, ns: Knot.Localization.Data, asm: Knot.Localization}
+      data:
+        _collection: {fileID: 11400000, guid: 683dbd10d74be7a4b91c81d8d9b3bb09, type: 2}
+    - rid: 3797859454887395335
+      type: {class: KnotDefaultLanguageSelector, ns: Knot.Localization, asm: Knot.Localization}
+      data:
+        _serializationPlaceholder: 0

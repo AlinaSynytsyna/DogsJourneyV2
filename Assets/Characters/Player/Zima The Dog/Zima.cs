@@ -8,7 +8,7 @@ public class Zima : Player
     {
         if (IsOnTheGround())
         {
-            Health = Height > 100 ? Health - (Height - 100) / 5 : Health;
+            Health = Height > 90 ? Health - (Height - 90) / 5 : Health;
             Height = 0;
         }
     }
@@ -18,7 +18,7 @@ public class Zima : Player
     {
         if (!IsOnTheGround())
         {
-            Rigidbody.velocity = Renderer.flipX ? Rigidbody.velocity = Vector2.right * 5 : Rigidbody.velocity = Vector2.left * 5;
+            Rigidbody.velocity = Renderer.flipX ? Rigidbody.velocity = Vector2.right * 6 : Rigidbody.velocity = Vector2.left * 6;
 
             IsUsingSpecialAbility = true;
         }

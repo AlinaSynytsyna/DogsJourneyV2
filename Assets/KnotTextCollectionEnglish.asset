@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecacf7bdd7e77b2419e140cb5ded6aa5, type: 3}
+  m_Name: KnotTextCollectionEnglish
+  m_EditorClassIdentifier: 
+  _items:
+  - _key: SettingsLabel
+    _rawText: Settings
+  - _key: EffectsLabel
+    _rawText: Effects
+  - _key: QuitButton
+    _rawText: Quit
+  - _key: ContinueGameLabel
+    _rawText: Continue
+  - _key: NewGameLabel
+    _rawText: New Game
+  - _key: LeftLabel
+    _rawText: Left
+  - _key: RightLabel
+    _rawText: Right
+  - _key: JumpLabel
+    _rawText: Jump
+  - _key: BackLabel
+    _rawText: Back
+  - _key: SpecialAbilityLabel
+    _rawText: Special ability
+  - _key: InteractLabel
+    _rawText: Interact
+  - _key: ChangeLabel
+    _rawText: Change Character
+  - _key: DefaultKeysLabel
+    _rawText: Default Keys
+  - _key: ControlsLabel
+    _rawText: Controls
+  - _key: ResolutionLabel
+    _rawText: Resolution
+  - _key: FullscreenLabel
+    _rawText: Fullscreen
+  - _key: DeleteSaveLabel
+    _rawText: Delete Save
+  - _key: MusicLabel
+    _rawText: Music
+  - _key: LanguageLabel
+    _rawText: Language

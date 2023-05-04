@@ -53,12 +53,7 @@ public class DialogueRunTrigger : BaseTrigger
         {
             ActivePlayer = FindActivePlayer();
 
-            var scriptToLoad = string.Empty;
-
-            if (ActivePlayer is Zima)
-                scriptToLoad = YarnScriptForZima;
-            else 
-                scriptToLoad = YarnScriptForRed;
+            var scriptToLoad = ActivePlayer is Zima ? YarnScriptForZima : YarnScriptForRed;
 
             if (ActivePlayer != null && Input.GetKeyDown(CustomInput.Interact) && _isShowingIcon)
             {

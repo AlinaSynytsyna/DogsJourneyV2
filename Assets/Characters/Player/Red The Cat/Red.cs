@@ -6,7 +6,7 @@ public class Red : Player
     {
         if (IsOnTheGround())
         {
-            Health = Height > 150 ? Health - (Height - 150) / 5 : Health;
+            Health = Height > 120 ? Health - (Height - 120) / 5 : Health;
             Height = 0;
         }
     }

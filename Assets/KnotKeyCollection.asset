@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1ff9c661913424893eef705ffbbc73, type: 3}
+  m_Name: KnotKeyCollection
+  m_EditorClassIdentifier: 
+  _keyData:
+  - _key: SettingsLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: EffectsLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: QuitButton
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: NewGameLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: ContinueGameLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: LeftLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: RightLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: JumpLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: BackLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: SpecialAbilityLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: InteractLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: ChangeLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: DefaultKeysLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: ControlsLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: ResolutionLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: FullscreenLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: DeleteSaveLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: MusicLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: LanguageLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  references:
+    version: 2
+    RefIds: []
