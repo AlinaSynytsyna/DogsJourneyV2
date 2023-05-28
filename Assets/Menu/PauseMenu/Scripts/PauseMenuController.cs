@@ -34,14 +34,14 @@ public class PauseMenuController : MonoBehaviour
         }
     }
 
-    //public void OnApplicationFocus(bool focus)
-    //{
-    //    if (!focus)
-    //    {
-    //        _isMenuSeen = true;
-    //        Pause();
-    //    }
-    //}
+    public void OnApplicationFocus(bool focus)
+    {
+        if (!focus)
+        {
+            _isMenuSeen = true;
+            Pause();
+        }
+    }
 
     public void Pause()
     {

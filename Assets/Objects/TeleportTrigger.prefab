@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7740703909877190758
 Transform:
   m_ObjectHideFlags: 0
@@ -62,7 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebd6ed74ae513c4f95473ec4edc86cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 1
+  IsActive: 1
+  State: 0
   TeleportPositionX: 2
   TeleportPositionY: -8
 --- !u!1 &7740703910392470193

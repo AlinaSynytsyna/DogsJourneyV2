@@ -349,7 +349,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346a84b3f0a7aab47a7112cb466c7f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivePlayer: {fileID: 0}
-  YarnScriptForZima: 
+  IsActive: 1
+  YarnScriptForZima: RedIntro
   YarnScriptForRed: 
+  OnDialogueEndedAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5870281678206199528}
+        m_TargetAssemblyTypeName: Red, Assembly-CSharp
+        m_MethodName: RedIntroDialogueComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   DialogueType: 0

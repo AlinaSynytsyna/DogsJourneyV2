@@ -136,6 +136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInDialogue: {fileID: 0}
+  OnDialogueEnded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &496897198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,6 +197,10 @@ PrefabInstance:
     - target: {fileID: 3292657645895612462, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292657645895612466, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
+      propertyPath: showUnavailableOptions
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3292657645953925573, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: m_Color.a
@@ -421,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7778558434935992803, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 650
+      value: 550
       objectReference: {fileID: 0}
     - target: {fileID: 7778558434935992803, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -722,6 +729,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3183266951831634833, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
   m_PrefabInstance: {fileID: 496897198}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7778558435752285469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7778558435930151347, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
+  m_PrefabInstance: {fileID: 496897198}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1221952440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778558435752285469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dae449646f11534f81928346b3b6341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _keyReference:
+    _key: NextDialogueLineLabel
+    _formatters: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1001 &709773698813121227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1093,6 +1123,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _keyReference:
     _key: QuitToMainMenuLabel
+    _formatters: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &6227936037777773564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6897137207617962295, guid: 3fadd0178b59b654db25aaca184080e2, type: 3}
+  m_PrefabInstance: {fileID: 709773698813121227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &271191642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227936037777773564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b14f482705e624ca79a1ed61669ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _keyReference:
+    _key: ResumeLabel
+    _formatters: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &8575444293046917325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9141047536006302214, guid: 3fadd0178b59b654db25aaca184080e2, type: 3}
+  m_PrefabInstance: {fileID: 709773698813121227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1278460042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8575444293046917325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b14f482705e624ca79a1ed61669ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _keyReference:
+    _key: RestartLabel
     _formatters: []
   references:
     version: 2
