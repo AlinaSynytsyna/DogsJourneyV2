@@ -1,23 +1,38 @@
-﻿using System.Collections.Generic;
+﻿using Knot.Localization;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Yarn.Unity;
 
 public class LevelInfo : MonoBehaviour
 {
-    private CustomInput _customInput;
-    private PlayerCamera _playerCamera;
     public List<Player> PlayableCharacters;
     public Player ActivePlayer;
     public string MainPlayableCharacter;
+
+    private CustomInput _customInput;
+    private PlayerCamera _playerCamera;
 
     public void Awake()
     {
         _customInput = CustomInputManager.GetCustomInputKeys();
         _playerCamera = FindObjectOfType<PlayerCamera>();
         LevelManager.GetLevelInfo();
-
+        GameObject.FindObjectOfType<DialogueRunner>().LoadStateFromPlayerPrefs(Constants.SaveKey);
         if (!LevelManager.IsReloadingLevel)
         {
             HealingObjectsManager.GetAllHealingObjects();
+        }
+    }
+
+    public void Start()
+    {
+        var targetLanguage = KnotLocalization.Manager.Languages.FirstOrDefault(d => (int)d.SystemLanguage == CustomSettingsManager.GetCustomSettings().SystemLanguage);
+
+        if (targetLanguage != null)
+        {
+            KnotLocalization.Manager.LoadLanguage(targetLanguage);
+            FindObjectOfType<TextLineProvider>().textLanguageCode = targetLanguage.CultureName;
         }
     }
 

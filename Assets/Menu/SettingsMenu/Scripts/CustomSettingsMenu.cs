@@ -157,6 +157,7 @@ public class CustomSettingsMenu : MonoBehaviour
     {
         LevelManager.DeleteSaveFile();
         LevelManager.LevelInfoJObject = new JObject();
+        PlayerPrefs.DeleteAll();
         _deleteSaveButton.interactable = false;
     }
 

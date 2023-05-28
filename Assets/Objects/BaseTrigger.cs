@@ -1,9 +1,13 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 
+[Serializable]
 public abstract class BaseTrigger : MonoBehaviour
 {
-    public Player ActivePlayer;
+    public bool IsActive;
+
+    protected Player ActivePlayer;
     protected const string PlayerEntityTag = nameof(Player);
     protected CustomInput CustomInput;
     protected CircleCollider2D Trigger;
@@ -22,7 +26,7 @@ public abstract class BaseTrigger : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D entity)
     {
-        if (entity.tag == PlayerEntityTag)
+        if (entity.tag == PlayerEntityTag && IsActive)
         {
             ActivePlayer = FindActivePlayer();
 
@@ -33,7 +37,7 @@ public abstract class BaseTrigger : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D entity)
     {
-        if (entity.tag == PlayerEntityTag)
+        if (entity.tag == PlayerEntityTag && IsActive)
         {
             ActivePlayer = null;
             Renderer.gameObject.SetActive(false);
@@ -45,4 +49,3 @@ public abstract class BaseTrigger : MonoBehaviour
         return FindObjectsOfType<Player>().Where(x => (x.transform.position - transform.position).magnitude <= Trigger.radius * _triggerInteractRadiusMultiplier && x.IsPlayerActive).First();
     }
 }
-

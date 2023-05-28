@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Yarn;
+using Yarn.Unity;
 
 public abstract class Player : MonoBehaviour
 {
@@ -25,6 +27,7 @@ public abstract class Player : MonoBehaviour
     protected int IdleState = 0;
     protected DialogueRunTrigger DialogueRunTrigger;
     protected IEnumerator Enumerator;
+    protected InMemoryVariableStorage VariableStorage;
 
     public abstract void UseSpecialAbility();
 
@@ -40,6 +43,7 @@ public abstract class Player : MonoBehaviour
         Collider = GetComponent<Collider2D>();
         DialogueRunTrigger = GetComponentInChildren<DialogueRunTrigger>();
         CustomInput = CustomInputManager.GetCustomInputKeys();
+        VariableStorage = FindObjectOfType<InMemoryVariableStorage>();
 
         if (!LevelInfo.CheckIfTheCharacterIsPlayable(this))
         {
@@ -165,7 +169,7 @@ public abstract class Player : MonoBehaviour
     public void MarkPlayerAsUnplayable()
     {
         IsPlayerActive = false;
-        transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 1);
+        transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 1);
         DialogueRunTrigger.gameObject.SetActive(true);
 
         Enumerator = WaitForPlayerToLand();
@@ -177,7 +181,7 @@ public abstract class Player : MonoBehaviour
         IsPlayerActive = true;
         Collider.enabled = true;
         Rigidbody.isKinematic = false;
-        transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
+        transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 1);
         DialogueRunTrigger.gameObject.SetActive(false);
     }
 

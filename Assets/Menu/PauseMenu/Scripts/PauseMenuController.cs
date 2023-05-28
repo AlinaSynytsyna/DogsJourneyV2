@@ -10,7 +10,7 @@ public class PauseMenuController : MonoBehaviour
     private Canvas _pauseMenu;
     private Player _player;
     private bool _isMenuSeen = false;
-    private DialogueRunner _dialogueRunner;
+    private readonly DialogueRunner _dialogueRunner;
 
     public void Start()
     {
@@ -34,14 +34,14 @@ public class PauseMenuController : MonoBehaviour
         }
     }
 
-    public void OnApplicationFocus(bool focus)
-    {
-        if(!focus)
-        {
-            _isMenuSeen = true;
-            Pause();
-        }
-    }
+    //public void OnApplicationFocus(bool focus)
+    //{
+    //    if (!focus)
+    //    {
+    //        _isMenuSeen = true;
+    //        Pause();
+    //    }
+    //}
 
     public void Pause()
     {
@@ -59,6 +59,7 @@ public class PauseMenuController : MonoBehaviour
     {
         Time.timeScale = 1;
         LevelManager.IsReloadingLevel = true;
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -66,11 +67,11 @@ public class PauseMenuController : MonoBehaviour
     {
         Time.timeScale = 1;
 
+        GameObject.FindObjectOfType<DialogueRunner>().SaveStateToPlayerPrefs(Constants.SaveKey);
         LevelManager.SavePlayers();
         HealingObjectsManager.SaveHealingObjects();
         LevelManager.SaveLevelIndex();
         LevelManager.SaveLevelInfo();
-
 
         _playerCamera.FadeCameraIn();
         Invoke(nameof(QuitButtonPressed), 2F);

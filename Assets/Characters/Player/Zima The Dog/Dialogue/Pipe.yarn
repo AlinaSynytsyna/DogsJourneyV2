@@ -1,13 +1,10 @@
 title: Pipe
-tags: 
-colorID: 5
-position: 0,0
 ---
 <<if visited("Pipe") is false>>
-Зима: Бетонная труба...
-Зима: Интересно, смогу ли я выйти в город по трубам?
+Zima: A concrete pipe... #line:a14ef8b 
+Zima: I wonder if I can return to the city by pipes? #line:c14ef5c 
 <<else>>
-Зима: Я не уверена, правильный ли это путь. Надо бы спросить того кота.
+Zima: I'm not sure if this is the right way. Better ask the cat over there. #line:d12ef6d 
 <<endif>>
 
 ===

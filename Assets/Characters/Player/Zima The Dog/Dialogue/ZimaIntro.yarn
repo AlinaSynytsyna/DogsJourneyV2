@@ -1,0 +1,14 @@
+﻿title: ZimaIntro
+---
+<<if visited("ZimaIntro") is false>>
+Zima: Oh no! This is terrible! #line:016ed9d 
+Zima: I'll never find my way home... #line:025f317 
+Zima: Am I really lost?.. This cannot be! #line:0be39b6 
+Zima: ... #line:0ce4858 
+Zima: ... #line:0f04c45 
+Zima: Ok, calm down! You can do this. You'll get out here! #line:00cf2bc 
+Zima: I need to get a move on right now if I want to reach home. #line:0dde220 
+<<else>>
+Zima: I need to get a move on right now if I want to reach home. #line:051be7d 
+<<endif>>
+===

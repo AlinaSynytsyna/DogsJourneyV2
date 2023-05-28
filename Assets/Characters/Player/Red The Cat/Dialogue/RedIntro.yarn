@@ -1,0 +1,59 @@
+﻿title: RedIntro
+---
+<<if visited("RedIntro") is false>>
+    Zima: Hey! Hey, cat!  #line:03a0479 
+    Cat: ... #line:0adc426 
+    Zima: Hey! Can you hear me? #line:0a1da00 
+    Cat: ... #line:0e42fb2 
+<<else>>
+<<if $name_reveal is false>>
+    Zima: Hey, cat! #line:03a53ce 
+    Cat: ... #line:0ce2a46 
+<<else>>
+    Red: Can't prepare yourself for sewers, I am right? #line:04c9f2f 
+<<endif>>
+<<endif>>
+<<if visited("RedPoliteMeet") is false>>
+-> Zima: Cat, can you help me, please? #line:0e304d4  
+    <<jump RedPoliteMeet>>
+-> Zima: I need to go. #line:0335185 
+    <<jump RedExit>>
+<<else>>
+-> Zima: I need to go. #line:0345c25 
+    <<jump RedExit>>
+<<endif>>        
+===
+
+title: RedExit
+---
+<<if $name_reveal is false>>
+    Cat: ... #line:0faedd0 
+<<else>>
+    Red: So, you're going into the sewers after all? #line:00ce9ba 
+    Zima: Yeah, looks like I have no choise. #line:0b433d8 
+    Red: Best of luck to you then! #line:08b02ce 
+<<endif>>
+===
+
+title: RedPoliteMeet
+---
+Cat: ... #line:011bacc 
+Cat: What do you want, doggy? #line:0abf79c 
+Zima: It's a really long story, but in short, I'm lost. I need to return to the city! #line:0d9d586 
+Zima: What's your name, by the way? #line:0083946 
+Cat: ... #line:0553953 
+Cat: Name's Red, and believe it or not, I too need to get to the city. #line:0b1d603 
+<<set $name_reveal to true>>
+<<if visited("DistantCity") is true>>
+    Zima: Looks like from here the city is not far away, at paw's length. #line:0b8182a 
+    Red: Yeah, no, it's going to be a long journey. #line:00910e5 
+<<endif>>
+Red: I heard you can get to the city through the sewerage and water supply system. #line:03b64f8
+Red: There is a pipe ahead, it leads somewhere in the catacombs. You can take a look at it, if you want. #line:07b63a6 
+Red: Do you really want to return THAT way? #line:0081d6a 
+-> Zima: Looks like I have no choise. #line:0c7b44e 
+    Red: ...Good luck then! #line:03fbdc4 
+-> Zima: Maybe there's other ways to return to the city?  #line:0372a51 
+    Red: Not sure. I will look around, but there's only a pipe for now. #line:073ad09
+<<set $pipe_open to true>>     
+===

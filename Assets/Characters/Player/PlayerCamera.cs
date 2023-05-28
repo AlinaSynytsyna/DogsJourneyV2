@@ -76,7 +76,7 @@ public class PlayerCamera : MonoBehaviour
     {
         _playerCameraOffset = Vector3.Lerp(transform.position, _activePlayer.transform.position, CameraMoveSpeed * Time.deltaTime);
         _playerCameraOffset.x = Mathf.Clamp(_playerCameraOffset.x, CameraMinPosition, CameraMaxPosition);
-        _playerCameraOffset.y = _activePlayer.transform.position.y + 2.5f;
+        _playerCameraOffset.y = _activePlayer.transform.position.y + 2.2f;
         _playerCameraOffset.z = transform.position.z;
 
         transform.position = _playerCameraOffset;

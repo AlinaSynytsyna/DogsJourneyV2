@@ -33,7 +33,6 @@ public static class LevelManager
 
     public static void GetLevelInfo()
     {
-
         var path = Application.isEditor ? _healingObjectsPathDebug : _healingObjectsPathRelease;
 
         try
@@ -45,7 +44,6 @@ public static class LevelManager
         {
             LevelInfoJObject = new JObject();
         }
-
     }
 
     public static int GetLevelIndex()

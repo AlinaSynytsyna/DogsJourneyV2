@@ -1,7 +1,4 @@
 title: Zima
-tags: 
-colorID: 5
-position: 1,1
 ---
 <<if visited("Zima") is false>>
     Рэд: Зима, можно спросить у тебя кое-что?
@@ -15,17 +12,14 @@ position: 1,1
 <<endif>>
 [[Ничего. Пойду посмотрю, что там наверху, наверное.|Red.SewersExit]]
 ===
+
 title: Zima.Exit
-tags: 
-colorID: 
-position: 10,10
 ---
     Зима: Да, сходи. Обращайся, если что.
 ===
+
 title: Zima.TellYourStory
-tags: 
-colorID: 5
-position: 3,3
+
 ---
 Зима: Ты имеешь в виду, как я оказалась за городом посреди нигде?
 Зима: Да, довольно обыденно. Мои хозяева замечательные люди.

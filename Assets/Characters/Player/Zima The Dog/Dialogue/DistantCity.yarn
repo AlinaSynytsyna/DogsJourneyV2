@@ -1,12 +1,9 @@
-title: DistantCity
-tags: 
-colorID: 0
-position: 0,0
+﻿title: DistantCity
 ---
 <<if visited("DistantCity") is false>>
-Зима: Я вижу город вдалеке...
-Зима: Видимо, не так далеко за городом я и оказалась.
+Zima: I can see a city in a distance... #line:014ef7a 
+Zima: Looks like I'm not far away after all. #line:02bf3c3 
 <<else>>
-Зима: Хоть здесь и красиво, но нужно идти.
+Zima: It's gorgeous in here, but I need to get going. #line:0022883 
 <<endif>>
 ===

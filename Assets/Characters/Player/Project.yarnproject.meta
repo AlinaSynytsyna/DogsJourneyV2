@@ -9,19 +9,28 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 053561912b1654d80a424bb0696a74ae, type: 3}
   sourceScripts:
-  - {fileID: 6391573757903218779, guid: 7f65762174e1eba49a3643f69f7dcdf3, type: 3}
+  - {fileID: 6391573757903218779, guid: 93506f1b26744224687af5de0676c808, type: 3}
+  - {fileID: 6391573757903218779, guid: 12bce373f132fda409c2903d561f117f, type: 3}
+  - {fileID: 6391573757903218779, guid: 56f9dc8ed18e46646b625dd5fbfa2a91, type: 3}
+  - {fileID: 6391573757903218779, guid: 8362bf394d12a1645806112a535793c2, type: 3}
   compileErrors: []
   serializedDeclarations:
-  - name: $variable
-    typeName: 
+  - name: $name_reveal
+    typeName: Bool
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: 
-    isImplicit: 0
-    sourceYarnAsset: {instanceID: 0}
-  defaultLanguage: en-US
-  languagesToSourceAssets: []
+    description: Implicitly declared in RedIntro.yarn, node RedIntro
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 93506f1b26744224687af5de0676c808, type: 3}
+  defaultLanguage: en
+  languagesToSourceAssets:
+  - languageID: en
+    stringsFile: {instanceID: 0}
+    assetsFolder: {instanceID: 0}
+  - languageID: ru
+    stringsFile: {fileID: 4900000, guid: 11960c1b770c7a64eb69a419ab958b05, type: 3}
+    assetsFolder: {instanceID: 0}
   useAddressableAssets: 0
   searchAllAssembliesForActions: 1
   assembliesToSearch: []

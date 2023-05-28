@@ -8,7 +8,7 @@ public class Zima : Player
     {
         if (IsOnTheGround())
         {
-            Health = Height > 90 ? Health - (Height - 90) / 5 : Health;
+            Health = Height > 75 ? Health - (Height - 75) / 5 : Health;
             Height = 0;
         }
     }

@@ -89,6 +89,54 @@ MonoBehaviour:
     _metadata:
       _runtime: []
       _editor: []
+  - _key: QuitToMainMenuLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: HUDHealthText
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: TutorialMovingText
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: TutorialUsingSpecialAbilityZimaText
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: TutorialUsingSpecialAbilityRedText
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: RestartLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: ResumeLabel
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: TutorialInteractText
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: TutorialHealingText
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: TutorialSaveProgressText
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: TutorialChangeCharacterText
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: NextDialogueLineLabel
+    _metadata:
+      _runtime: []
+      _editor: []
   references:
     version: 2
     RefIds: []

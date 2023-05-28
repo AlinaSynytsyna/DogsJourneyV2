@@ -51,3 +51,34 @@ MonoBehaviour:
     _rawText: Music
   - _key: LanguageLabel
     _rawText: Language
+  - _key: QuitToMainMenuLabel
+    _rawText: Quit to Main Menu
+  - _key: HUDHealthText
+    _rawText: Health
+  - _key: TutorialMovingText
+    _rawText: 'Character control:
+
+      Move left: {0}
+
+      Move right:  {1}
+
+      Jump:
+      {2}'
+  - _key: TutorialUsingSpecialAbilityZimaText
+    _rawText: Zima can do long distance jumps by pressing {0} key
+  - _key: TutorialUsingSpecialAbilityRedText
+    _rawText: Red can do double jump by pressing {0} key
+  - _key: RestartLabel
+    _rawText: Restart
+  - _key: ResumeLabel
+    _rawText: Resume
+  - _key: TutorialInteractText
+    _rawText: You can interact with environment by pressing {0} key
+  - _key: TutorialHealingText
+    _rawText: Donut can restore 10 health points
+  - _key: TutorialSaveProgressText
+    _rawText: The game progress is saved automatically
+  - _key: TutorialChangeCharacterText
+    _rawText: You can switch between characters by pressing {0} key
+  - _key: NextDialogueLineLabel
+    _rawText: Continue

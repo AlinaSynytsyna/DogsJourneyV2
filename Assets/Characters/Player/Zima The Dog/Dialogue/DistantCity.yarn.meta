@@ -8,14 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
-  baseLanguageID: en-US
-  stringIDs:
-  - DistantCity-DistantCity-0
-  - DistantCity-DistantCity-1
-  - DistantCity-DistantCity-2
-  compilationStatus: 1
-  isSuccesfullyCompiled: 1
-  compilationErrorMessage: 
-  baseLanguage: {fileID: 7128917941130120860, guid: 56f9dc8ed18e46646b625dd5fbfa2a91,
-    type: 3}
-  localizations: []
+  LastImportHadImplicitStringIDs: 0
+  LastImportHadAnyStrings: 1
+  isSuccessfullyParsed: 1
+  parseErrorMessages: []

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1749603219049351334}
   - component: {fileID: 1749603219049351328}
   - component: {fileID: 1749603219049351335}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1749603219649090067}
   - component: {fileID: 1749603219649090077}
   - component: {fileID: 1749603219649090076}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TutorialText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,11 +144,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 43e1c146cec404a4a8d1220c6f7bc51a, type: 3}
-    m_FontSize: 30
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 1749603220295955865}
   - component: {fileID: 1749603220295955844}
   - component: {fileID: 1749603220295955845}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TutorialTrigger
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActivePlayer: {fileID: 0}
   TutorialText: {fileID: 0}
-  State: 1
+  State: 0
 --- !u!58 &1749603220295955845
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 1749603220544460331}
   - component: {fileID: 1749603220544460330}
   - component: {fileID: 1749603220544460329}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

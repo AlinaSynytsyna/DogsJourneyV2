@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
 {
     public AudioMixer MusicMixer;
     public AudioMixer EffectsMixer;
+
     private Text _playButtonText;
     private ScreenFader _screenFader;
     private CustomSettings _customSettings;
@@ -106,7 +107,7 @@ public class MainMenu : MonoBehaviour
 
     private void MainMenuLabelUpdated(string text)
     {
-        if(!_playButtonText.IsDestroyed())
-        _playButtonText.text = text;
+        if (!_playButtonText.IsDestroyed())
+            _playButtonText.text = text;
     }
 }
