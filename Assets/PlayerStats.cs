@@ -10,4 +10,6 @@ public class PlayerStats
     public float PositionX;
 
     public float PositionY;
+
+    public bool IsPlayableInScene;
 }

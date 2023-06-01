@@ -2,7 +2,7 @@ title: Pipe
 ---
 <<if visited("Pipe") is false>>
 Zima: A concrete pipe... #line:a14ef8b 
-Zima: I wonder if I can return to the city by pipes? #line:c14ef5c 
+Zima: I wonder if I can return to the city by pipes? Better ask that cat over there. #line:c14ef5c 
 <<else>>
 Zima: I'm not sure if this is the right way. Better ask the cat over there. #line:d12ef6d 
 <<endif>>

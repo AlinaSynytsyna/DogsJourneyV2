@@ -226,6 +226,7 @@ MonoBehaviour:
   Speed: 3.6
   Health: 100
   JumpForce: 7
+  IsPlayableInScene: 1
   IsPlayerActive: 0
   IsUsingSpecialAbility: 0
   IsWalking: 0
@@ -318,7 +319,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8447363379161630343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -1}
+  m_LocalPosition: {x: 0, y: 0.5, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -341,7 +342,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 2.4
 --- !u!114 &2020533636301977376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,9 +355,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346a84b3f0a7aab47a7112cb466c7f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsActive: 0
+  IsActive: 1
+  DialogueTriggerId: 9f94a2e9-c074-43f7-a57b-adf46ba98900
   YarnScriptForZima: 
-  YarnScriptForRed: ZimaIntro
+  YarnScriptForRed: ZimaGeneric
   OnDialogueEndedAction:
     m_PersistentCalls:
       m_Calls: []

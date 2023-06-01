@@ -76,6 +76,20 @@ public static class LevelManager
         }
     }
 
+    public static Dictionary<string, DialogueNames> GetDialogueTriggers()
+    {
+        try
+        {
+            var dialogueTriggersJObject = LevelInfoJObject[Constants.DialogueTriggers];
+
+            return dialogueTriggersJObject.ToObject<Dictionary<string, DialogueNames>>();
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
     public static Dictionary<string, PlayerStats> GetPlayerStats()
     {
         try
@@ -87,6 +101,20 @@ public static class LevelManager
         catch
         {
             return null;
+        }
+    }
+
+    public static void SaveDialogueTriggers(Dictionary<string, DialogueNames> dialogueTriggersDictionary)
+    {
+        var dialogueTriggersJObject = JObject.Parse(JsonConvert.SerializeObject(dialogueTriggersDictionary, Formatting.Indented));
+
+        try
+        {
+            LevelInfoJObject[Constants.DialogueTriggers] = dialogueTriggersJObject;
+        }
+        catch
+        {
+            LevelInfoJObject.Add(dialogueTriggersJObject);
         }
     }
 
@@ -116,7 +144,9 @@ public static class LevelManager
                 IsActive = player.IsPlayerActive,
                 Health = player.Health,
                 PositionX = player.gameObject.transform.position.x,
-                PositionY = player.gameObject.transform.position.y
+                PositionY = player.gameObject.transform.position.y,
+                IsPlayableInScene = player.IsPlayableInScene
+
             };
             PlayersStatsDictionary.Add(player.PlayerName, stats);
         }

@@ -41,7 +41,7 @@ public class TeleportationTrigger : BaseTrigger
                         StartCoroutine(LoadPreviousLevel(teleportationDelay));
                         break;
                     case TeleportationType.MainMenu:
-                        StartCoroutine(LoadNextLevel(teleportationDelay));
+                        StartCoroutine(LoadMainMenu(teleportationDelay));
                         break;
                 }
             }

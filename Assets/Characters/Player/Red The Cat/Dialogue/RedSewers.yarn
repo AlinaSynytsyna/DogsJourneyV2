@@ -1,38 +1,36 @@
-title: RedSewersIntro
-tags: 
-colorID: 5
-position: 0,0
+title: RedSewers
 ---
-<<if visited("RedSewersIntro") is false>>
-    Зима: Рэд? А ты что здесь делаешь? Как ты попал в канализацию раньше меня?
-    Рэд: Я прошел чуть дальше по трубе, в которую вошла ты, и нашел вентиляционную решетку, которая ведет сюда.
+<<if visited("RedSewers") is false>>
+    Zima: Red? How did you get ahead of me here? #line:0385213
+    Red: Dunno, found the vent along the pipe you've entered earlier and got here somehow. #line:aeb251a
 <<else>>
-    Рэд: Ну что, как тебе здешние виды?
+    Red: So, what do you think of the landscape? #line:92850ae
 <<endif>>
+<<if visited("SewersTooHigh") is true>>
+-> Zima: Red, I need your help. #line:8b4c191  
+    <<jump RedHelpMe>>
+-> Zima: Okay, I'll scout ahead then. #line:0948abe
+    <<jump RedSewersExit>>
+<<else>>
+-> Zima: Okay, I'll scout ahead then. #line:935bfaa
+    <<jump RedSewersExit>>
+<<endif>> 
+===
 
-<<if visited("Sewers.TooHigh") is true>>
-    [[Помоги мне, пожалуйста, найти выход.|Red.HelpMe]]
-<<endif>>
-[[Мне нужно идти.|Red.SewersExit]]
-===
-title: Red.SewersExit
-tags: 
-colorID: 
-position: 2,2
+title: RedSewersExit
 ---
-    Зима: Ладно, я пойду посмотрю, что там дальше.
-    Рэд: Удачи.
+    Red: Sure. #line:cb7c924
 ===
-title: Red.HelpMe
-tags: 
-colorID: 5
-position: 1,1
+
+title: RedHelpMe
 ---
-Зима: Впереди выступ, но он слишком высоко, я не допрыгну.
-Рэд: Ага.
-Зима: Не мог бы ты, пожалуйста...
-Рэд: Посмотреть, что там наверху?
-Зима: Да.
-Рэд: Хорошо, стой здесь, я посмотрю.
-Зима: Спасибо!  
+Zima: Listen, there's a platform ahead, but it's too high. I can't reach it! #line:da5f34e
+Red: Yup. #line:abf921
+Zima: Would you kindly... #line:a29531a
+Red: Look what's up there? #line:024857b
+Zima: Yeah... #line:bd928c
+Red: Okay, I can do that. You stay here, I'll go. #line:2095adc
+Zima: Thank you! #line:0e86e19
+Red: Don't mention it. #line:3685ad62
+<<set $red_playable to true>>
 ===

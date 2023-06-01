@@ -13,7 +13,7 @@ public abstract class BaseTrigger : MonoBehaviour
     protected CircleCollider2D Trigger;
     protected SpriteRenderer Renderer;
 
-    private const int _triggerInteractRadiusMultiplier = 4;
+    private const int _triggerInteractRadiusMultiplier = 7;
 
     public void Awake()
     {

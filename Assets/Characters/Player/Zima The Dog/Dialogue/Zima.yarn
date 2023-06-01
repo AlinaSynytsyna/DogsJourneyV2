@@ -1,33 +1,28 @@
-title: Zima
+title: ZimaGeneric
 ---
-<<if visited("Zima") is false>>
-    Рэд: Зима, можно спросить у тебя кое-что?
-    Зима: Да, что ты хотел?
-<<else>>
-    Зима: Что случилось?
+Red: Hey, can I ask you something? #line:0e304d8 
+<<if visited("RedTellYourStory") is true>>
+    Red: Thought it would be only fair since you've asked me similar question. #line:00910e6 
 <<endif>>
-
-<<if visited("Sewers.TooHigh") is true>>
-    [[Как ты докатилась до жизни такой?|Red.HelpMe]]
-<<endif>>
-[[Ничего. Пойду посмотрю, что там наверху, наверное.|Red.SewersExit]]
+Zima: Yes, what do you want? #line:0e304d9
+-> Red: How did you end up here? #line:0e304d7
+    <<jump ZimaTellYourStory>>
+-> Red: Oh, it's nothing important. I need to get going. #line:239581a 
+    Zima: Sure. I'll be here if you need me. #line:03a0480
 ===
 
-title: Zima.Exit
+title: ZimaTellYourStory
 ---
-    Зима: Да, сходи. Обращайся, если что.
-===
-
-title: Zima.TellYourStory
-
----
-Зима: Ты имеешь в виду, как я оказалась за городом посреди нигде?
-Зима: Да, довольно обыденно. Мои хозяева замечательные люди.
-Зима: Но, к сожалению, к замечательным людям в дома залезает всякий мусор.
-Зима: Когда я увидела его, он уже почти вылез через окно с награбленным в сумке. Я устремилась за ним как можно быстрее.
-Зима: Он оторвался, а я оказалась вдали от дома, и вдруг рядом оказался отлов животных. 
-Зима: Грустная история, но фургон с животными он закрыл настолько плохо, что при тряске клетка со мной выпала под мост в воду.
-Зима: Может быть, он попал в ДТП или что, но замки в клетке пвредились настолько, что выбраться не составило труда.
-Зима: Теперь я здесь, в канализации. Очередная бесхозная псина.
-Рэд: Черт...
+Zima: What do you mean? #line:03a0474
+Red: Well, you don't look like a stray dog. How did you end up in the outskirts so far away from the city? #line:03a0481 
+Zima: Oh. It's true, I have a family. A good one, in fact. #line:03a0482 
+Zima: One day, when they weren't home, some scum broke in to steal something. #line:03a0483
+Zima: I thought I could stop it, so I rushed after him. #line:03a0484
+Zima: Soon I lost track of him and ended up in an unfamilliar place. #line:03a0485
+Zima: Then I was spotted by animal capture and shoved into the cage in the truck. #line:03a0486
+Zima: We were driving for some time before my cage just fell out of truck into the river. I guess the doors weren't closed properly. #line:03a0487
+Zima: When I stepped outside, I was under some kind of bridge. Alone and scared. #line:03a0488
+Zima: So, this is how I ended up here, in the middle of nowhere. #line:03a0489
+Zima: Nonetheless, I have to keep moving forward. I'm sure my family is waiting for me! #line:03a0490
+Red: Damn, this is kind of heartbreaking. You sure had it rough. #line:03a0491
 ===

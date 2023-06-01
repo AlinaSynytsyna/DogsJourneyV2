@@ -1,63 +1,27 @@
-title: Red
-tags: 
-colorID: 5
-position: 0,0
+title: RedGeneric
 ---
-<<if visited("Red") is false>>
-Зима: Эй! Эй, ты, кот!
-Кот: ...
-Зима: Кот, эй! Я с кем разговариваю?
-Кот: ... 
-<<else>>
-<<if $name_reveal is false>>
-    Зима: Эй!
-    Кот: ...
-<<else>>
-    Рэд: Никак не настроишься на посещение сточных вод, не так ли?
+Zima: Hey, Red! #line:0203582
+Red: Yeah, what's up? #line:0e30a24
+<<if visited("ZimaTellYourStory") is true>>
+    Zima: You've asked me about myself, but I barely know you! #line:1937592
+    Zima: Mind to answer some questions? #line:943719a
+    Red: ..Do I have a choice? #line:0e3019b
 <<endif>>
-<<endif>>
-
-<<if not visited("Red.BePolite")>>
-    [[Может, стоит быть более вежливой с ним?|Red.BePolite]]
-<<endif>>
-[[Мне нужно идти.|Red.Exit]]
+-> Zima: What's your deal? #line:001abc1
+    <<jump RedTellYourStory>>
+-> Zima: I've got nothing. #line:190593a
+    Red: All right then. #line:1905c3b
 ===
 
-title: Red.BePolite
-tags: 
-colorID: 5
-position: 1,1
+title: RedTellYourStory
 ---
-Зима: Кот, не мог бы ты, пожалуйста, ответить? Мне нужна помощь, а ты единственный, кто может помочь.
-Кот: ...
-Кот: Что тебе нужно, собачка?
-Зима: Долгая история, но если кратко, то я потерялась. Мне нужно вернуться в город!
-Зима: Как тебя зовут, кстати?
-Кот: ...
-Кот: Меня зовут Рэд, и, представь себе, мне тоже нужно в город.
-<<set $name_reveal to true>>
-<<if visited("DistantCity") is true>>
-    Зима: Отсюда кажется, что он недалеко, на расстоянии вытянутой лапы.
-    Рэд: Это только кажется, на самом деле путь туда займет много времени.
-<<endif>>	
-Рэд: Я слышал, что есть возможность попасть туда через канализацию и систему водоснабжения.
-Рэд: Ты действительно хочешь попасть в город ТАКИМ способом?
-Зима: Когда это говоришь ты, звучит не очень заманчиво, но у меня, похоже, нет выбора.
-Рэд: Тебе не привыкать копаться в грязи, да?
--> Не то что бы, а ты что, боишься намокнуть?
-    Рэд: ...Очевидно, что да, я же кот!
--> Нет, в отличие от тебя! 
-    Рэд: Грубо. 
-===
-
-title: Red.Exit
-tags: 
-colorID: 
-position: 2,2
----
-<<if $name_reveal is false>>
-    Кот: ...
-<<else>>
-    Рэд: Что же, удачного заплыва!
-<<endif>>
+Red: Huh? Is that your question? #line:19cbd14
+Zima: Yeah. Tell me about yourself! #line:100aeb1
+Red: Well... #line:1901300
+Red: Dunno. It's a trouble talking about myself, actually. #line:112a00a
+Red: I am just a cat. #line:190001e
+Red: I look like a cat, I think like a cat, I do things cats do. #line:1910ace
+Red: That's just how it is. There's no deeper meaning. #line:05918ad
+Zima: Well, maybe some day you'll say more about yourself. #line:1905900
+Red: Maybe... #line:119abca
 ===

@@ -7,6 +7,7 @@ public class PlayerCamera : MonoBehaviour
     public float CameraMinPosition;
     public float CameraMaxPosition;
     public float CameraMoveSpeed = 3.0f;
+    public float CameraVerticalShiftPosition;
 
     private Player _activePlayer;
     private LevelInfo _levelInfo;
@@ -76,7 +77,7 @@ public class PlayerCamera : MonoBehaviour
     {
         _playerCameraOffset = Vector3.Lerp(transform.position, _activePlayer.transform.position, CameraMoveSpeed * Time.deltaTime);
         _playerCameraOffset.x = Mathf.Clamp(_playerCameraOffset.x, CameraMinPosition, CameraMaxPosition);
-        _playerCameraOffset.y = _activePlayer.transform.position.y + 2.2f;
+        _playerCameraOffset.y = _activePlayer.transform.position.y + CameraVerticalShiftPosition;
         _playerCameraOffset.z = transform.position.z;
 
         transform.position = _playerCameraOffset;

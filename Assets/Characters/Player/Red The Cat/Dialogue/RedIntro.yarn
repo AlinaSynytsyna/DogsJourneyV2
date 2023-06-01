@@ -30,7 +30,7 @@ title: RedExit
     Cat: ... #line:0faedd0 
 <<else>>
     Red: So, you're going into the sewers after all? #line:00ce9ba 
-    Zima: Yeah, looks like I have no choise. #line:0b433d8 
+    Zima: Yeah, looks like I have no choice. #line:0b433d8 
     Red: Best of luck to you then! #line:08b02ce 
 <<endif>>
 ===
@@ -45,15 +45,15 @@ Cat: ... #line:0553953
 Cat: Name's Red, and believe it or not, I too need to get to the city. #line:0b1d603 
 <<set $name_reveal to true>>
 <<if visited("DistantCity") is true>>
-    Zima: Looks like from here the city is not far away, at paw's length. #line:0b8182a 
+    Zima: Looks like it's is not far away from here, at paw's length. #line:0b8182a 
     Red: Yeah, no, it's going to be a long journey. #line:00910e5 
 <<endif>>
-Red: I heard you can get to the city through the sewerage and water supply system. #line:03b64f8
+Red: I heard you can get there through the sewerage and water supply system. #line:03b64f8
 Red: There is a pipe ahead, it leads somewhere in the catacombs. You can take a look at it, if you want. #line:07b63a6 
 Red: Do you really want to return THAT way? #line:0081d6a 
--> Zima: Looks like I have no choise. #line:0c7b44e 
+-> Zima: Looks like I have no choice. #line:0c7b44e 
     Red: ...Good luck then! #line:03fbdc4 
--> Zima: Maybe there's other ways to return to the city?  #line:0372a51 
+-> Zima: Maybe there's other ways to return?  #line:0372a51 
     Red: Not sure. I will look around, but there's only a pipe for now. #line:073ad09
 <<set $pipe_open to true>>     
 ===

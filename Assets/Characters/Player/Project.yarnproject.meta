@@ -13,6 +13,11 @@ ScriptedImporter:
   - {fileID: 6391573757903218779, guid: 12bce373f132fda409c2903d561f117f, type: 3}
   - {fileID: 6391573757903218779, guid: 56f9dc8ed18e46646b625dd5fbfa2a91, type: 3}
   - {fileID: 6391573757903218779, guid: 8362bf394d12a1645806112a535793c2, type: 3}
+  - {fileID: 6391573757903218779, guid: 54a0bc5e458da34418760a7e3b1a621a, type: 3}
+  - {fileID: 6391573757903218779, guid: e2fd1669863200f4096a170ab3c2757e, type: 3}
+  - {fileID: 6391573757903218779, guid: 5ae001cbad46c9447ab69ddba5f824dc, type: 3}
+  - {fileID: 6391573757903218779, guid: a89b6b52358aaff4b871f28958cb2ecc, type: 3}
+  - {fileID: 6391573757903218779, guid: 983b3e121f1f2b6489946075e46b2b98, type: 3}
   compileErrors: []
   serializedDeclarations:
   - name: $name_reveal
@@ -23,6 +28,22 @@ ScriptedImporter:
     description: Implicitly declared in RedIntro.yarn, node RedIntro
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 93506f1b26744224687af5de0676c808, type: 3}
+  - name: $pipe_open
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in RedIntro.yarn, node RedPoliteMeet
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 93506f1b26744224687af5de0676c808, type: 3}
+  - name: $red_playable
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in RedSewers.yarn, node RedHelpMe
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 54a0bc5e458da34418760a7e3b1a621a, type: 3}
   defaultLanguage: en
   languagesToSourceAssets:
   - languageID: en

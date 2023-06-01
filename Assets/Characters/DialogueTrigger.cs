@@ -4,8 +4,9 @@ using Yarn.Unity;
 
 public enum DialogueType { ZimaDialogue, RedDialogue, Both }
 
-public class DialogueRunTrigger : BaseTrigger
+public class DialogueTrigger : BaseTrigger
 {
+    public string DialogueTriggerId;
     public string YarnScriptForZima;
     public string YarnScriptForRed;
     public UnityEvent OnDialogueEndedAction;
@@ -21,6 +22,10 @@ public class DialogueRunTrigger : BaseTrigger
         base.Awake();
         _playerDialogueManager = FindObjectOfType<PlayerDialogueManager>();
         _dialogueRunner = FindObjectOfType<DialogueRunner>();
+
+        YarnScriptForRed = DialogueTriggersManager.GetRedDialogue(DialogueTriggerId);
+        YarnScriptForZima = DialogueTriggersManager.GetZimaDialogue(DialogueTriggerId);
+        
     }
 
     public new void OnTriggerEnter2D(Collider2D entity)

@@ -28,8 +28,21 @@ public class Red : Player
 
         if (isDialogueHappened)
         {
-            FindObjectsOfType<DialogueRunTrigger>().Where(x => x.name.Equals(Constants.PipeDialogue)).First().IsActive = false;
+            FindObjectsOfType<DialogueTrigger>().Where(x => x.name.Equals(Constants.PipeDialogue)).First().IsActive = false;
             FindObjectsOfType<TeleportationTrigger>().Where(x => x.name.Equals(Constants.NextLevelTeleport)).First().IsActive = true;
+        }
+    }
+
+    public void RedSewersDialogueComplete()
+    {
+        VariableStorage.TryGetValue(YarnConstants.RedPlayable, out bool isDialogueHappened);
+
+        if (isDialogueHappened)
+        {
+            GetComponentInChildren<DialogueTrigger>().YarnScriptForZima = YarnConstants.RedGenericDialogue;
+            IsPlayableInScene = true;
+            FindObjectsOfType<TutorialTrigger>().All(x => x.IsActive = true);
+            GetComponentInChildren<DialogueTrigger>().OnDialogueEndedAction = null;
         }
     }
 }

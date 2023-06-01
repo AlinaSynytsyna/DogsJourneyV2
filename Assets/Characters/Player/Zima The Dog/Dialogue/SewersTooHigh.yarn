@@ -1,0 +1,15 @@
+title: SewersTooHigh
+---
+<<if visited("SewersTooHigh") is false>>
+    Zima: Dammit, too high. I can't jump that high. #line:1035853
+<<if visited("RedSewers") is true>>
+    Zima: Maybe Red can help me find an alterantive way out? #line:abc3932
+<<endif>>
+<<else>>
+<<if visited("RedSewers") is true>>
+    Zima: I need to ask Red to help me out. #line:03853ef
+<<else>>
+    Zima: What am I supposed to do?.. #line:184953e
+<<endif>>
+<<endif>>
+===

@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Yarn;
 using Yarn.Unity;
 
 public abstract class Player : MonoBehaviour
 {
+
     public string PlayerName;
     public float Speed;
     public int Health = 100;
     public float JumpForce;
+    public bool IsPlayableInScene;
     public bool IsPlayerActive = false;
     public bool IsUsingSpecialAbility = false;
     public bool IsWalking = false;
@@ -25,7 +26,7 @@ public abstract class Player : MonoBehaviour
     protected LevelInfo LevelInfo;
     protected float IdleTimer = 0;
     protected int IdleState = 0;
-    protected DialogueRunTrigger DialogueRunTrigger;
+    protected DialogueTrigger DialogueRunTrigger;
     protected IEnumerator Enumerator;
     protected InMemoryVariableStorage VariableStorage;
 
@@ -41,14 +42,13 @@ public abstract class Player : MonoBehaviour
         Animator = GetComponent<Animator>();
         Renderer = GetComponentInChildren<SpriteRenderer>();
         Collider = GetComponent<Collider2D>();
-        DialogueRunTrigger = GetComponentInChildren<DialogueRunTrigger>();
+        DialogueRunTrigger = GetComponentInChildren<DialogueTrigger>();
         CustomInput = CustomInputManager.GetCustomInputKeys();
         VariableStorage = FindObjectOfType<InMemoryVariableStorage>();
-
+        
         if (!LevelInfo.CheckIfTheCharacterIsPlayable(this))
         {
             MarkPlayerAsUnplayable();
-            enabled = false;
         }
         else if (LevelInfo.MainPlayableCharacter == PlayerName && LevelInfo.ActivePlayer == null)
         {
@@ -106,7 +106,9 @@ public abstract class Player : MonoBehaviour
             var playerStats = LevelManager.GetPlayerStats()[PlayerName];
             Health = playerStats.Health;
             transform.position = new Vector2(playerStats.PositionX, playerStats.PositionY);
+            IsPlayableInScene = playerStats.IsPlayableInScene;
             IsPlayerActive = playerStats.IsActive;
+
 
             if (IsPlayerActive)
             {
@@ -168,9 +170,9 @@ public abstract class Player : MonoBehaviour
 
     public void MarkPlayerAsUnplayable()
     {
+        enabled = false;
         IsPlayerActive = false;
-        transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 1);
-        DialogueRunTrigger.gameObject.SetActive(true);
+        transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 2);
 
         Enumerator = WaitForPlayerToLand();
         StartCoroutine(Enumerator);
@@ -181,8 +183,8 @@ public abstract class Player : MonoBehaviour
         IsPlayerActive = true;
         Collider.enabled = true;
         Rigidbody.isKinematic = false;
-        transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 1);
-        DialogueRunTrigger.gameObject.SetActive(false);
+        transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
+        enabled = true;
     }
 
     public void SwitchPlayerComponentsOff()
@@ -203,6 +205,7 @@ public abstract class Player : MonoBehaviour
             yield return null;
             if (IsOnTheGround())
             {
+                Rigidbody.velocity = Vector3.zero;
                 Invoke(nameof(SwitchPlayerComponentsOff), 0.3f);
             }
         }

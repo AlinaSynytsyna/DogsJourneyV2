@@ -135,7 +135,7 @@ public class CustomSettingsMenu : MonoBehaviour
         _customSettings.ScreenHeightValue = _availableResolutions[_resolutionsDropdown.value].height;
         _customSettings.RefreshRate = _availableResolutions[_resolutionsDropdown.value].refreshRate;
 
-        Screen.SetResolution(_customSettings.ScreenWidthValue, _customSettings.ScreenHeightValue, true, _customSettings.RefreshRate);
+        Screen.SetResolution(_customSettings.ScreenWidthValue, _customSettings.ScreenHeightValue, _customSettings.IsFullscreen, _customSettings.RefreshRate);
     }
 
     public void ChangeLanguage()

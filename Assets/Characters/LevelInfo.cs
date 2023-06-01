@@ -22,6 +22,7 @@ public class LevelInfo : MonoBehaviour
         if (!LevelManager.IsReloadingLevel)
         {
             HealingObjectsManager.GetAllHealingObjects();
+            DialogueTriggersManager.LoadAllDialogueTriggers();
         }
     }
 
@@ -46,16 +47,20 @@ public class LevelInfo : MonoBehaviour
 
     public bool CheckIfTheCharacterIsPlayable(Player playerName)
     {
-        return PlayableCharacters.Contains(playerName);
+        return PlayableCharacters.Contains(playerName) && playerName.IsPlayableInScene;
     }
 
     public void SwitchCharacter()
     {
-        _playerCamera.FadeCameraInShort();
-        ActivePlayer.MarkPlayerAsUnplayable();
         var activePlayerIndex = PlayableCharacters.IndexOf(ActivePlayer) + 1 != PlayableCharacters.Count ? PlayableCharacters.IndexOf(ActivePlayer) + 1 : 0;
-        ActivePlayer = PlayableCharacters[activePlayerIndex];
-        Invoke(nameof(GetControlOfACharacter), 0.5f);
+
+        if (PlayableCharacters[activePlayerIndex].IsPlayableInScene)
+        {
+            _playerCamera.FadeCameraInShort();
+            ActivePlayer.MarkPlayerAsUnplayable();
+            ActivePlayer = PlayableCharacters[activePlayerIndex];
+            Invoke(nameof(GetControlOfACharacter), 0.5f);
+        }
     }
 
     public void GetControlOfACharacter()

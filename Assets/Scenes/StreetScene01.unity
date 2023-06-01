@@ -1301,7 +1301,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189603921}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -1}
+  m_LocalPosition: {x: 0, y: 1.5, z: -1}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3875,7 +3875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4588464625209520613, guid: ba8a6d80fdd9b014da16f0c566a5566f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4588464625209520613, guid: ba8a6d80fdd9b014da16f0c566a5566f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4638,6 +4638,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7740703909877190757, guid: 6375fae79cfc55645985d058ae409699, type: 3}
+      propertyPath: IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740703909877190757, guid: 6375fae79cfc55645985d058ae409699, type: 3}
       propertyPath: TriggerStateChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -5016,7 +5020,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820585624}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -1}
+  m_LocalPosition: {x: 0, y: 1.5, z: -1}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5253,8 +5257,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876679192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40, y: 20, z: 29}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 52, y: 20, z: 29}
+  m_LocalScale: {x: 3, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1006842228}
@@ -6078,6 +6082,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
       propertyPath: State
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
+      propertyPath: IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1749603220295955864, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
@@ -7063,6 +7071,10 @@ PrefabInstance:
       propertyPath: State
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
+      propertyPath: IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1749603220295955864, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
       propertyPath: m_Name
       value: TutorialTriggerSave
@@ -7468,6 +7480,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 709773699037817863, guid: ccca0fe2997306443936f0ef9d34c4b3, type: 3}
+      propertyPath: CameraMaxPosition
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 709773699037817863, guid: ccca0fe2997306443936f0ef9d34c4b3, type: 3}
+      propertyPath: CameraMinPosition
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 709773699037817863, guid: ccca0fe2997306443936f0ef9d34c4b3, type: 3}
+      propertyPath: CameraUpShiftPosition
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 709773699037817863, guid: ccca0fe2997306443936f0ef9d34c4b3, type: 3}
+      propertyPath: CameraVerticalShiftPosition
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2690142152959638624, guid: ccca0fe2997306443936f0ef9d34c4b3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7510,6 +7538,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292657647820347635, guid: ccca0fe2997306443936f0ef9d34c4b3, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3579681404623992124, guid: ccca0fe2997306443936f0ef9d34c4b3, type: 3}
+      propertyPath: startNode
+      value: ZimaIntro
+      objectReference: {fileID: 0}
+    - target: {fileID: 3579681404623992124, guid: ccca0fe2997306443936f0ef9d34c4b3, type: 3}
+      propertyPath: startAutomatically
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4085630721535922756, guid: ccca0fe2997306443936f0ef9d34c4b3, type: 3}
@@ -8003,6 +8039,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1187164799, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
+      propertyPath: YarnScriptForZima
+      value: RedIntro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187164799, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
+      propertyPath: OnDialogueEndedAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RedIntroDialogueComplete
+      objectReference: {fileID: 0}
     - target: {fileID: 5870281678206199523, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
       propertyPath: m_Name
       value: Red The Cat (1)
@@ -8021,7 +8065,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5870281678206199527, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5870281678206199527, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8434,7 +8478,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286596736}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27, y: -11.5, z: 0}
+  m_LocalPosition: {x: -27, y: -11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8455,6 +8499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsActive: 1
+  DialogueTriggerId: 4131c9ea-f54f-484e-9189-36a209d047c2
   YarnScriptForZima: ZimaIntro
   YarnScriptForRed: 
   OnDialogueEndedAction:
@@ -11030,6 +11075,10 @@ PrefabInstance:
       propertyPath: State
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
+      propertyPath: IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1749603220295955864, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
       propertyPath: m_Name
       value: TutorialTriggerSpecial
@@ -11716,6 +11765,10 @@ PrefabInstance:
       propertyPath: State
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
+      propertyPath: IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1749603220295955864, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
       propertyPath: m_Name
       value: TutorialTriggerHealing
@@ -11858,6 +11911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsActive: 1
+  DialogueTriggerId: 78277e37-8974-455b-9210-0bd2f697fc29
   YarnScriptForZima: DistantCity
   YarnScriptForRed: 
   OnDialogueEndedAction:
@@ -14396,6 +14450,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1006842228}
     m_Modifications:
+    - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
+      propertyPath: IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1749603220295955864, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
       propertyPath: m_Name
       value: TutorialTriggerMoving
@@ -14453,6 +14511,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1022203687}
     m_Modifications:
+    - target: {fileID: 4567983946021768661, guid: 165da7ec788373440a7dff8298c29b42, type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4567983946021768666, guid: 165da7ec788373440a7dff8298c29b42, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -14510,6 +14572,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1247146625}
     m_Modifications:
+    - target: {fileID: 5081060072375299136, guid: 6e49c0a4d5b6e604e9369dcf1a0c3f34, type: 3}
+      propertyPath: DialogueType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081060072375299136, guid: 6e49c0a4d5b6e604e9369dcf1a0c3f34, type: 3}
+      propertyPath: YarnScriptForRed
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081060072375299136, guid: 6e49c0a4d5b6e604e9369dcf1a0c3f34, type: 3}
+      propertyPath: DialogueTriggerId
+      value: 54f54bee-7ee2-40f3-8f9d-5151f3e2fda2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081060072375299136, guid: 6e49c0a4d5b6e604e9369dcf1a0c3f34, type: 3}
+      propertyPath: YarnScriptForZima
+      value: Pipe
+      objectReference: {fileID: 0}
     - target: {fileID: 5081060072375299137, guid: 6e49c0a4d5b6e604e9369dcf1a0c3f34, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -14707,6 +14785,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1686324697}
     m_Modifications:
+    - target: {fileID: 7740703909877190757, guid: 6375fae79cfc55645985d058ae409699, type: 3}
+      propertyPath: IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7740703909877190758, guid: 6375fae79cfc55645985d058ae409699, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -14717,7 +14799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7740703909877190758, guid: 6375fae79cfc55645985d058ae409699, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.5
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 7740703909877190758, guid: 6375fae79cfc55645985d058ae409699, type: 3}
       propertyPath: m_LocalPosition.z
