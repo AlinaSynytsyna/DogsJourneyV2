@@ -111,7 +111,7 @@ public class CustomSettingsMenu : MonoBehaviour
 
     public void ChangeMusicVolume()
     {
-        var musicLabel = KnotLocalization.GetText(LocalizationConstants.EffectsLabel);
+        var musicLabel = KnotLocalization.GetText(LocalizationConstants.MusicLabel);
         var currentMusicVolume = _musicSlider.value;
         MusicMixer.SetFloat(Constants.AudioVolume, currentMusicVolume);
 

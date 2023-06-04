@@ -16,14 +16,16 @@ public class HealingObject : BaseTrigger
         {
             ActivePlayer = FindActivePlayer();
 
-            if (ActivePlayer.Health < 100)
+            if (ActivePlayer.Health < 100 && HealingObjectsManager.IsHealingObjectActive(HealingObjectId))
             {
+                HealingObjectsManager.MarkHealingObjectAsDestroyed(HealingObjectId);
                 ActivePlayer.Health += 10;
 
                 if (ActivePlayer.Health > 100)
                     ActivePlayer.Health = 100;
 
-                HealingObjectsManager.MarkHealingObjectAsDestroyed(HealingObjectId);
+
+                enabled = false;
                 Destroy(gameObject, 0.15f);
             }
         }
