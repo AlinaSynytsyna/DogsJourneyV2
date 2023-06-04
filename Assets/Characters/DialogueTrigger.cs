@@ -30,7 +30,7 @@ public class DialogueTrigger : BaseTrigger
 
     public new void OnTriggerEnter2D(Collider2D entity)
     {
-        if (entity.tag == PlayerEntityTag && IsActive)
+        if (entity.CompareTag(PlayerEntityTag) && IsActive)
         {
             ActivePlayer = FindActivePlayer();
 
@@ -56,7 +56,7 @@ public class DialogueTrigger : BaseTrigger
 
     public void OnTriggerStay2D(Collider2D entity)
     {
-        if (entity.tag == PlayerEntityTag && IsActive)
+        if (entity.CompareTag(PlayerEntityTag) && IsActive)
         {
             ActivePlayer = FindActivePlayer();
 
@@ -73,7 +73,7 @@ public class DialogueTrigger : BaseTrigger
 
     public new void OnTriggerExit2D(Collider2D entity)
     {
-        if (entity.tag == PlayerEntityTag && IsActive)
+        if (entity.CompareTag(PlayerEntityTag) && IsActive)
         {
             ActivePlayer = null;
             _isShowingIcon = false;

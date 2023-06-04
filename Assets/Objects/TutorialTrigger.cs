@@ -23,7 +23,7 @@ public class TutorialTrigger : BaseTrigger
 
     public new void OnTriggerEnter2D(Collider2D entity)
     {
-        if (entity.tag == PlayerEntityTag && IsActive)
+        if (entity.CompareTag(PlayerEntityTag) && IsActive)
         {
             CheckText();
             _tutorialCanvas.worldCamera = FindObjectOfType<PlayerCamera>().GetCamera();
@@ -33,7 +33,7 @@ public class TutorialTrigger : BaseTrigger
 
     public new void OnTriggerExit2D(Collider2D entity)
     {
-        if (entity.tag == PlayerEntityTag && IsActive)
+        if (entity.CompareTag(PlayerEntityTag) && IsActive)
         {
             ActivePlayer = null;
             _tutorialCanvas.worldCamera = null;

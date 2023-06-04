@@ -12,7 +12,7 @@ public class HealingObject : BaseTrigger
 
     public new void OnTriggerEnter2D(Collider2D entity)
     {
-        if (entity.tag == PlayerEntityTag)
+        if (entity.CompareTag(PlayerEntityTag))
         {
             ActivePlayer = FindActivePlayer();
 
@@ -33,7 +33,7 @@ public class HealingObject : BaseTrigger
 
     public new void OnTriggerExit2D(Collider2D entity)
     {
-        if (entity.tag == PlayerEntityTag)
+        if (entity.CompareTag(PlayerEntityTag))
         {
             ActivePlayer = null;
         }

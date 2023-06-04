@@ -26,7 +26,7 @@ public abstract class BaseTrigger : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D entity)
     {
-        if (entity.tag == PlayerEntityTag && IsActive)
+        if (entity.CompareTag(PlayerEntityTag) && IsActive)
         {
             ActivePlayer = FindActivePlayer();
 
@@ -37,7 +37,7 @@ public abstract class BaseTrigger : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D entity)
     {
-        if (entity.tag == PlayerEntityTag && IsActive)
+        if (entity.CompareTag(PlayerEntityTag) && IsActive)
         {
             ActivePlayer = null;
             Renderer.gameObject.SetActive(false);

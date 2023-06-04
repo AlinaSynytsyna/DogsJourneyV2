@@ -21,7 +21,7 @@ public class TeleportationTrigger : BaseTrigger
 
     public void OnTriggerStay2D(Collider2D entity)
     {
-        if (entity.tag == PlayerEntityTag && IsActive)
+        if (entity.CompareTag(PlayerEntityTag) && IsActive)
         {
             ActivePlayer = FindActivePlayer();
 
