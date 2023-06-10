@@ -6,13 +6,14 @@ public class HealingObject : BaseTrigger
 
     public new void Awake()
     {
+        Renderer = GetComponent<SpriteRenderer>();
         Trigger = GetComponent<CircleCollider2D>();
-        Invoke(nameof(CheckIfHealingObjectIsDestroyed), 0.2f);
+        CheckIfHealingObjectIsDestroyed();
     }
 
     public new void OnTriggerEnter2D(Collider2D entity)
     {
-        if (entity.CompareTag(PlayerEntityTag))
+        if (entity.CompareTag(PlayerEntityTag) && IsActive)
         {
             ActivePlayer = FindActivePlayer();
 
@@ -24,9 +25,10 @@ public class HealingObject : BaseTrigger
                 if (ActivePlayer.Health > 100)
                     ActivePlayer.Health = 100;
 
+                Renderer.enabled = false;
+                Trigger.enabled = false;
 
-                enabled = false;
-                Destroy(gameObject, 0.15f);
+                IsActive = false;
             }
         }
     }
@@ -41,9 +43,9 @@ public class HealingObject : BaseTrigger
 
     public void CheckIfHealingObjectIsDestroyed()
     {
-        if(!HealingObjectsManager.IsHealingObjectActive(HealingObjectId))
-        {
-            Destroy(gameObject);
-        }
+        IsActive = HealingObjectsManager.IsHealingObjectActive(HealingObjectId);
+        Debug.Log(IsActive);
+        Renderer.enabled = IsActive;
+        Trigger.enabled = IsActive;
     }
 }

@@ -17,10 +17,10 @@ public class LevelInfo : MonoBehaviour
     {
         _customInput = CustomInputManager.GetCustomInputKeys();
         _playerCamera = FindObjectOfType<PlayerCamera>();
-        LevelManager.GetLevelInfo();
-        GameObject.FindObjectOfType<DialogueRunner>().LoadStateFromPlayerPrefs(Constants.SaveKey);
         if (!LevelManager.IsReloadingLevel)
         {
+            LevelManager.GetLevelInfo();
+            GameObject.FindObjectOfType<DialogueRunner>().LoadStateFromPlayerPrefs(Constants.SaveKey);
             HealingObjectsManager.GetAllHealingObjects();
             DialogueTriggersManager.LoadAllDialogueTriggers();
         }

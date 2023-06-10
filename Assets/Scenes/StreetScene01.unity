@@ -1852,6 +1852,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 223425743}
     m_Modifications:
     - target: {fileID: 8407580013051834613, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
+      propertyPath: IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407580013051834613, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
       propertyPath: HealingObjectId
       value: 7e4c2c38-cdaf-4c4d-a174-15062df99df0
       objectReference: {fileID: 0}
@@ -14084,6 +14088,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1233020285}
     m_Modifications:
+    - target: {fileID: 8407580013051834613, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
+      propertyPath: IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8407580013051834614, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class HealingObjectsManager
@@ -7,7 +8,10 @@ public static class HealingObjectsManager
 
     public static void GetAllHealingObjects()
     {
-        HealingObjects = LevelManager.GetHealingObjects();
+        if (!LevelManager.IsReloadingLevel)
+        {
+            HealingObjects = LevelManager.GetHealingObjects();
+        }
 
         if (HealingObjects is null)
         {
@@ -29,6 +33,12 @@ public static class HealingObjectsManager
     public static void MarkHealingObjectAsActive(string healingObjectId)
     {
         HealingObjects[healingObjectId] = true;
+    }
+
+    public static void MarkAllHealingObjectsAsActive()
+    {
+        foreach (var key in HealingObjects.Keys.ToList())
+            MarkHealingObjectAsActive(key);
     }
 
     public static void SaveHealingObjects()

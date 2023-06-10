@@ -59,6 +59,7 @@ public class PauseMenuController : MonoBehaviour
     {
         Time.timeScale = 1;
         LevelManager.IsReloadingLevel = true;
+        HealingObjectsManager.MarkAllHealingObjectsAsActive();
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
