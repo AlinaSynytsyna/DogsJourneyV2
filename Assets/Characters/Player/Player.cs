@@ -115,7 +115,7 @@ public abstract class Player : MonoBehaviour
 
             if (IsPlayerActive)
             {
-                MarkPlayerAsPlayable();
+                Invoke(nameof(MarkPlayerAsPlayable), 0.2f);
                 LevelInfo.ActivePlayer = this;
             }
 
@@ -173,7 +173,7 @@ public abstract class Player : MonoBehaviour
 
     public void MarkPlayerAsUnplayable()
     {
-        enabled = false;
+        //enabled = false;
         IsPlayerActive = false;
         transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 2);
 
@@ -208,9 +208,8 @@ public abstract class Player : MonoBehaviour
             yield return null;
             if (IsOnTheGround())
             {
-                Debug.Log("true");
                 Rigidbody.velocity = Vector3.zero;
-                Invoke(nameof(SwitchPlayerComponentsOff), 0.1f);
+                Invoke(nameof(SwitchPlayerComponentsOff), 0.05f);
                 break;
             }
         }

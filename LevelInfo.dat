@@ -1,14 +1,14 @@
 {
   "PlayerStats": {
     "Zima": {
-      "IsActive": true,
+      "IsActive": false,
       "Health": 80,
-      "PositionX": 44.9167938,
+      "PositionX": 45.8069954,
       "PositionY": 34.405014,
       "IsPlayableInScene": true
     },
     "Red": {
-      "IsActive": false,
+      "IsActive": true,
       "Health": 100,
       "PositionX": 50.0,
       "PositionY": 34.65499,
@@ -25,11 +25,6 @@
     "6fb48bcd-1fbd-418b-82d9-d9decc2bb64a": true
   },
   "DialogueTriggers": {
-    "6467e597-700e-4a20-9522-066641c0a9bc": {
-      "ZimaDialogue": "SewersTooHigh",
-      "RedDialogue": "RedPlatformTooHighCommentary",
-      "IsActive": true
-    },
     "9f94a2e9-c074-43f7-a57b-adf46ba98900": {
       "ZimaDialogue": "",
       "RedDialogue": "ZimaGeneric",
@@ -38,6 +33,11 @@
     "0298ff65-56ce-40b1-90b6-541d77cdd311": {
       "ZimaDialogue": "RedGeneric",
       "RedDialogue": "",
+      "IsActive": true
+    },
+    "6467e597-700e-4a20-9522-066641c0a9bc": {
+      "ZimaDialogue": "SewersTooHigh",
+      "RedDialogue": "RedPlatformTooHighCommentary",
       "IsActive": true
     }
   },
