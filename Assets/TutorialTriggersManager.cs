@@ -27,7 +27,6 @@ public class TutorialTriggersManager
 
         foreach (var key in keys)
         {
-            Debug.Log(key.Id + key.IsActive);
             TutorialTriggers.Add(key.Id, key.IsActive);
         }
     }
