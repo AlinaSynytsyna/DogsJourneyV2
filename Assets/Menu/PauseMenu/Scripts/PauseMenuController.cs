@@ -71,7 +71,9 @@ public class PauseMenuController : MonoBehaviour
         GameObject.FindObjectOfType<DialogueRunner>().SaveStateToPlayerPrefs(Constants.SaveKey);
         LevelManager.SavePlayers();
         HealingObjectsManager.SaveHealingObjects();
-        DialogueTriggersManager.SaveHealingObjects();
+        DialogueTriggersManager.SaveDialogueTriggers();
+        TutorialTriggersManager.SaveTutorialTriggers();
+        TeleportTriggersManager.SaveTeleportTriggers();
         LevelManager.SaveLevelIndex();
         LevelManager.SaveLevelInfo();
 

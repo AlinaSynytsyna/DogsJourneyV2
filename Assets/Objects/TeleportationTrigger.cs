@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 public class TeleportationTrigger : BaseTrigger
 {
@@ -11,6 +12,13 @@ public class TeleportationTrigger : BaseTrigger
     public float TeleportPositionY;
 
     private PlayerCamera _playerCamera;
+
+    public new void Awake()
+    {
+        base.Awake();
+
+        IsActive = TeleportTriggersManager.GetIsTeleportTriggerActive(Id);
+    }
 
     public new void OnTriggerEnter2D(Collider2D entity)
     {
@@ -59,6 +67,15 @@ public class TeleportationTrigger : BaseTrigger
 
     private IEnumerator LoadNextLevel(float delay)
     {
+        FindObjectOfType<DialogueRunner>().SaveStateToPlayerPrefs(Constants.SaveKey);
+        LevelManager.SavePlayers();
+        HealingObjectsManager.SaveHealingObjects();
+        DialogueTriggersManager.SaveDialogueTriggers();
+        TeleportTriggersManager.SaveTeleportTriggers();
+        TutorialTriggersManager.SaveTutorialTriggers();
+        LevelManager.SaveLevelIndex();
+        LevelManager.SaveLevelInfo();
+
         _playerCamera.FadeCameraIn();
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

@@ -76,13 +76,41 @@ public static class LevelManager
         }
     }
 
-    public static Dictionary<string, DialogueNames> GetDialogueTriggers()
+    public static Dictionary<string, bool> GetTeleportTriggers()
+    {
+        try
+        {
+            var teleportTriggersJObject = LevelInfoJObject[Constants.TeleportTriggers];
+
+            return teleportTriggersJObject.ToObject<Dictionary<string, bool>>();
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    public static Dictionary<string, bool> GetTutorialTriggers()
+    {
+        try
+        {
+            var tutorialTriggersJObject = LevelInfoJObject[Constants.TutorialTriggers];
+
+            return tutorialTriggersJObject.ToObject<Dictionary<string, bool>>();
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    public static Dictionary<string, DialogueStats> GetDialogueTriggers()
     {
         try
         {
             var dialogueTriggersJObject = LevelInfoJObject[Constants.DialogueTriggers];
 
-            return dialogueTriggersJObject.ToObject<Dictionary<string, DialogueNames>>();
+            return dialogueTriggersJObject.ToObject<Dictionary<string, DialogueStats>>();
         }
         catch
         {
@@ -104,7 +132,7 @@ public static class LevelManager
         }
     }
 
-    public static void SaveDialogueTriggers(Dictionary<string, DialogueNames> dialogueTriggersDictionary)
+    public static void SaveDialogueTriggers(Dictionary<string, DialogueStats> dialogueTriggersDictionary)
     {
         var dialogueTriggersJObject = JObject.Parse(JsonConvert.SerializeObject(dialogueTriggersDictionary, Formatting.Indented));
 
@@ -129,6 +157,34 @@ public static class LevelManager
         catch
         {
             LevelInfoJObject.Add(healingObjectsJObject);
+        }
+    }
+
+    public static void SaveTeleportTriggers(Dictionary<string, bool> teleportTriggersDictionary)
+    {
+        var teleportTriggersJObject = JObject.Parse(JsonConvert.SerializeObject(teleportTriggersDictionary, Formatting.Indented));
+
+        try
+        {
+            LevelInfoJObject[Constants.TeleportTriggers] = teleportTriggersJObject;
+        }
+        catch
+        {
+            LevelInfoJObject.Add(teleportTriggersJObject);
+        }
+    }
+
+    public static void SaveTutorialTriggers(Dictionary<string, bool> tutorialTriggersDictionary)
+    {
+        var tutorialTriggersJObject = JObject.Parse(JsonConvert.SerializeObject(tutorialTriggersDictionary, Formatting.Indented));
+
+        try
+        {
+            LevelInfoJObject[Constants.TutorialTriggers] = tutorialTriggersJObject;
+        }
+        catch
+        {
+            LevelInfoJObject.Add(tutorialTriggersJObject);
         }
     }
 

@@ -105,10 +105,13 @@ public abstract class Player : MonoBehaviour
         {
             var playerStats = LevelManager.GetPlayerStats()[PlayerName];
             Health = playerStats.Health;
-            transform.position = new Vector2(playerStats.PositionX, playerStats.PositionY);
             IsPlayableInScene = playerStats.IsPlayableInScene;
             IsPlayerActive = playerStats.IsActive;
 
+            if (LevelManager.GetLevelIndex() == SceneManager.GetActiveScene().buildIndex)
+            {
+                transform.position = new Vector2(playerStats.PositionX, playerStats.PositionY);
+            }
 
             if (IsPlayerActive)
             {
@@ -205,8 +208,10 @@ public abstract class Player : MonoBehaviour
             yield return null;
             if (IsOnTheGround())
             {
+                Debug.Log("true");
                 Rigidbody.velocity = Vector3.zero;
-                Invoke(nameof(SwitchPlayerComponentsOff), 0.3f);
+                Invoke(nameof(SwitchPlayerComponentsOff), 0.1f);
+                break;
             }
         }
     }

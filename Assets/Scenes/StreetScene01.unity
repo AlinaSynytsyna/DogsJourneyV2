@@ -1852,12 +1852,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 223425743}
     m_Modifications:
     - target: {fileID: 8407580013051834613, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
+      propertyPath: Id
+      value: 7e4c2c38-cdaf-4c4d-a174-15062df99df0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407580013051834613, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
       propertyPath: IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8407580013051834613, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
       propertyPath: HealingObjectId
-      value: 7e4c2c38-cdaf-4c4d-a174-15062df99df0
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8407580013051834613, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
       propertyPath: healingObjectId
@@ -2160,6 +2164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsActive: 1
+  Id: 04d74e8d-68b3-4a42-ba4a-cdd1e07ca3fb
   State: 0
   TeleportPositionX: -20
   TeleportPositionY: -12
@@ -3833,6 +3838,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2020533636301977376, guid: ba8a6d80fdd9b014da16f0c566a5566f, type: 3}
+      propertyPath: Id
+      value: 9f94a2e9-c074-43f7-a57b-adf46ba98900
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020533636301977376, guid: ba8a6d80fdd9b014da16f0c566a5566f, type: 3}
+      propertyPath: DialogueTriggerId
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4588464625209520613, guid: ba8a6d80fdd9b014da16f0c566a5566f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4637,6 +4650,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1686324697}
     m_Modifications:
+    - target: {fileID: 7740703909877190757, guid: 6375fae79cfc55645985d058ae409699, type: 3}
+      propertyPath: Id
+      value: a97be8fc-a663-431c-85d3-d7fcc903eb82
+      objectReference: {fileID: 0}
     - target: {fileID: 7740703909877190757, guid: 6375fae79cfc55645985d058ae409699, type: 3}
       propertyPath: State
       value: 1
@@ -6085,6 +6102,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1330742283}
     m_Modifications:
     - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
+      propertyPath: Id
+      value: 95948e6a-bdc5-439b-8ec5-5013d28287bc
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
       propertyPath: State
       value: 1
       objectReference: {fileID: 0}
@@ -7072,6 +7093,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1330742283}
     m_Modifications:
     - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
+      propertyPath: Id
+      value: efab07a8-19b2-4950-8c6b-b763d6d58f78
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
       propertyPath: State
       value: 6
       objectReference: {fileID: 0}
@@ -8044,6 +8069,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1187164799, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
+      propertyPath: Id
+      value: 0298ff65-56ce-40b1-90b6-541d77cdd311
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187164799, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
+      propertyPath: DialogueTriggerId
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187164799, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
       propertyPath: YarnScriptForZima
       value: RedIntro
       objectReference: {fileID: 0}
@@ -8503,7 +8536,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsActive: 1
-  DialogueTriggerId: 4131c9ea-f54f-484e-9189-36a209d047c2
+  Id: 4131c9ea-f54f-484e-9189-36a209d047c2
+  DialogueTriggerId: 
   YarnScriptForZima: ZimaIntro
   YarnScriptForRed: 
   OnDialogueEndedAction:
@@ -11076,6 +11110,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1330742283}
     m_Modifications:
     - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
+      propertyPath: Id
+      value: d383a4d0-667b-4c7d-8b2d-c47312a3cbb9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
       propertyPath: State
       value: 2
       objectReference: {fileID: 0}
@@ -11766,6 +11804,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1330742283}
     m_Modifications:
     - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
+      propertyPath: Id
+      value: db3f3fdb-2ea0-403b-8cf5-af978842b257
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
       propertyPath: State
       value: 4
       objectReference: {fileID: 0}
@@ -11915,7 +11957,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsActive: 1
-  DialogueTriggerId: 78277e37-8974-455b-9210-0bd2f697fc29
+  Id: 78277e37-8974-455b-9210-0bd2f697fc29
+  DialogueTriggerId: 
   YarnScriptForZima: DistantCity
   YarnScriptForRed: 
   OnDialogueEndedAction:
@@ -14089,8 +14132,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1233020285}
     m_Modifications:
     - target: {fileID: 8407580013051834613, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
+      propertyPath: Id
+      value: 4360426a-ddda-4c2d-96b7-52c19d21462e
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407580013051834613, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
       propertyPath: IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407580013051834613, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
+      propertyPath: HealingObjectId
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8407580013051834614, guid: 03114cbf787af3147bd9fdffe34b56fc, type: 3}
       propertyPath: m_RootOrder
@@ -14459,6 +14510,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1006842228}
     m_Modifications:
     - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
+      propertyPath: Id
+      value: 4449428f-b170-4cba-afc3-e13e6e0a731c
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749603220295955844, guid: 0a352495f1eb8794d9ea6e02be6e5846, type: 3}
       propertyPath: IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -14581,6 +14636,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1247146625}
     m_Modifications:
     - target: {fileID: 5081060072375299136, guid: 6e49c0a4d5b6e604e9369dcf1a0c3f34, type: 3}
+      propertyPath: Id
+      value: 54f54bee-7ee2-40f3-8f9d-5151f3e2fda2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081060072375299136, guid: 6e49c0a4d5b6e604e9369dcf1a0c3f34, type: 3}
       propertyPath: DialogueType
       value: 0
       objectReference: {fileID: 0}
@@ -14590,7 +14649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5081060072375299136, guid: 6e49c0a4d5b6e604e9369dcf1a0c3f34, type: 3}
       propertyPath: DialogueTriggerId
-      value: 54f54bee-7ee2-40f3-8f9d-5151f3e2fda2
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5081060072375299136, guid: 6e49c0a4d5b6e604e9369dcf1a0c3f34, type: 3}
       propertyPath: YarnScriptForZima
@@ -14793,6 +14852,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1686324697}
     m_Modifications:
+    - target: {fileID: 7740703909877190757, guid: 6375fae79cfc55645985d058ae409699, type: 3}
+      propertyPath: Id
+      value: 892e488f-47e3-492b-8816-a4e61c389957
+      objectReference: {fileID: 0}
     - target: {fileID: 7740703909877190757, guid: 6375fae79cfc55645985d058ae409699, type: 3}
       propertyPath: IsActive
       value: 1

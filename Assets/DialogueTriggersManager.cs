@@ -1,13 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class DialogueTriggersManager
 {
-    private static Dictionary<string, DialogueNames> DialogueTriggers;
+    private static Dictionary<string, DialogueStats> DialogueTriggers;
 
     public static void LoadAllDialogueTriggers()
     {
-        DialogueTriggers = LevelManager.GetDialogueTriggers();
+        DialogueTriggers = null;
+        if (!LevelManager.IsReloadingLevel && LevelManager.GetLevelIndex() == SceneManager.GetActiveScene().buildIndex)
+        {
+            DialogueTriggers = LevelManager.GetDialogueTriggers();
+        }
 
         if (DialogueTriggers is null)
         {
@@ -22,17 +27,18 @@ public static class DialogueTriggersManager
 
         foreach (var key in keys)
         {
-            var dialogueNames = new DialogueNames
+            var dialogueNames = new DialogueStats
             {
                 ZimaDialogue = key.YarnScriptForZima,
                 RedDialogue = key.YarnScriptForRed,
+                IsActive = key.IsActive,
             };
 
-            DialogueTriggers.Add(key.DialogueTriggerId, dialogueNames);
+            DialogueTriggers.Add(key.Id, dialogueNames);
         }
     }
 
-    public static void SaveHealingObjects()
+    public static void SaveDialogueTriggers()
     {
         GetAllDialogueTriggers();
         LevelManager.SaveDialogueTriggers(DialogueTriggers);
@@ -46,5 +52,10 @@ public static class DialogueTriggersManager
     public static string GetRedDialogue(string dialogueTriggerId)
     {
         return DialogueTriggers[dialogueTriggerId].RedDialogue;
+    }
+
+    public static bool GetIsDialogueTriggerActive(string dialogueTriggerId)
+    {
+        return DialogueTriggers[dialogueTriggerId].IsActive;
     }
 }

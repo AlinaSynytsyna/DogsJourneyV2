@@ -1,7 +1,9 @@
 ﻿using Knot.Localization;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Yarn.Unity;
 
 public class LevelInfo : MonoBehaviour
@@ -17,12 +19,14 @@ public class LevelInfo : MonoBehaviour
     {
         _customInput = CustomInputManager.GetCustomInputKeys();
         _playerCamera = FindObjectOfType<PlayerCamera>();
+        LevelManager.GetLevelInfo();
+        HealingObjectsManager.GetAllHealingObjects();
+        TeleportTriggersManager.LoadAllTeleportTriggers();
+        TutorialTriggersManager.LoadAllTutorialTriggers();
+        DialogueTriggersManager.LoadAllDialogueTriggers();
         if (!LevelManager.IsReloadingLevel)
         {
-            LevelManager.GetLevelInfo();
             GameObject.FindObjectOfType<DialogueRunner>().LoadStateFromPlayerPrefs(Constants.SaveKey);
-            HealingObjectsManager.GetAllHealingObjects();
-            DialogueTriggersManager.LoadAllDialogueTriggers();
         }
     }
 

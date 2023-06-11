@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class HealingObjectsManager
 {
@@ -8,7 +9,8 @@ public static class HealingObjectsManager
 
     public static void GetAllHealingObjects()
     {
-        if (!LevelManager.IsReloadingLevel)
+        HealingObjects = null;
+        if (!LevelManager.IsReloadingLevel && LevelManager.GetLevelIndex() == SceneManager.GetActiveScene().buildIndex)
         {
             HealingObjects = LevelManager.GetHealingObjects();
         }
@@ -20,7 +22,7 @@ public static class HealingObjectsManager
 
             foreach (var key in keys)
             {
-                HealingObjects.Add(key.HealingObjectId, true);
+                HealingObjects.Add(key.Id, key.IsActive);
             }
         }
     }

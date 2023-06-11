@@ -18,6 +18,8 @@ public class TutorialTrigger : BaseTrigger
         _tutorialCanvas = GetComponentInChildren<Canvas>();
         _tutorialCanvas.gameObject.SetActive(false);
 
+        IsActive = TutorialTriggersManager.GetIsTutorialTriggerActive(Id);
+
         CheckText();
     }
 

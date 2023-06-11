@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class BaseTrigger : MonoBehaviour
 {
     public bool IsActive;
-
+    public string Id;
     protected Player ActivePlayer;
     protected const string PlayerEntityTag = nameof(Player);
     protected CustomInput CustomInput;

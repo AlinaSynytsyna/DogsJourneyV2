@@ -2,6 +2,8 @@
 {
     public static readonly string HealingObjects = "HealingObjects";
     public static readonly string DialogueTriggers = "DialogueTriggers";
+    public static readonly string TeleportTriggers = "TeleportTriggers";
+    public static readonly string TutorialTriggers = "TutoriaTriggers";
     public static readonly string PlayerStats = "PlayerStats";
     public static readonly string LevelInfo = "LevelInfo";
     public static readonly string LevelIndex = "LevelIndex";
