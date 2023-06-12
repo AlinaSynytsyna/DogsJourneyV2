@@ -13,17 +13,18 @@ public static class LevelManager
 
     public static bool HasInformation => LevelInfoJObject != null && (LevelInfoJObject[Constants.LevelInfo] != null || LevelInfoJObject[Constants.PlayerStats] != null || LevelInfoJObject[Constants.HealingObjects] != null);
 
-    private static readonly string _healingObjectsPathRelease = $"{Application.streamingAssetsPath}/LevelInfo.dat";
+    public static readonly string LevelInfoPathRelease = $"{Application.streamingAssetsPath}/LevelInfo.dat";
 
-    private static readonly string _healingObjectsPathDebug = $"{Directory.GetCurrentDirectory()}/LevelInfo.dat";
+    public static readonly string LevelInfoPathDebug = $"{Directory.GetCurrentDirectory()}/LevelInfo.dat";
 
     public static void DeleteSaveFile()
     {
-        var path = Application.isEditor ? _healingObjectsPathDebug : _healingObjectsPathRelease;
+        var path = Application.isEditor ? LevelInfoPathDebug : LevelInfoPathRelease;
 
         try
         {
             File.Delete(path);
+            PlayerPrefs.DeleteKey(Constants.SaveKey);
         }
         catch
         {
@@ -31,9 +32,19 @@ public static class LevelManager
         }
     }
 
+    public static void CLearPlayerPrefsIfSaveFileIsDeleted()
+    {
+        var path = Application.isEditor ? LevelInfoPathDebug : LevelInfoPathRelease;
+
+        if(!File.Exists(path))
+        {
+            PlayerPrefs.DeleteKey(Constants.SaveKey);
+        }
+    }
+
     public static void GetLevelInfo()
     {
-        var path = Application.isEditor ? _healingObjectsPathDebug : _healingObjectsPathRelease;
+        var path = Application.isEditor ? LevelInfoPathDebug : LevelInfoPathRelease;
 
         try
         {
@@ -239,7 +250,7 @@ public static class LevelManager
 
     public static void SaveLevelInfo()
     {
-        var path = Application.isEditor ? _healingObjectsPathDebug : _healingObjectsPathRelease;
+        var path = Application.isEditor ? LevelInfoPathDebug : LevelInfoPathRelease;
 
         File.WriteAllText(path, JsonConvert.SerializeObject(LevelInfoJObject, Formatting.Indented));
     }

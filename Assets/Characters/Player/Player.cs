@@ -54,9 +54,9 @@ public abstract class Player : MonoBehaviour
         {
             MarkPlayerAsPlayable();
             LevelInfo.ActivePlayer = this;
-        }
 
-        LoadDataFromFile();
+            LoadDataFromFile();
+        }
     }
 
     private void FixedUpdate()

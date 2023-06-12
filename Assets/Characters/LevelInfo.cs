@@ -17,15 +17,13 @@ public class LevelInfo : MonoBehaviour
     {
         _customInput = CustomInputManager.GetCustomInputKeys();
         _playerCamera = FindObjectOfType<PlayerCamera>();
-        LevelManager.GetLevelInfo();
-        HealingObjectsManager.GetAllHealingObjects();
-        TeleportTriggersManager.LoadAllTeleportTriggers();
-        TutorialTriggersManager.LoadAllTutorialTriggers();
-        DialogueTriggersManager.LoadAllDialogueTriggers();
+
+        LoadProgress();
+
         if (!LevelManager.IsReloadingLevel)
         {
             GameObject.FindObjectOfType<DialogueRunner>().LoadStateFromPlayerPrefs(Constants.SaveKey);
-        }
+        }   
     }
 
     public void Start()
@@ -70,5 +68,27 @@ public class LevelInfo : MonoBehaviour
         ActivePlayer.MarkPlayerAsPlayable();
         _playerCamera.SwitchPlayer();
         _playerCamera.FadeCameraOutShort();
+    }
+
+    public static void SaveProgress()
+    {
+        GameObject.FindObjectOfType<DialogueRunner>().SaveStateToPlayerPrefs(Constants.SaveKey);
+        LevelManager.SavePlayers();
+        HealingObjectsManager.SaveHealingObjects();
+        DialogueTriggersManager.SaveDialogueTriggers();
+        TutorialTriggersManager.SaveTutorialTriggers();
+        TeleportTriggersManager.SaveTeleportTriggers();
+        LevelManager.SaveLevelIndex();
+        LevelManager.SaveLevelInfo();
+    }
+
+    public void LoadProgress()
+    {
+        LevelManager.GetLevelInfo();
+        LevelManager.CLearPlayerPrefsIfSaveFileIsDeleted();
+        HealingObjectsManager.GetAllHealingObjects();
+        TeleportTriggersManager.LoadAllTeleportTriggers();
+        TutorialTriggersManager.LoadAllTutorialTriggers();
+        DialogueTriggersManager.LoadAllDialogueTriggers();
     }
 }

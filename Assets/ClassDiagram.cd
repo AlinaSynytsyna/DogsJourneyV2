@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Red">
+    <Position X="6.25" Y="1.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAABAAAAAAAAAAAAIAAAAAI=</HashCode>
+      <FileName>Assets\Characters\Player\Red The Cat\Red.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Zima">
+    <Position X="9.5" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAABAAAAAAAAAAgAIAAAAAA=</HashCode>
+      <FileName>Assets\Characters\Player\Zima The Dog\Zima.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="14.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUECCEAhgAgEAAKAAoUAAABIAAAIAAQGDDQNAQBCEA=</HashCode>
+      <FileName>Assets\Characters\Player\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerCamera" Collapsed="true">
+    <Position X="16.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACCAAgQAAAAADAAAAAIAAAFKAFAAAACAABACAAGEA=</HashCode>
+      <FileName>Assets\Characters\Player\PlayerCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DialogueTrigger" Collapsed="true">
+    <Position X="20" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAABAAAAAEAAAAAAAAkQAAEABABAAAAABAEA=</HashCode>
+      <FileName>Assets\Objects\DialogueTrigger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelInfo" Collapsed="true">
+    <Position X="19" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASACAIAAKAAAACAAAAAAQAAAAQAAAAACAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Characters\LevelInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerDialogueManager" Collapsed="true">
+    <Position X="17.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAQEAAAAQAAAAAACAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Characters\PlayerDialogueManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="DialogueType" Collapsed="true">
+    <Position X="20" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAgAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Objects\DialogueTrigger.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

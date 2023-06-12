@@ -13,7 +13,7 @@
     public static readonly string EffectsVolume = "EffectsVolume";
 
     public static readonly float FadeDelay = 0.7f;
-    public static readonly float FadeSpeed = 2f;
+    public static readonly float FadeSpeed = 2.5f;
     public static readonly float FadeSpeedShort = 5f;
 
     public static readonly string PipeDialogue = "PipeDialogue";

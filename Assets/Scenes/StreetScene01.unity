@@ -8132,6 +8132,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5870281678206199528, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
+      propertyPath: IsPlayableInScene
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a3cbc7bca036c24b82c8110721a648d, type: 3}
 --- !u!1001 &1163666969
@@ -8537,7 +8541,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsActive: 1
   Id: 4131c9ea-f54f-484e-9189-36a209d047c2
-  DialogueTriggerId: 
   YarnScriptForZima: ZimaIntro
   YarnScriptForRed: 
   OnDialogueEndedAction:
@@ -11958,7 +11961,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsActive: 1
   Id: 78277e37-8974-455b-9210-0bd2f697fc29
-  DialogueTriggerId: 
   YarnScriptForZima: DistantCity
   YarnScriptForRed: 
   OnDialogueEndedAction:

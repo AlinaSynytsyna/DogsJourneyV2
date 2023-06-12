@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Yarn.Unity;
 
 public class TeleportationTrigger : BaseTrigger
 {
-    public enum TeleportationType { InsideLevel, NextLevel, PreviousLevel, MainMenu }
+    public enum TeleportationType { InsideLevel, NextLevel, MainMenu }
 
     public TeleportationType State;
     public float TeleportPositionX;
@@ -45,9 +44,6 @@ public class TeleportationTrigger : BaseTrigger
                     case TeleportationType.NextLevel:
                         StartCoroutine(LoadNextLevel(teleportationDelay));
                         break;
-                    case TeleportationType.PreviousLevel:
-                        StartCoroutine(LoadPreviousLevel(teleportationDelay));
-                        break;
                     case TeleportationType.MainMenu:
                         StartCoroutine(LoadMainMenu(teleportationDelay));
                         break;
@@ -67,25 +63,11 @@ public class TeleportationTrigger : BaseTrigger
 
     private IEnumerator LoadNextLevel(float delay)
     {
-        FindObjectOfType<DialogueRunner>().SaveStateToPlayerPrefs(Constants.SaveKey);
-        LevelManager.SavePlayers();
-        HealingObjectsManager.SaveHealingObjects();
-        DialogueTriggersManager.SaveDialogueTriggers();
-        TeleportTriggersManager.SaveTeleportTriggers();
-        TutorialTriggersManager.SaveTutorialTriggers();
-        LevelManager.SaveLevelIndex();
-        LevelManager.SaveLevelInfo();
+        LevelInfo.SaveProgress();
 
         _playerCamera.FadeCameraIn();
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    private IEnumerator LoadPreviousLevel(float delay)
-    {
-        _playerCamera.FadeCameraIn();
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     private IEnumerator LoadMainMenu(float delay)

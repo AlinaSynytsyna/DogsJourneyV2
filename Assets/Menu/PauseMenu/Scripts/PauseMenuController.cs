@@ -60,7 +60,6 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 1;
         LevelManager.IsReloadingLevel = true;
         HealingObjectsManager.MarkAllHealingObjectsAsActive();
-        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -68,17 +67,10 @@ public class PauseMenuController : MonoBehaviour
     {
         Time.timeScale = 1;
 
-        GameObject.FindObjectOfType<DialogueRunner>().SaveStateToPlayerPrefs(Constants.SaveKey);
-        LevelManager.SavePlayers();
-        HealingObjectsManager.SaveHealingObjects();
-        DialogueTriggersManager.SaveDialogueTriggers();
-        TutorialTriggersManager.SaveTutorialTriggers();
-        TeleportTriggersManager.SaveTeleportTriggers();
-        LevelManager.SaveLevelIndex();
-        LevelManager.SaveLevelInfo();
+        LevelInfo.SaveProgress();
 
         _playerCamera.FadeCameraIn();
-        Invoke(nameof(QuitButtonPressed), 2F);
+        Invoke(nameof(QuitButtonPressed), 1.5F);
     }
 
     private void QuitButtonPressed()

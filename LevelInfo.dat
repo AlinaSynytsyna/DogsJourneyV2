@@ -1,54 +1,64 @@
 {
   "PlayerStats": {
-    "Zima": {
-      "IsActive": false,
-      "Health": 80,
-      "PositionX": 45.8069954,
-      "PositionY": 34.405014,
-      "IsPlayableInScene": true
-    },
     "Red": {
+      "IsActive": false,
+      "Health": 100,
+      "PositionX": 8.0,
+      "PositionY": 21.0547829,
+      "IsPlayableInScene": false
+    },
+    "Zima": {
       "IsActive": true,
       "Health": 100,
-      "PositionX": 50.0,
-      "PositionY": 34.65499,
+      "PositionX": -23.7266769,
+      "PositionY": -12.0950012,
       "IsPlayableInScene": true
     }
   },
   "HealingObjects": {
-    "d9501791-751e-4a8e-9c5a-405c0cd3102c": false,
-    "bcc688c5-26d2-4e62-a160-74445f8c423c": true,
-    "7b69bcdc-3c3e-480e-9047-7e631b34bfa3": false,
-    "70220c9b-8b65-4cb4-b861-70bd48037990": true,
-    "e4e0582b-ce7d-4c52-9ca7-080f07e7343c": true,
-    "2c3d8547-58ba-4530-bffc-0110178c03f1": true,
-    "6fb48bcd-1fbd-418b-82d9-d9decc2bb64a": true
+    "4360426a-ddda-4c2d-96b7-52c19d21462e": true,
+    "7e4c2c38-cdaf-4c4d-a174-15062df99df0": true
   },
   "DialogueTriggers": {
+    "54f54bee-7ee2-40f3-8f9d-5151f3e2fda2": {
+      "ZimaDialogue": "Pipe",
+      "RedDialogue": "",
+      "IsActive": true
+    },
+    "0298ff65-56ce-40b1-90b6-541d77cdd311": {
+      "ZimaDialogue": "RedIntro",
+      "RedDialogue": "",
+      "IsActive": true
+    },
     "9f94a2e9-c074-43f7-a57b-adf46ba98900": {
       "ZimaDialogue": "",
       "RedDialogue": "ZimaGeneric",
       "IsActive": true
     },
-    "0298ff65-56ce-40b1-90b6-541d77cdd311": {
-      "ZimaDialogue": "RedGeneric",
+    "4131c9ea-f54f-484e-9189-36a209d047c2": {
+      "ZimaDialogue": "ZimaIntro",
       "RedDialogue": "",
       "IsActive": true
     },
-    "6467e597-700e-4a20-9522-066641c0a9bc": {
-      "ZimaDialogue": "SewersTooHigh",
-      "RedDialogue": "RedPlatformTooHighCommentary",
+    "78277e37-8974-455b-9210-0bd2f697fc29": {
+      "ZimaDialogue": "DistantCity",
+      "RedDialogue": "",
       "IsActive": true
     }
   },
   "TutoriaTriggers": {
-    "591da321-b58e-417f-be79-1801c71dc80d": true,
-    "277b3224-ca36-4842-8aad-5db18c16bd8a": true
+    "4449428f-b170-4cba-afc3-e13e6e0a731c": true,
+    "db3f3fdb-2ea0-403b-8cf5-af978842b257": true,
+    "d383a4d0-667b-4c7d-8b2d-c47312a3cbb9": true,
+    "efab07a8-19b2-4950-8c6b-b763d6d58f78": true,
+    "95948e6a-bdc5-439b-8ec5-5013d28287bc": true
   },
   "TeleportTriggers": {
-    "96b1634e-ffcd-4295-9b85-d141967636e3": true
+    "892e488f-47e3-492b-8816-a4e61c389957": true,
+    "a97be8fc-a663-431c-85d3-d7fcc903eb82": false,
+    "04d74e8d-68b3-4a42-ba4a-cdd1e07ca3fb": true
   },
   "LevelInfo": {
-    "LevelIndex": 2
+    "LevelIndex": 1
   }
 }
