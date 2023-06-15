@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TutorialTriggersManager
+public static class TutorialTriggersManager
 {
     private static Dictionary<string, bool> TutorialTriggers;
 

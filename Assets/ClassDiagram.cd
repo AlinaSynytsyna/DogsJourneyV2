@@ -1,56 +1,271 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Red">
-    <Position X="6.25" Y="1.25" Width="2.75" />
+    <Position X="4.75" Y="2.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAABAAAAAAAAAAAAIAAAAAI=</HashCode>
       <FileName>Assets\Characters\Player\Red The Cat\Red.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Zima">
-    <Position X="9.5" Y="1.25" Width="2.25" />
+    <Position X="4.75" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAAAAAAABAAAAAAAAAAgAIAAAAAA=</HashCode>
       <FileName>Assets\Characters\Player\Zima The Dog\Zima.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Player" Collapsed="true">
-    <Position X="14.25" Y="2.5" Width="1.5" />
+  <Class Name="Player" HideInheritanceLine="true">
+    <Position X="2" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAUECCEAhgAgEAAKAAoUAAABIAAAIAAQGDDQNAQBCEA=</HashCode>
       <FileName>Assets\Characters\Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="PlayerCamera" Collapsed="true">
-    <Position X="16.5" Y="3" Width="1.5" />
+  <Class Name="PlayerCamera" HideInheritanceLine="true">
+    <Position X="10" Y="4.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>gAACCAAgQAAAAADAAAAAIAAAFKAFAAAACAABACAAGEA=</HashCode>
       <FileName>Assets\Characters\Player\PlayerCamera.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DialogueTrigger" Collapsed="true">
-    <Position X="20" Y="3.25" Width="1.5" />
+  <Class Name="DialogueTrigger">
+    <Position X="14.25" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAABAAAAAEAAAAAAAAkQAAEABABAAAAABAEA=</HashCode>
       <FileName>Assets\Objects\DialogueTrigger.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LevelInfo" Collapsed="true">
-    <Position X="19" Y="1.75" Width="1.5" />
+  <Class Name="PlayerDialogueManager" HideInheritanceLine="true">
+    <Position X="7.5" Y="4.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AASACAIAAKAAAACAAAAAAQAAAAQAAAAACAAAAAAAAEA=</HashCode>
+      <HashCode>AAAAAAAAABAAAAAAQEAAAAQAAAAAACAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Managers\PlayerDialogueManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseTrigger" HideInheritanceLine="true">
+    <Position X="7.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAACAgCAAAAAABCCEAAAAAAAAEAAAAAAAACAAAAAAEA=</HashCode>
+      <FileName>Assets\Objects\BaseTrigger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeathTrigger" HideInheritanceLine="true">
+    <Position X="14.75" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAgCAAAAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAQEA=</HashCode>
+      <FileName>Assets\Objects\DeathTrigger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealingObject">
+    <Position X="11.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAQAAAAAAAAAAEAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Objects\HealingObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour">
+    <Position X="14.5" Y="8" Width="3.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TeleportationTrigger">
+    <Position X="16.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAABAAAAAAAAAAAAAAEAABAAQQACABAAAAkA=</HashCode>
+      <FileName>Assets\Objects\TeleportationTrigger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialTrigger">
+    <Position X="16.75" Y="4" Width="2.25" />
+    <NestedTypes>
+      <Enum Name="TutorialTrigger.TutorialType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Objects\TutorialTrigger.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAACAAAAAAAEAAAQAAAAAABAAAQEA=</HashCode>
+      <FileName>Assets\Objects\TutorialTrigger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DialogueTriggersManager">
+    <Position X="6" Y="15.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAIAAAAAAAADAAAAAAAAACAAAAQAAAAAAAA=</HashCode>
+      <FileName>Assets\Managers\DialogueTriggersManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealingObjectsManager">
+    <Position X="8.5" Y="15.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAkEAQAAAAAAAEAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Managers\HealingObjectsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelManager">
+    <Position X="2.75" Y="15.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AABBAAQAAAAAAEUUAgACAICBAABAAAABAAAARAAUAAA=</HashCode>
+      <FileName>Assets\Managers\LevelManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeleportTriggersManager">
+    <Position X="14" Y="15.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAIAAAAAAAAAABAAAAAAAAAAAAAAAEgAA=</HashCode>
+      <FileName>Assets\Managers\TeleportTriggersManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialTriggersManager">
+    <Position X="11.25" Y="15.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAIAAAAAAAAEAAABAAAAAAgA=</HashCode>
+      <FileName>Assets\Managers\TutorialTriggersManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControlsMenu" HideInheritanceLine="true">
+    <Position X="19.5" Y="2.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>gkAAAAADBAIAAAQAIgBAABABAAQAASgACIAAAAAEAUo=</HashCode>
+      <FileName>Assets\Menu\ControlsMenu\Scripts\ControlsMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomInput">
+    <Position X="0.5" Y="18.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAgAAAAAAAAAQAAAAoAAAAAACCACgAAAAAAA=</HashCode>
+      <FileName>Assets\Menu\ControlsMenu\Scripts\CustomInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomInputManager">
+    <Position X="0.5" Y="15.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAQAAAABAAABA=</HashCode>
+      <FileName>Assets\Menu\ControlsMenu\Scripts\CustomInputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HUD" HideInheritanceLine="true">
+    <Position X="12.5" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAQACAAAACAACABIAAAAAAAKAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Menu\HUD\Scripts\HUD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenu" HideInheritanceLine="true">
+    <Position X="25" Y="2.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AICAAQAgAACABGAAAAAAAgAEBAEAAAAAoAAEAAAAAEA=</HashCode>
+      <FileName>Assets\Menu\MainMenu\Scripts\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScreenFader" HideInheritanceLine="true">
+    <Position X="7.5" Y="7.5" Width="2.25" />
+    <NestedTypes>
+      <Enum Name="ScreenFader.FadeState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Menu\MainMenu\Scripts\ScreenFader.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>CAxEAAAAAAAAAAAAACAAAgAAAAAAAAAAAACAAAAACEA=</HashCode>
+      <FileName>Assets\Menu\MainMenu\Scripts\ScreenFader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PauseMenuController" HideInheritanceLine="true">
+    <Position X="5" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACgAAAAACAAAAAAAAAAKAAIAIAAABAAAAAABAgAgQA=</HashCode>
+      <FileName>Assets\Menu\PauseMenu\Scripts\PauseMenuController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomSettings">
+    <Position X="16.75" Y="15.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAQAQAICIAAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\Menu\SettingsMenu\Scripts\CustomSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomSettingsManager">
+    <Position X="6" Y="18.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEQAAEAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Menu\SettingsMenu\Scripts\CustomSettingsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomSettingsMenu" HideInheritanceLine="true">
+    <Position X="22.25" Y="2.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIigAQAhAEACQEAgAMAAACAIBQAAAAxLAEAAAUBAAEA=</HashCode>
+      <FileName>Assets\Menu\SettingsMenu\Scripts\CustomSettingsMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DialogueStats">
+    <Position X="13.75" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAEAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Objects\ObjectStats\DialogueStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerStats">
+    <Position X="15.75" Y="18.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACCAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Objects\ObjectStats\PlayerStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Constants">
+    <Position X="11.5" Y="18.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAIEAAACAABAAABAAEAAAAABIEEQAgAJAA=</HashCode>
+      <FileName>Assets\Menu\MainMenu\Scripts\Constants\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LocalizationConstants">
+    <Position X="8.5" Y="18.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAgEAAAAAAABgAAAgAgAAAEQACACAAAAAAAACA=</HashCode>
+      <FileName>Assets\Menu\MainMenu\Scripts\Constants\LocalizationConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YarnConstants">
+    <Position X="13.75" Y="18.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAQAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Menu\MainMenu\Scripts\Constants\YarnConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object">
+    <Position X="5.5" Y="13" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="LevelInfo">
+    <Position X="5" Y="8.5" Width="2.25" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" FixedToPoint="true">
+      <Path>
+        <Point X="16.25" Y="8" />
+        <Point X="16.25" Y="7.877" />
+        <Point X="14.377" Y="7.877" />
+        <Point X="14.377" Y="11.73" />
+        <Point X="7.373" Y="11.73" />
+        <Point X="7.373" Y="10.438" />
+        <Point X="7.25" Y="10.438" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AASACAIAAKAAAAiAAAAAAQAAAASAAAAACAAAAAAAAEA=</HashCode>
       <FileName>Assets\Characters\LevelInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="PlayerDialogueManager" Collapsed="true">
-    <Position X="17.5" Y="4" Width="1.5" />
+  <Enum Name="TeleportationType">
+    <Position X="7.5" Y="14" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAQEAAAAQAAAAAACAAAAAAAAAAAEA=</HashCode>
-      <FileName>Assets\Characters\PlayerDialogueManager.cs</FileName>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Objects\TeleportationTrigger.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Enum Name="DialogueType" Collapsed="true">
-    <Position X="20" Y="4.5" Width="1.5" />
+  </Enum>
+  <Enum Name="DialogueType">
+    <Position X="9.25" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAgAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Assets\Objects\DialogueTrigger.cs</FileName>

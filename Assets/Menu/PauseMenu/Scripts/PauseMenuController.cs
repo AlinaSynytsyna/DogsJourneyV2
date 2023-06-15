@@ -5,16 +5,13 @@ using Yarn.Unity;
 
 public class PauseMenuController : MonoBehaviour
 {
-    private CustomSettings _customSettings;
     private PlayerCamera _playerCamera;
     private Canvas _pauseMenu;
     private Player _player;
     private bool _isMenuSeen = false;
-    private readonly DialogueRunner _dialogueRunner;
 
     public void Start()
     {
-        _customSettings = CustomSettingsManager.GetCustomSettings();
         _playerCamera = GetComponentInParent<PlayerCamera>();
         _pauseMenu = FindObjectsOfType<Canvas>().Where(x => x.name.Equals("PauseMenu")).First();
         _player = _playerCamera.GetActivePlayer();

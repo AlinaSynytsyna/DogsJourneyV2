@@ -24,7 +24,7 @@ public class DialogueTrigger : BaseTrigger
 
         YarnScriptForRed = DialogueTriggersManager.GetRedDialogue(Id);
         YarnScriptForZima = DialogueTriggersManager.GetZimaDialogue(Id);
-        IsActive = DialogueTriggersManager.GetIsDialogueTriggerActive(Id);   
+        IsActive = DialogueTriggersManager.GetIsDialogueTriggerActive(Id);
     }
 
     public new void OnTriggerEnter2D(Collider2D entity)

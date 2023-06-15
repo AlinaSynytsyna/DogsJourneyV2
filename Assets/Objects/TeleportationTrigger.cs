@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum TeleportationType { InsideLevel, NextLevel, MainMenu }
+
 public class TeleportationTrigger : BaseTrigger
 {
-    public enum TeleportationType { InsideLevel, NextLevel, MainMenu }
-
     public TeleportationType State;
     public float TeleportPositionX;
     public float TeleportPositionY;

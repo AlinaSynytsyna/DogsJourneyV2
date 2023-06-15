@@ -101,25 +101,28 @@ public abstract class Player : MonoBehaviour
 
     public void LoadDataFromFile()
     {
-        if (LevelManager.HasInformation && !LevelManager.IsReloadingLevel)
+        if(LevelManager.HasInformation)
         {
             var playerStats = LevelManager.GetPlayerStats()[PlayerName];
             Health = playerStats.Health;
-            IsPlayableInScene = playerStats.IsPlayableInScene;
-            IsPlayerActive = playerStats.IsActive;
-
-            if (LevelManager.GetLevelIndex() == SceneManager.GetActiveScene().buildIndex)
+            if (!LevelManager.IsReloadingLevel)
             {
-                transform.position = new Vector2(playerStats.PositionX, playerStats.PositionY);
-            }
+                IsPlayableInScene = playerStats.IsPlayableInScene;
+                IsPlayerActive = playerStats.IsActive;
 
-            if (IsPlayerActive)
-            {
-                Invoke(nameof(MarkPlayerAsPlayable), 0.2f);
-                LevelInfo.ActivePlayer = this;
-            }
+                if (LevelManager.GetLevelIndex() == SceneManager.GetActiveScene().buildIndex)
+                {
+                    transform.position = new Vector2(playerStats.PositionX, playerStats.PositionY);
+                }
 
-            else MarkPlayerAsUnplayable();
+                if (IsPlayerActive)
+                {
+                    Invoke(nameof(MarkPlayerAsPlayable), 0.2f);
+                    LevelInfo.ActivePlayer = this;
+                }
+
+                else MarkPlayerAsUnplayable();
+            }
         }
     }
 

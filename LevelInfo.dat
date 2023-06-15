@@ -4,14 +4,14 @@
       "IsActive": false,
       "Health": 100,
       "PositionX": 8.0,
-      "PositionY": 21.0547829,
+      "PositionY": 21.05417,
       "IsPlayableInScene": false
     },
     "Zima": {
       "IsActive": true,
-      "Health": 100,
-      "PositionX": -23.7266769,
-      "PositionY": -12.0950012,
+      "Health": 75,
+      "PositionX": 57.6619644,
+      "PositionY": 20.8049965,
       "IsPlayableInScene": true
     }
   },
@@ -20,24 +20,24 @@
     "7e4c2c38-cdaf-4c4d-a174-15062df99df0": true
   },
   "DialogueTriggers": {
-    "54f54bee-7ee2-40f3-8f9d-5151f3e2fda2": {
-      "ZimaDialogue": "Pipe",
+    "0298ff65-56ce-40b1-90b6-541d77cdd311": {
+      "ZimaDialogue": "RedIntro",
       "RedDialogue": "",
       "IsActive": true
     },
-    "0298ff65-56ce-40b1-90b6-541d77cdd311": {
-      "ZimaDialogue": "RedIntro",
+    "54f54bee-7ee2-40f3-8f9d-5151f3e2fda2": {
+      "ZimaDialogue": "Pipe",
+      "RedDialogue": "",
+      "IsActive": false
+    },
+    "4131c9ea-f54f-484e-9189-36a209d047c2": {
+      "ZimaDialogue": "ZimaIntro",
       "RedDialogue": "",
       "IsActive": true
     },
     "9f94a2e9-c074-43f7-a57b-adf46ba98900": {
       "ZimaDialogue": "",
       "RedDialogue": "ZimaGeneric",
-      "IsActive": true
-    },
-    "4131c9ea-f54f-484e-9189-36a209d047c2": {
-      "ZimaDialogue": "ZimaIntro",
-      "RedDialogue": "",
       "IsActive": true
     },
     "78277e37-8974-455b-9210-0bd2f697fc29": {
@@ -48,15 +48,15 @@
   },
   "TutoriaTriggers": {
     "4449428f-b170-4cba-afc3-e13e6e0a731c": true,
-    "db3f3fdb-2ea0-403b-8cf5-af978842b257": true,
     "d383a4d0-667b-4c7d-8b2d-c47312a3cbb9": true,
     "efab07a8-19b2-4950-8c6b-b763d6d58f78": true,
+    "db3f3fdb-2ea0-403b-8cf5-af978842b257": true,
     "95948e6a-bdc5-439b-8ec5-5013d28287bc": true
   },
   "TeleportTriggers": {
-    "892e488f-47e3-492b-8816-a4e61c389957": true,
-    "a97be8fc-a663-431c-85d3-d7fcc903eb82": false,
-    "04d74e8d-68b3-4a42-ba4a-cdd1e07ca3fb": true
+    "04d74e8d-68b3-4a42-ba4a-cdd1e07ca3fb": true,
+    "a97be8fc-a663-431c-85d3-d7fcc903eb82": true,
+    "892e488f-47e3-492b-8816-a4e61c389957": true
   },
   "LevelInfo": {
     "LevelIndex": 1

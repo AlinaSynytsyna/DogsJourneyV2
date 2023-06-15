@@ -1,4 +1,4 @@
-﻿public class LocalizationConstants
+﻿public static class LocalizationConstants
 {
     public static readonly string NewGameLabel = "NewGameLabel";
     public static readonly string ContinueGameLabel = "ContinueGameLabel";

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TeleportTriggersManager
+public static class TeleportTriggersManager
 {
     private static Dictionary<string, bool> TeleportTriggers;
 
