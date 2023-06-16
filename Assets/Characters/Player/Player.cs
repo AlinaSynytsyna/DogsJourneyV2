@@ -176,9 +176,9 @@ public abstract class Player : MonoBehaviour
 
     public void MarkPlayerAsUnplayable()
     {
-        //enabled = false;
         IsPlayerActive = false;
         transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 2);
+        Rigidbody.velocity = Vector3.zero;
 
         Enumerator = WaitForPlayerToLand();
         StartCoroutine(Enumerator);
@@ -201,6 +201,7 @@ public abstract class Player : MonoBehaviour
 
         Collider.enabled = false;
         Rigidbody.isKinematic = true;
+        Rigidbody.velocity = Vector3.zero;
         StopCoroutine(Enumerator);
     }
 
