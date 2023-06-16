@@ -59,7 +59,7 @@ public abstract class Player : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         if (IsPlayerActive)
         {

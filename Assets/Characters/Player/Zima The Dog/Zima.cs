@@ -4,6 +4,12 @@ public class Zima : Player
 {
     System.Random AnimationState = new System.Random();
 
+    private new void FixedUpdate()
+    {
+        base.FixedUpdate();
+        CountIdleTimer();
+    }
+
     public override void CheckFallDamage()
     {
         if (IsOnTheGround())
@@ -31,7 +37,7 @@ public class Zima : Player
         else
         {
             IdleTimer += Time.deltaTime;
-            if (IdleTimer > 15)
+            if (IdleTimer > 8)
             {
                 IdleState = AnimationState.Next(1, 3);
                 switch (IdleState)
