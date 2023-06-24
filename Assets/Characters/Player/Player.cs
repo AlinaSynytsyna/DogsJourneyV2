@@ -45,16 +45,20 @@ public abstract class Player : MonoBehaviour
         DialogueRunTrigger = GetComponentInChildren<DialogueTrigger>();
         CustomInput = CustomInputManager.GetCustomInputKeys();
         VariableStorage = FindObjectOfType<InMemoryVariableStorage>();
-        
-        if (!LevelInfo.CheckIfTheCharacterIsPlayable(this))
+        if (!LevelManager.HasInformation || LevelManager.IsReloadingLevel)
         {
-            MarkPlayerAsUnplayable();
+            if (!LevelInfo.CheckIfTheCharacterIsPlayable(this) || (LevelInfo.CheckIfTheCharacterIsPlayable(this) && LevelInfo.MainPlayableCharacter != PlayerName))
+            {
+                MarkPlayerAsUnplayable();
+            }
+            else if (LevelInfo.CheckIfTheCharacterIsPlayable(this) && LevelInfo.MainPlayableCharacter == PlayerName)
+            {
+                MarkPlayerAsPlayable();
+                LevelInfo.ActivePlayer = this;
+            }
         }
-        else if (LevelInfo.MainPlayableCharacter == PlayerName && LevelInfo.ActivePlayer == null)
+        else
         {
-            MarkPlayerAsPlayable();
-            LevelInfo.ActivePlayer = this;
-
             LoadDataFromFile();
         }
     }
@@ -101,28 +105,25 @@ public abstract class Player : MonoBehaviour
 
     public void LoadDataFromFile()
     {
-        if(LevelManager.HasInformation)
+        var playerStats = LevelManager.GetPlayerStats()[PlayerName];
+        Health = playerStats.Health;
+        if (!LevelManager.IsReloadingLevel)
         {
-            var playerStats = LevelManager.GetPlayerStats()[PlayerName];
-            Health = playerStats.Health;
-            if (!LevelManager.IsReloadingLevel)
+            IsPlayableInScene = playerStats.IsPlayableInScene;
+            IsPlayerActive = playerStats.IsActive;
+
+            if (LevelManager.GetLevelIndex() == SceneManager.GetActiveScene().buildIndex)
             {
-                IsPlayableInScene = playerStats.IsPlayableInScene;
-                IsPlayerActive = playerStats.IsActive;
-
-                if (LevelManager.GetLevelIndex() == SceneManager.GetActiveScene().buildIndex)
-                {
-                    transform.position = new Vector2(playerStats.PositionX, playerStats.PositionY);
-                }
-
-                if (IsPlayerActive)
-                {
-                    Invoke(nameof(MarkPlayerAsPlayable), 0.2f);
-                    LevelInfo.ActivePlayer = this;
-                }
-
-                else MarkPlayerAsUnplayable();
+                transform.position = new Vector2(playerStats.PositionX, playerStats.PositionY);
             }
+
+            if (IsPlayerActive)
+            {
+                Invoke(nameof(MarkPlayerAsPlayable), 0.2f);
+                LevelInfo.ActivePlayer = this;
+            }
+
+            else MarkPlayerAsUnplayable();
         }
     }
 
@@ -188,7 +189,7 @@ public abstract class Player : MonoBehaviour
     {
         IsPlayerActive = true;
         Collider.enabled = true;
-        Rigidbody.isKinematic = false;
+        Rigidbody.bodyType = RigidbodyType2D.Dynamic;
         transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
         enabled = true;
     }

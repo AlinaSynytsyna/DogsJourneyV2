@@ -10,7 +10,7 @@
   <Class Name="Zima">
     <Position X="4.75" Y="0.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAABAAAAAAAAAABAAAAAAAAAAgAIAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAgAABAAAAAAAAAABAAAAAAAAAAgAIAAAAAA=</HashCode>
       <FileName>Assets\Characters\Player\Zima The Dog\Zima.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -89,35 +89,35 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DialogueTriggersManager">
-    <Position X="6" Y="15.75" Width="2.25" />
+    <Position X="25.25" Y="14.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAIAAAAAAAADAAAAAAAAACAAAAQAAAAAAAA=</HashCode>
       <FileName>Assets\Managers\DialogueTriggersManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HealingObjectsManager">
-    <Position X="8.5" Y="15.75" Width="2.5" />
+    <Position X="22.5" Y="14.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAkEAQAAAAAAAEAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Assets\Managers\HealingObjectsManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LevelManager">
-    <Position X="2.75" Y="15.75" Width="2.75" />
+    <Position X="19.5" Y="14.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AABBAAQAAAAAAEUUAgACAICBAABAAAABAAAARAAUAAA=</HashCode>
       <FileName>Assets\Managers\LevelManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TeleportTriggersManager">
-    <Position X="14" Y="15.75" Width="2.25" />
+    <Position X="24.75" Y="17" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAIAAAAAAAAAABAAAAAAAAAAAAAAAEgAA=</HashCode>
       <FileName>Assets\Managers\TeleportTriggersManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TutorialTriggersManager">
-    <Position X="11.25" Y="15.75" Width="2" />
+    <Position X="22.5" Y="17" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAACAAAAIAAAAAAAAEAAABAAAAAAgA=</HashCode>
       <FileName>Assets\Managers\TutorialTriggersManager.cs</FileName>
@@ -201,14 +201,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DialogueStats">
-    <Position X="13.75" Y="20.25" Width="1.5" />
+    <Position X="27.75" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAEAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Assets\Objects\ObjectStats\DialogueStats.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PlayerStats">
-    <Position X="15.75" Y="18.5" Width="1.75" />
+    <Position X="27.25" Y="17" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAACCAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Objects\ObjectStats\PlayerStats.cs</FileName>
@@ -234,10 +234,6 @@
       <HashCode>AAAAAAAAAAAABAAAAAAAAAQAAABAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Menu\MainMenu\Scripts\Constants\YarnConstants.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="System.Object">
-    <Position X="5.5" Y="13" Width="1.75" />
-    <TypeIdentifier />
   </Class>
   <Class Name="LevelInfo">
     <Position X="5" Y="8.5" Width="2.25" />

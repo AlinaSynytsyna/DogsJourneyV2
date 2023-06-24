@@ -2,26 +2,26 @@
   "PlayerStats": {
     "Zima": {
       "IsActive": true,
-      "Health": 98,
-      "PositionX": 17.7463169,
-      "PositionY": -0.194999918,
+      "Health": 100,
+      "PositionX": 89.491394,
+      "PositionY": 38.70499,
       "IsPlayableInScene": true
     },
     "Red": {
       "IsActive": false,
       "Health": 100,
       "PositionX": 50.0,
-      "PositionY": 34.6541634,
+      "PositionY": 34.65499,
       "IsPlayableInScene": false
     }
   },
   "HealingObjects": {
-    "d9501791-751e-4a8e-9c5a-405c0cd3102c": true,
     "bcc688c5-26d2-4e62-a160-74445f8c423c": true,
+    "2c3d8547-58ba-4530-bffc-0110178c03f1": true,
     "7b69bcdc-3c3e-480e-9047-7e631b34bfa3": true,
     "70220c9b-8b65-4cb4-b861-70bd48037990": true,
     "e4e0582b-ce7d-4c52-9ca7-080f07e7343c": true,
-    "2c3d8547-58ba-4530-bffc-0110178c03f1": true,
+    "d9501791-751e-4a8e-9c5a-405c0cd3102c": true,
     "6fb48bcd-1fbd-418b-82d9-d9decc2bb64a": true
   },
   "DialogueTriggers": {
@@ -42,8 +42,8 @@
     }
   },
   "TutoriaTriggers": {
-    "591da321-b58e-417f-be79-1801c71dc80d": false,
-    "277b3224-ca36-4842-8aad-5db18c16bd8a": false
+    "277b3224-ca36-4842-8aad-5db18c16bd8a": false,
+    "591da321-b58e-417f-be79-1801c71dc80d": false
   },
   "TeleportTriggers": {
     "96b1634e-ffcd-4295-9b85-d141967636e3": true
